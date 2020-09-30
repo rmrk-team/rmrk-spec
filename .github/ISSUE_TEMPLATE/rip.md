@@ -3,8 +3,7 @@ name: RIP
 about: RMRK Improvement Proposal
 title: RIP-XXX (please change XXX to number)
 labels: RIP
-assignees: ''
-
+assignees: ""
 ---
 
 - author(s): **author name(s)**
@@ -12,7 +11,7 @@ assignees: ''
 - RIP type: [upgrade | addition]
 
 <!-- On RIP type
-RIP type is upgrade when you want to change a current standard. RIP type is addition when you want to add a new standard, or introduce a standard that is sufficiently different from an existing one to supersede it. -->
+RIP type is upgrade when you want to change a current standard and typically results in a minor version bump. RIP type is addition when you want to add a new standard, or introduce a standard that is sufficiently different from an existing one to supersede it. Typically results in a major version bump. -->
 
 ## RIP Summary
 
