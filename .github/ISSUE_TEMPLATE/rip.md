@@ -21,6 +21,18 @@ A one-paragraph summary of your RIP.
 
 Explain your RIP here in depth.
 
+### Examples
+
+Some examples of the changes in action.
+
+## Open Questions
+
+Questions for the community, to still be discussed.
+
 ## Prior work (optional)
 
 Citations, acknowledgments for inspiration, projects this RIP is emulating, etc.
+
+## Impact
+
+What this means for implementers, version numbers, and other considerations.
