@@ -24,7 +24,7 @@ A collection MUST adhere to the following standard.
   },
   "issuer": {
     "type": "string",
-    "description": "Issuer's address, e.g. CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp"
+    "description": "Issuer's address, e.g. CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp. Can be address different from minter."
   },
   "symbol": {
     "type": "string",
