@@ -1,5 +1,10 @@
 ## RMRK v1.0.0 - 09.01.2021.
 
+> ⚠ Because 0.1 was so broken it would have required a very large custom processor for a very small
+> number of published RMRKs, we decided to deprecate it fully, CONSUME all published NFTs, and
+> re-issue them, re-sending to their owners (this was done in agreement with both the current owners
+> and the original minter).
+
 ### RIPs
 
 - [RIP #001](https://github.com/Swader/rmrk-spec/issues/2): the NFT entity's computed ID field has
@@ -18,3 +23,4 @@
 - Fixed some dead links.
 - Standard versions have been added to MINT and MINTNFT where previously there were none. Tools
   should consider these interactions as 0.1 where non-specified.
+- NFT standard used "name" as "instance" and as missing "instance". This has been fixed.
