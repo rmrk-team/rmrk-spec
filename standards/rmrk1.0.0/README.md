@@ -1,4 +1,4 @@
-# RMRK 0.1 standard
+# RMRK 1.0.0 standard
 
 The following **entities** are defined:
 
@@ -14,11 +14,4 @@ The following **interactions** are possible:
 - [LIST](interactions/list.md) (List an NFT for sale)
 - [BUY](interactions/buy.md) (Buy an NFT)
 - [CONSUME](interactions/consume.md) (Burn an NFT)
-
-## Known Issues
-
-- some NFTs published under this standard have been published without dedicated tools and are
-  malformed.
-  [Example](https://polkascan.io/kusama/transaction/0xb8396caf702b3197cd6286b8d7424b255dd79e1e4d49e4a05ee66cae8d4bb3f3).
-- this spec version had a bug in that it did not specify a standard version in the MINT and MINTNFT
-  interactions. When the version is missing from the MINT, it should be assumed to mean 0.1.
+- [MIGRATE](interactions/migrate.md) (Migrate a collection to this standard)
