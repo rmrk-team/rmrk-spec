@@ -34,12 +34,40 @@ A collection MUST adhere to the following standard.
     "type": "string",
     "description": "A collection is uniquely identified by the first four and last four bytes of the original issuer's pubkey and the symbol. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB"
   },
-  "metadata": {
+  "metadata?": {
     "type": "string",
     "description": "HTTP(s) or IPFS URI. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
+  },
+  "data?": {
+    "type": "object",
+    "description": "See Data"
   }
 }
 ```
+
+When either metadata or [data](#data) is present, the other is optional. Data takes precedence
+always. Note that because metadata contains description, attributes, third party URLs, etc. it is
+still recommended to include it alongside `data`.
+
+### Data
+
+The `data` object is composed of:
+
+- protocol (strict, see Protocols below)
+- data
+- type (mime type)
+
+#### Protocols
+
+| Protocol  | Mime default           | Description                                                                                                                                    |
+| --------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ipfs`    | image/png              | Points to a directly interpretable resource, be it audio, video, code, or something else                                                       |
+| `http(s)` | image/html             | Points to a directly interpretable resource, be it audio, video, code, or something else (not recommended for use)                             |
+| `p5`      | application/javascript | Processing.js code                                                                                                                             |
+| `js`      | application/javascript | Plain JS code                                                                                                                                  |
+| `html`    | text/html              | HTML code, no need for `<html>` and `<body>`, can support dependencies but it's up to the author to prevent the dependencies from disappearing |
+| `svg`     | image/svg+xml          | SVG image data                                                                                                                                 |
+| `bin`     | n/a                    | binary, directly interpretable                                                                                                                 |
 
 ## Metadata
 

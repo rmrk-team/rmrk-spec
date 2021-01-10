@@ -39,7 +39,8 @@ created.
 ```
 
 When either metadata or [data](#data) is present, the other is optional. Data takes precedence
-always.
+always. Note that because metadata contains description, attributes, third party URLs, etc. it is
+still recommended to include it alongside `data`.
 
 ### Computed fields
 
