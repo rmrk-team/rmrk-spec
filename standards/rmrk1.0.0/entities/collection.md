@@ -12,7 +12,7 @@ A collection MUST adhere to the following standard.
 {
   "version": {
     "type": "string",
-    "description": "Version information on RMRK standard used, e.g. RMRK1.0"
+    "description": "Version information on RMRK standard used, e.g. RMRK1.0.0"
   },
   "name": {
     "type": "string",
