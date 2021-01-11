@@ -14,4 +14,3 @@ The following **interactions** are possible:
 - [LIST](interactions/list.md) (List an NFT for sale)
 - [BUY](interactions/buy.md) (Buy an NFT)
 - [CONSUME](interactions/consume.md) (Burn an NFT)
-- [MIGRATE](interactions/migrate.md) (Migrate a collection to this standard)
