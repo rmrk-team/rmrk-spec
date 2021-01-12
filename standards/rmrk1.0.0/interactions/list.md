@@ -41,6 +41,8 @@ Which would be submitted as:
 0x726d726b3a3a4c4953543a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d303030303030303030303030303030313a3a3130303030303030303030
 ```
 
+> Note: submitting a new LIST with a different price changes the listing price.
+
 Assuming we change our mind later on and decide to keep the NFT, we can cancel the listing:
 
 ```
