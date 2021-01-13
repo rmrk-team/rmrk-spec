@@ -1,7 +1,8 @@
 # LIST
 
 A LIST interaction lists an NFT as available for sale. The NFT can be instantly purchased. A listing
-can be canceled.
+can be canceled, and is automatically considered canceled when a [BUY](./buy.md) is executed on top
+of a given LIST.
 
 ## Standard
 
