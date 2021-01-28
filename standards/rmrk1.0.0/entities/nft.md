@@ -13,11 +13,11 @@ created.
   },
   "name": {
     "type": "string",
-    "description": "Name of the NFT. Specific to NFT instance. E.g. Blue Zombie, Red Zombie. Name must be limited to alphanumeric characters. Underscore is allowed as word separator. E.g. LOVE-POTION is NOT allowed. LOVE_POTION is allowed."
+    "description": "Name of the NFT. Specific to NFT instance. E.g. Blue Zombie, Red Zombie."
   },
   "instance": {
     "type": "string",
-    "description": "Instance ID, e.g. ZOMBBLUE"
+    "description": "Instance ID, e.g. ZOMBBLUE. Must be limited to alphanumeric characters. Underscore is allowed as word separator. E.g. LOVE-POTION is NOT allowed. LOVE_POTION is allowed."
   },
   "transferable": {
     "type": "number",
@@ -57,6 +57,15 @@ implementations:
   }
 }
 ```
+
+Example id: `5105000-0aff6865bed3a66b-DLEP-0000000000000001`.
+
+When processing NFTs and their interactions, tools MUST explode the NFT by `-` and if the number of
+fragments is anything other than 4, the remark should be discarded as invalid:
+
+- element 0 is the block in which the NFT was minted.
+- elements 1 and 2 together make the [collection ID](collection.md).
+- element 3 is the serial number of the current NFT instance.
 
 ### Data
 
