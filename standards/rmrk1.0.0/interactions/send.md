@@ -8,7 +8,8 @@ The format of a SEND interaction is `0x{bytes(rmrk::SEND::{version}::{id}::{reci
 
 - `version` is the version of the standard used (e.g. `1.0.0`)
 - `id` is the [nft](../entity/nft.md)'s ID [computed field](../entity/nft.md/#computed-fields).
-- `recipient` is the addres of the recipient, e.g. `H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y`
+- `recipient` is the address of the recipient, e.g.
+  `H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y`
 
 ## Examples
 

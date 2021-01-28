@@ -14,11 +14,12 @@
   is still recommended.
 - [RIP #005](https://github.com/Swader/rmrk-spec/issues/6): Changing recommendation to use
   `batchAll` instead of `batch`
+- [RIP #006](https://github.com/Swader/rmrk-spec/issues/10): Implemented EMOTE interaction
 
 ### Fixes
 
-- Changed `batch` to much safer `batchAll` across the standard.
-- Fixed some dead links.
+- Fixed some dead links and typos.
 - Standard versions have been added to MINT and MINTNFT where previously there were none. Tools
   should consider these interactions as 0.1 where non-specified.
-- NFT standard used "name" as "instance" and as missing "instance". This has been fixed.
+- NFT standard used "name" as "instance" and as missing "instance". This has been fixed and
+  additionally clarified.
