@@ -36,6 +36,16 @@ Example:
 It is perfectly valid for the same user to send multiple emotes to the same NFT. The same rules
 about Undoing apply individually to each emote.
 
+### Supported Emotes
+
+There is no limitation to which emotes can be sent - any unicode works. However, it is up to the
+individual UIs to decide which ones to show. For example, one UI might be so positivity-oriented
+they decide to never show 💩. Others might display some emoji which only exist on certain operating
+systems. We leave the choice to the implementers and direct them to emojipedia's stats for most used
+emoji: https://emojipedia.org/stats/
+
+Emote spam is generally not a concern because each emote costs a transaction fee.
+
 ## Examples
 
 ```
