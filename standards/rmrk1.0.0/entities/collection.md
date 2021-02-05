@@ -4,6 +4,11 @@ This standard defines how **Collections** of NFTs are minted. Collections cannot
 effectively immutable after being created, with the exception of the issuer value. The current
 issuer of the collection can assign a new issuer using a CHANGEISSUER interaction.
 
+A collection is the context of one or more NFTs. For example, a Cryptokitty Generation 0 is an NFT
+in the "Generation 0 kitties" collection, and an ENS (Ethereum Name System) domain is part of the
+ENS collection, while a POAP-EthParis NFT might be given to everyone who attended EthParis, and will
+be part of the POAP master collection. Every NFT must have a parent context it belongs to.
+
 ## Collection Standard
 
 A collection MUST adhere to the following standard.
