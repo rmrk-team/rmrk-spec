@@ -1,4 +1,4 @@
-## RMRK v1.0.0 - 09.01.2021.
+## RMRK v1.0.0 - 05.02.2021.
 
 > ⚠ Because 0.1 was so broken it would have required a very large custom processor for a very small
 > number of published RMRKs, we decided to deprecate it fully, CONSUME all published NFTs, and
@@ -15,6 +15,7 @@
 - [RIP #005](https://github.com/Swader/rmrk-spec/issues/6): Changing recommendation to use
   `batchAll` instead of `batch`
 - [RIP #006](https://github.com/Swader/rmrk-spec/issues/10): Implemented EMOTE interaction
+- [RIP #007](https://github.com/Swader/rmrk-spec/issues/13): Removed version from collection payload
 
 ### Fixes
 

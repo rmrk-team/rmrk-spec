@@ -10,10 +10,6 @@ A collection MUST adhere to the following standard.
 
 ```json
 {
-  "version": {
-    "type": "string",
-    "description": "Version information on RMRK standard used, e.g. RMRK1.0.0"
-  },
   "name": {
     "type": "string",
     "description": "Name of the collection. Name must be limited to alphanumeric characters. Underscore is allowed as word separator. E.g. VALHELLO-ITEMS is NOT allowed. VALHELLO_ITEMS is allowed."
@@ -32,7 +28,7 @@ A collection MUST adhere to the following standard.
   },
   "id": {
     "type": "string",
-    "description": "A collection is uniquely identified by the first four and last four bytes of the original issuer's pubkey and the symbol. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB"
+    "description": "A collection is uniquely identified by the first four and last four bytes of the original issuer's pubkey and the symbol. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB."
   },
   "metadata?": {
     "type": "string",
@@ -104,7 +100,6 @@ Collection:
 
 ```json
 {
-  "version": "RMRK0.1.1",
   "name": "Dot Leap Early Promoters",
   "max": 100,
   "issuer": "CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp",
