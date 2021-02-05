@@ -17,6 +17,8 @@ The standards currently cover the following basic interactions:
 - CHANGEISSUER changes the owner of the collection, affecting who can issue NFTs
 - SEND, BUY are transactional
 - LIST is used to list an NFT as for-sale on-chain
+- MIGRATE (starting with 1.0.0) allows a collection issuer to migrate a collection and its child
+  NFTs to a new standard
 
 Inspect each standard folder to see the specifics about these interactions and how to integrate
 them.
@@ -35,16 +37,18 @@ A released version is **never** worked on again - all changes must happen via [R
 and will apply to the next version only. It is up to the implementing library / UI to see previous
 versions as invalid or demand a migration from an old version to a new version of an NFT (this will
 usually involve a [CONSUME](#interactions) of an earlier NFT and a [MINTNFT](#interactions) into a
-newer version of the collection). To be kept up to date on version changes, please _Watch_ this repo
-or [subscribe to Dot Leap](https://dotleap.substack.com).
+newer version of the collection) or a [MIGRATE](#interactions) interaction. To be kept up to date on
+version changes, please _Watch_ this repo or [subscribe to Dot Leap](https://dotleap.substack.com)
+or [NFT Review](https://news.nft.review).
 
 ### Currently published standards:
 
-- none
+- [0.1](https://github.com/Swader/rmrk-spec/releases/tag/0.1)
+- [1.0.0](https://github.com/Swader/rmrk-spec/releases/tag/1.0.0)
 
 ### Standards under development:
 
-- [RMRK0.1](standards/rmrk0.1/README.md)
+- n/a
 
 ## Contributing
 
@@ -97,8 +101,8 @@ To implement this, the CryptoKitties game devs would:
 > programmatically from CryptoKitties game devs' end, but this introduces a reliance on their
 > service for the continuation of the game.
 
-> This is an active area of research which we hope to have ironed out by v1.0 of the standards -
-> ideally with an action-triggered MINT addition to the standard.
+> This is an active area of research which we hope to have ironed out soon - ideally with an
+> action-triggered MINT addition to the standard.
 
 ## Other Information
 
