@@ -58,14 +58,15 @@ implementations:
 }
 ```
 
-Example id: `5105000-0aff6865bed3a66b-DLEP-0000000000000001`.
+Example id: `5105000-0aff6865bed3a66b-DLEP-DLEP15-0000000000000001`.
 
 When processing NFTs and their interactions, tools MUST explode the NFT by `-` and if the number of
-fragments is anything other than 4, the remark should be discarded as invalid:
+fragments is anything other than 5, the remark should be discarded as invalid:
 
 - element 0 is the block in which the NFT was minted.
 - elements 1 and 2 together make the [collection ID](collection.md).
-- element 3 is the serial number of the current NFT instance.
+- element 3 is the instance ID of the NFT (its symbol).
+- element 4 is the serial number of the current NFT instance.
 
 ### Data
 
