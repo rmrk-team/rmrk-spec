@@ -14,3 +14,4 @@ The following **interactions** are possible:
 - [LIST](interactions/list.md) (List an NFT for sale)
 - [BUY](interactions/buy.md) (Buy an NFT)
 - [CONSUME](interactions/consume.md) (Burn an NFT)
+- [EMOTE](interactions/emote.md) (Send a reaction/emoticon)
