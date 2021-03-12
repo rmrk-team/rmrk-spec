@@ -11,8 +11,14 @@ The format of a LIST interaction is `0x{bytes(rmrk::LIST::{version}::{id}::{pric
 - `version` is the version of the standard used (e.g. `1.0.0`)
 - `id` is the [nft](../entity/nft.md)'s ID [computed field](../entity/nft.md/#computed-fields).
 - `price` is the listing price of the item, expressed in plancks (lowest denomination available on
-  chain), e.g. `1000000000000` for `1 KSM`. Alternatively, `price` can also be `cancel` which
-  cancels the listing.
+  chain), e.g. `1000000000000` for `1 KSM`. Alternatively, `price` can also be `0` which cancels the
+  listing.
+
+## Effects
+
+An NFT's LIST is canceled by setting the price to `0`, or by the NFT being [sold](BUY.md),
+[sent](SEND.md), or [consumed](CONSUME.md). While these actions will **NOT** emit the appropriate
+LIST cancel interaction, they are **IMPLIED** to cancel a listing.
 
 ## Examples
 
@@ -44,14 +50,15 @@ Which would be submitted as:
 
 > Note: submitting a new LIST with a different price changes the listing price.
 
-Assuming we change our mind later on and decide to keep the NFT, we can cancel the listing:
+Assuming we change our mind later on and decide to keep the NFT, we can cancel the listing by
+setting price to 0:
 
 ```
-rmrk::LIST::1.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001::cancel
+rmrk::LIST::1.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001::0
 ```
 
 Or in bytes:
 
 ```
-0x726d726b3a3a4c4953543a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d303030303030303030303030303030313a3a63616e63656c
+0x726d726b3a3a4c4953543a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d303030303030303030303030303030313a3a300a
 ```
