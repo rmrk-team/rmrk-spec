@@ -23,6 +23,12 @@ The format of CONSUME is thus: `utility.batchAll(system.remark(A), system.remark
   "ironmaiden-20201225-zagreb-arena". The reason is arbitrary and completely up to the application.
   Correct interpretation of the reason is the responsibility of the application.
 
+  
+## Effects
+
+This interactions cancels any pending [LIST](list.md) on the NFT with this ID. It is equivalent to
+having called LIST with a cancel on it.
+
 ## Examples
 
 Suppose we have the following NFT minted in block 5105000:

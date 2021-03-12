@@ -22,6 +22,11 @@ The format of BUY is thus: `utility.batchAll(system.remark(A), balances.transfer
 A BUY that satisfies the [LIST](list.md) conditions of an item's sale immediately counts as a
 transfer of ownership. No [SEND](send.md) is necessary.
 
+## Effects
+
+This interactions cancels any pending [LIST](list.md) on the NFT with this ID. It is equivalent to
+having called LIST with a cancel on it.
+
 ## Examples
 
 Suppose we have the following NFT minted in block 5105000:
