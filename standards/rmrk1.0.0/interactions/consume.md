@@ -5,7 +5,7 @@ The CONSUME interaction burns an [NFT](../entities/nft.md) for a specific purpos
 This is useful when NFTs are spendable like with in-game potions, one-time votes in DAOs, or concert
 tickets.
 
-The NFT being consumed must not already be [CONSUMEd](consume.md).
+You can only CONSUME an existing NFT (one that has not been [CONSUMEd](consume.md) yet).
 
 ## Standard
 

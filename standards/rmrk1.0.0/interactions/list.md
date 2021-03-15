@@ -4,7 +4,7 @@ A LIST interaction lists an NFT as available for sale. The NFT can be instantly 
 can be canceled, and is automatically considered canceled when a [BUY](./buy.md) is executed on top
 of a given LIST.
 
-The NFT being listed must not be [CONSUMEd](consume.md).
+You can only LIST an existing NFT (one that has not been [CONSUMEd](consume.md) yet).
 
 ## Standard
 

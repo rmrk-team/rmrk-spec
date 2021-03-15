@@ -2,7 +2,7 @@
 
 Send an [NFT](../entities/nft.md) to an arbitrary recipient.
 
-The NFT being sent must not be [CONSUMEd](consume.md).
+You can only SEND an existing NFT (one that has not been [CONSUMEd](consume.md) yet).
 
 ## Standard
 

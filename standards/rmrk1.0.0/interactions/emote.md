@@ -2,7 +2,7 @@
 
 React to an [NFT](../entities/nft.md) with an emoticon.
 
-The NFT being emoted on must not be [CONSUMEd](consume.md).
+You can only EMOTE on an existing NFT (one that has not been [CONSUMEd](consume.md) yet).
 
 ## Standard
 

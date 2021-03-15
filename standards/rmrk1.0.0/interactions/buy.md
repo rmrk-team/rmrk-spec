@@ -3,7 +3,7 @@
 The BUY interaction allows a user to immediately purchase an [NFT](../entities/nft.md) listed for
 sale using the [LIST](list.md) interaction, as long as the listing hasn't been canceled.
 
-The NFT being bought must not be [CONSUMEd](consume.md).
+You can only BUY an existing NFT (one that has not been [CONSUMEd](consume.md) yet).
 
 ## Standard
 
