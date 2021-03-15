@@ -5,6 +5,8 @@ The CONSUME interaction burns an [NFT](../entities/nft.md) for a specific purpos
 This is useful when NFTs are spendable like with in-game potions, one-time votes in DAOs, or concert
 tickets.
 
+The NFT being consumed must not already be [CONSUMEd](consume.md).
+
 ## Standard
 
 The CONSUME interaction is a
@@ -23,7 +25,6 @@ The format of CONSUME is thus: `utility.batchAll(system.remark(A), system.remark
   "ironmaiden-20201225-zagreb-arena". The reason is arbitrary and completely up to the application.
   Correct interpretation of the reason is the responsibility of the application.
 
-  
 ## Effects
 
 This interactions cancels any pending [LIST](list.md) on the NFT with this ID. It is equivalent to

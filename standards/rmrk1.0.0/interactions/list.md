@@ -4,6 +4,8 @@ A LIST interaction lists an NFT as available for sale. The NFT can be instantly 
 can be canceled, and is automatically considered canceled when a [BUY](./buy.md) is executed on top
 of a given LIST.
 
+The NFT being listed must not be [CONSUMEd](consume.md).
+
 ## Standard
 
 The format of a LIST interaction is `0x{bytes(rmrk::LIST::{version}::{id}::{price})}`.

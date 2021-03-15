@@ -2,6 +2,8 @@
 
 Send an [NFT](../entities/nft.md) to an arbitrary recipient.
 
+The NFT being sent must not be [CONSUMEd](consume.md).
+
 ## Standard
 
 The format of a SEND interaction is `0x{bytes(rmrk::SEND::{version}::{id}::{recipient})}`.
@@ -11,7 +13,6 @@ The format of a SEND interaction is `0x{bytes(rmrk::SEND::{version}::{id}::{reci
 - `recipient` is the address of the recipient, e.g.
   `H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y`
 
-  
 ## Effects
 
 This interactions cancels any pending [LIST](list.md) on the NFT with this ID. It is equivalent to

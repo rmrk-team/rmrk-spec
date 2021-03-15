@@ -2,6 +2,8 @@
 
 React to an [NFT](../entities/nft.md) with an emoticon.
 
+The NFT being emoted on must not be [CONSUMEd](consume.md).
+
 ## Standard
 
 The format of a EMOTE interaction is `0x{bytes(rmrk::EMOTE::{version}::{id}::{emotion})}`.
