@@ -11,7 +11,7 @@ The BUY interaction is a
 [batchAll call](https://polkadot.js.org/docs/api/cookbook/tx#how-can-i-batch-transactions) of a
 system remark and a token transfer.
 
-- the first message, A is: `0x{bytes(rmrk::BUY::{version}::{id})}`.
+- the first message, A is: `0x{bytes(RMRK::BUY::{version}::{id})}`.
 - the second transaction is a transfer of tokens matching the price advertised on the item ID's
   [LIST](list.md) entry.
 
@@ -44,19 +44,19 @@ Suppose we have the following NFT minted in block 5105000:
 ```
 
 And this NFT has been listed with
-`rmrk::LIST::1.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001::10000000000` for
+`RMRK::LIST::1.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001::10000000000` for
 0.01 KSM by user `CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp`.
 
 To buy it, we format our BUY interaction like so:
 
 ```
-rmrk::BUY::1.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001
+RMRK::BUY::1.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001
 ```
 
 In bytes, that's:
 
 ```
-0x726d726b3a3a4255593a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d30303030303030303030303030303031
+0x524d524b3a3a4255593a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d30303030303030303030303030303031
 ```
 
 To complete the purchase, we submit a `utility.batchAll` call comprised of two transactions:
@@ -64,7 +64,7 @@ To complete the purchase, we submit a `utility.batchAll` call comprised of two t
 ```js
 utility.batchAll([
   system.remark(
-    0x726d726b3a3a4255593a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d30303030303030303030303030303031
+    0x524d524b3a3a4255593a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d30303030303030303030303030303031
   ),
   tx.balances.transfer(CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp, 10000000000),
 ]);

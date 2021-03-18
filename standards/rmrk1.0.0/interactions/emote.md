@@ -6,7 +6,7 @@ You can only EMOTE on an existing NFT (one that has not been [CONSUMEd](consume.
 
 ## Standard
 
-The format of a EMOTE interaction is `0x{bytes(rmrk::EMOTE::{version}::{id}::{emotion})}`.
+The format of a EMOTE interaction is `0x{bytes(RMRK::EMOTE::{version}::{id}::{emotion})}`.
 
 - `version` is the version of the standard used (e.g. `1.0.0`)
 - `id` is the [nft](../entity/nft.md)'s ID [computed field](../entity/nft.md/#computed-fields).
@@ -51,11 +51,11 @@ Emote spam is generally not a concern because each emote costs a transaction fee
 ## Examples
 
 ```
-rmrk::SEND::1.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::1F389
+RMRK::SEND::1.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::1F389
 ```
 
 Is submitted as:
 
 ```
-0x726d726b3a3a53454e443a3a312e302e303a3a353130353030302d306166663638363562656433613636622d444c45502d444c31352d303030303030303030303030303030313a3a3146333839
+0x524d524b3a3a53454e443a3a312e302e303a3a353130353030302d306166663638363562656433613636622d444c45502d444c31352d303030303030303030303030303030313a3a3146333839
 ```

@@ -10,7 +10,7 @@ issuer to a null address to relinquish control over it.
 ## Standard
 
 The format of a CHANGEISSUER interaction is
-`0x{bytes(rmrk::CHANGEISSUER::{version}::{id}::{newissuer})}`.
+`0x{bytes(RMRK::CHANGEISSUER::{version}::{id}::{newissuer})}`.
 
 - `version` is the version of the standard used (e.g. `1.0.0`)
 - `id` is the [collection](../entity/collection.md)'s ID.
@@ -36,11 +36,11 @@ Given a collection like:
 If we want to change owner to `HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT`, we would compose:
 
 ```
-rmrk::CHANGEISSUER::1.0.0::0aff6865bed3a66b-DLEP::HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT
+RMRK::CHANGEISSUER::1.0.0::0aff6865bed3a66b-DLEP::HviHUSkM5SknXzYuPCSfst3CXK4Yg6SWeroP6TdTZBZJbVT
 ```
 
 Which is submitted as:
 
 ```
-0x726d726b3a3a4348414e47454953535545523a3a312e302e303a3a306166663638363562656433613636622d444c45503a3a4876694855536b4d35536b6e587a59755043536673743343584b34596736535765726f50365464545a425a4a625654
+0x524d524b3a3a4348414e47454953535545523a3a312e302e303a3a306166663638363562656433613636622d444c45503a3a4876694855536b4d35536b6e587a59755043536673743343584b34596736535765726f50365464545a425a4a625654
 ```

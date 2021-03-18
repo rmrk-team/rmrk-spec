@@ -8,7 +8,7 @@ You can only LIST an existing NFT (one that has not been [CONSUMEd](consume.md) 
 
 ## Standard
 
-The format of a LIST interaction is `0x{bytes(rmrk::LIST::{version}::{id}::{price})}`.
+The format of a LIST interaction is `0x{bytes(RMRK::LIST::{version}::{id}::{price})}`.
 
 - `version` is the version of the standard used (e.g. `1.0.0`)
 - `id` is the [nft](../entity/nft.md)'s ID [computed field](../entity/nft.md/#computed-fields).
@@ -41,13 +41,13 @@ Suppose we want to sell it for 0.01 KSM, or 10000000000 plancks.
 We would compose an interaction such as:
 
 ```
-rmrk::LIST::1.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001::10000000000
+RMRK::LIST::1.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001::10000000000
 ```
 
 Which would be submitted as:
 
 ```
-0x726d726b3a3a4c4953543a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d303030303030303030303030303030313a3a3130303030303030303030
+0x524d524b3a3a4c4953543a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d303030303030303030303030303030313a3a3130303030303030303030
 ```
 
 > Note: submitting a new LIST with a different price changes the listing price.
@@ -56,11 +56,11 @@ Assuming we change our mind later on and decide to keep the NFT, we can cancel t
 setting price to 0:
 
 ```
-rmrk::LIST::1.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001::0
+RMRK::LIST::1.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001::0
 ```
 
 Or in bytes:
 
 ```
-0x726d726b3a3a4c4953543a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d303030303030303030303030303030313a3a300a
+0x524d524b3a3a4c4953543a3a312e302e303a3a353130353030302d306166663638363562656433613636622d56414c48454c4c4f2d504f54494f4e5f4845414c2d303030303030303030303030303030313a3a30
 ```
