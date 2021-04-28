@@ -33,7 +33,7 @@ A collection MUST adhere to the following standard.
   },
   "id": {
     "type": "string",
-    "description": "A collection is uniquely identified by the first four and last four bytes of the original issuer's pubkey and the symbol. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB."
+    "description": "A collection is uniquely identified by at least the first four and last four bytes of the original issuer's pubkey, combined with the symbol. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB."
   },
   "metadata?": {
     "type": "string",
