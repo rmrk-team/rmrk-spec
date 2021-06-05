@@ -9,7 +9,7 @@ You can only EMOTE on an existing NFT (one that has not been [CONSUMEd](consume.
 The format of a EMOTE interaction is `0x{bytes(rmrk::EMOTE::{version}::{id}::{emotion})}`.
 
 - `version` is the version of the standard used (e.g. `1.0.0`)
-- `id` is the [nft](../entity/nft.md)'s ID [computed field](../entity/nft.md/#computed-fields).
+- `id` is the [nft](../entities/nft.md)'s ID [computed field](../entity/nft.md/#computed-fields).
 - `emotion` is the unicode of the emoji (e.g Unicode for party popper 🎉 is
   [1F389](https://emojipedia.org/emoji/🎉/).
 
