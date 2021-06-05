@@ -2,10 +2,13 @@
 
 React to an on-chain entity with an emoticon.
 
-The EMOTE interaction allows you to emote on:
+The EMOTE interaction on Kusama allows you to emote on:
 
 - any non-[consume](consume.md)d NFT
 - any Substrate account
+
+Outside of Kusama, the emote interaction can also be used on other entities (see namespace tables
+below).
 
 ## Standard
 
@@ -23,8 +26,15 @@ The format of a EMOTE interaction is
 | rmrk1     | [nft](../entity/nft.md)'s ID [computed field](../../rmrk/1.0.0/entities/nft.md/#computed-fields). |
 | rmrk2     | [nft](../entity/nft.md)'s ID [computed field](../entities/nft.md/#computed-fields).               |
 | pubkey    | Public key of an account, allows emoting on people's accounts.                                    |
-| ink       | Unique identifier of smart contract.                                                              |
-| eth       | Hex address of EVM smart contract or Ethereum EOA.                                                |
+
+Other implementations, depending on the chain, can add their own namespace like:
+
+| Namespace | ID references                                      |
+| --------- | -------------------------------------------------- |
+| ink       | Unique identifier of smart contract.               |
+| eth       | Hex address of EVM smart contract or Ethereum EOA. |
+| sub:space | Subsocial space                                    |
+| sub:post  | Subsocial post                                     |
 
 ### Undo Emote
 
@@ -59,6 +69,11 @@ they decide to never show 💩. Others might display some emoji which only exist
 systems. We leave the choice to the implementers and direct them to emojipedia's stats for most used
 emoji: https://emojipedia.org/stats/
 
+When validating emoji inputs, the standard set supported by tools such as
+[this one](https://github.com/mathiasbynens/emoji-regex) should be used, and nothing beyond it. This
+is so the emote functionality does not end up being abused for things like message-passing as there
+are separate implementations for this.
+
 ## Examples
 
 ### Emoting on an NFT
@@ -91,3 +106,7 @@ Is submitted as:
 - Smart Contract (EVM) - TBD
 - [Pallet](https://github.com/rmrk-team/pallet-emotes)
 - RMRK Tools (Typescript) - TBD
+
+## Useful tools
+
+- [Emoji Regex](https://github.com/mathiasbynens/emoji-regex) (Typescript / JavaScript)
