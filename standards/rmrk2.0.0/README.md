@@ -29,7 +29,11 @@ The following **interactions** are possible:
 - [CONSUME](interactions/consume.md) (Burn an NFT)
 - [EMOTE](interactions/emote.md) (Send a reaction/emoticon)
 - [EQUIP](interactions/equip.md) (Equip a child NFT into a parent's slot)
+- [UNEQUIP](interactions/unequip.md) (Unequip (empty) a slot of a base)
 - [SET](interactions/set.md) (Set a custom value on an NFT)
 - [RESADD](interactions/resadd.md) (Add a new resource to an NFT as the collection's issuer)
 - [RESACCEPT](interactions/resaccept.md) (Accept the addition of a new resource to an existing NFT
   as an owner)
+- [BASE](interactions/base.md) (Create a [Base](entities/base.md))
+- [BASEEQ](interactions/baseeq.md) (Changes the list of equippable collections on a base)
+- [BASEOWNER](interactions/baseowner.md) (Changes the owner of a base)
