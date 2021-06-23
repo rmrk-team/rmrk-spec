@@ -31,6 +31,12 @@ Which gets submitted as
 0x726d726b3a3a4241534545513a3a322e302e303a3a6b616e617269612d657069632d62697264733a3a77696e675f736c6f745f313a3a2a0a
 ```
 
+This makes the property look like this:
+
+```json
+"equippable": ["*"]
+```
+
 If we want to revert this change later and make it so that only items from collection
 `0aff6865bed3a66b-DLEP` can be equipped, we issue:
 

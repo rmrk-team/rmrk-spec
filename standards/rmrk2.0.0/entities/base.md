@@ -21,7 +21,7 @@ Example:
             },
             "gem_1": {
                 "type": "slot",
-                "collections": ["id-of-genesis-trait-crystals-LEGENDARY"],
+                "equippable": ["id-of-genesis-trait-crystals-LEGENDARY"],
                 "unequip": "unequip",
                 "z": 1
             },
