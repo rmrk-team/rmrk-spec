@@ -11,7 +11,7 @@ The format of a MINT interaction is the same as for [CREATE](create.md):
 
 ```json
 {
-  "collection": "0aff6865bed3a66b-DLEP",
+  "nftclass": "0aff6865bed3a66b-DLEP",
   "instance": "DL15",
   "name": "Dot Leap 15 Promo NFT",
   "transferable": 1,

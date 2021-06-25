@@ -16,21 +16,30 @@ NFTs can have [jsonlogic](https://jsonlogic.com/) to affect [conditional renderi
     "type": "string",
     "description": "Name of the NFT. Specific to NFT instance. E.g. Blue Zombie, Red Zombie."
   },
-  "instance": {
+  "symbol": {
     "type": "string",
     "description": "Instance ID, e.g. ZOMBBLUE. Must be limited to alphanumeric characters. Underscore is allowed as word separator. E.g. LOVE-POTION is NOT allowed. LOVE_POTION is allowed."
   },
   "transferable": {
     "type": "number",
-    "description": "If 1, item is transferable. If 0, item is not transferable (i.e. reputation token). If anything else, item will be transferable from that BLOCK onward, e.g. 1400000 means item can be traded after block 1400000."
+    "description": "If 1, item is transferable. If 0, item is not transferable (i.e. reputation token). If positive integer, item will be transferable from that BLOCK onward, e.g. 1400000 means item can be traded after block 1400000. If negative integer, item will be transferable for that many blocks and then become non-transferable."
   },
   "sn": {
     "type": "string",
     "description": "Serial number or issuance number of the NFT, padded so that its total length is 16, e.g. 0000000000000123"
   },
-  "metadata?": {
+  "metadata": {
     "type": "string",
     "description": "HTTP(s) or IPFS URI. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
+  },
+    "resources": {
+
+  },
+  "priority": {
+
+  },
+  "jsonlogic": {
+
   }
 }
 ```
@@ -46,7 +55,7 @@ implementations:
 {
   "id": {
     "type": "computed",
-    "description": "An NFT is uniquely identified by the combination of its minting block number, collection ID, its instance ID, and its serial number, e.g. 5193445-0aff6865bed3a66b-ZOMB-ZOMBBLUE-0000000000000001."
+    "description": "An NFT is uniquely identified by the combination of its minting block number, nftclass ID, its instance ID, and its serial number, e.g. 5193445-0aff6865bed3a66b-ZOMB-ZOMBBLUE-0000000000000001."
   },
   "children": "",
   "owner": ""
@@ -59,7 +68,7 @@ When processing NFTs and their interactions, tools MUST explode the NFT by `-` a
 fragments is anything other than 5, the remark should be discarded as invalid:
 
 - element 0 is the block in which the NFT was minted.
-- elements 1 and 2 together make the [collection ID](collection.md).
+- elements 1 and 2 together make the [nftclass ID](nftclass.md).
 - element 3 is the instance ID of the NFT (its symbol).
 - element 4 is the serial number of the current NFT instance.
 
@@ -81,7 +90,7 @@ fragments is anything other than 5, the remark should be discarded as invalid:
   },
   "description": {
     "type": "string",
-    "description": "Description of the collection as a whole. Markdown is supported."
+    "description": "Description of the nft. Markdown is supported."
   },
   "name": {
     "type": "string",
@@ -112,7 +121,7 @@ NFT:
 
 ```json
 {
-  "collection": "0aff6865bed3a66b-DLEP",
+  "nftclass": "0aff6865bed3a66b-DLEP",
   "name": "DL15",
   "transferable": 1,
   "sn": "0000000000000001",
@@ -137,7 +146,7 @@ NFT:
 
 ```json
 {
-  "collection": "0aff6865bed3a66b-DLEP",
+  "nftclass": "0aff6865bed3a66b-DLEP",
   "name": "DL16",
   "transferable": 1,
   "sn": "0000000000000001",
