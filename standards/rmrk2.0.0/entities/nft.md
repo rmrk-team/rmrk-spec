@@ -32,14 +32,17 @@ NFTs can have [jsonlogic](https://jsonlogic.com/) to affect [conditional renderi
     "type": "string",
     "description": "HTTP(s) or IPFS URI. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
   },
-    "resources": {
-
+  "resources": {
+    "type": Resource[],
+    "description": "An array of Resource objects"
   },
   "priority": {
-
+    "type": "number[]",
+    "description": "An array of indexes matching positions of resources in resources array. Changing this changes the order of default rendering. Example: [3,2,1]"
   },
-  "jsonlogic": {
-
+  "logic": {
+    "type": Logic[],
+    "description": "Set of Logic objects"
   }
 }
 ```
@@ -57,8 +60,14 @@ implementations:
     "type": "computed",
     "description": "An NFT is uniquely identified by the combination of its minting block number, nftclass ID, its instance ID, and its serial number, e.g. 5193445-0aff6865bed3a66b-ZOMB-ZOMBBLUE-0000000000000001."
   },
-  "children": "",
-  "owner": ""
+  "children": {
+    "type": Child[],
+    "description": "Array of child definitions"
+  },
+  "owner": {
+    "type": "string",
+    "description": "Either account which owns the NFT or NFT ID of NFT that owns this NFT. Computed from SEND interactions after the iniital MINT."
+  }
 }
 ```
 
