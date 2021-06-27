@@ -55,7 +55,7 @@ Example:
 ## Base ID
 
 This is an arbitrary value, used for namespacing part slots. See Parts below. It can be any string
-value.
+value but must not use dashes. `kanaria-epic-birds` is not OK, but `kanaria_epic_birds` is. This is because the computed ID property (see below) uses dashes `-` to combine additiaonl elements adding uniqueness to the ID.
 
 ## Base Type
 

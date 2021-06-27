@@ -19,10 +19,6 @@ A class MUST adhere to the following standard.
 
 ````json
 {
-  "name": {
-    "type": "string",
-    "description": "Name of the class. Name must be limited to alphanumeric characters. Underscore is allowed as word separator. E.g. VALHELLO-ITEMS is NOT allowed. VALHELLO_ITEMS is allowed."
-  },
   "max": {
     "type": "number",
     "description": "How many NFTs will ever belong to this collection. 0 for infinite."

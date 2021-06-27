@@ -12,10 +12,6 @@ NFTs can have [jsonlogic](https://jsonlogic.com/) to affect [conditional renderi
     "type": "string",
     "description": "Class ID, e.g. 0aff6865bed3a66b-ZOMB"
   },
-  "name": {
-    "type": "string",
-    "description": "Name of the NFT. Specific to NFT instance. E.g. Blue Zombie, Red Zombie."
-  },
   "symbol": {
     "type": "string",
     "description": "Instance ID, e.g. ZOMBBLUE. Must be limited to alphanumeric characters. Underscore is allowed as word separator. E.g. LOVE-POTION is NOT allowed. LOVE_POTION is allowed."
@@ -31,18 +27,6 @@ NFTs can have [jsonlogic](https://jsonlogic.com/) to affect [conditional renderi
   "metadata": {
     "type": "string",
     "description": "HTTP(s) or IPFS URI. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
-  },
-  "resources": {
-    "type": Resource[],
-    "description": "An array of Resource objects"
-  },
-  "priority": {
-    "type": "number[]",
-    "description": "An array of indexes matching positions of resources in resources array. Changing this changes the order of default rendering. Example: [3,2,1]"
-  },
-  "logic": {
-    "type": Logic[],
-    "description": "Set of Logic objects"
   }
 }
 ```
@@ -67,6 +51,18 @@ implementations:
   "owner": {
     "type": "string",
     "description": "Either account which owns the NFT or NFT ID of NFT that owns this NFT. Computed from SEND interactions after the iniital MINT."
+  },
+  "resources": {
+    "type": Resource[],
+    "description": "An array of Resource objects, computed from RESADD interactions."
+  },
+  "priority": {
+    "type": "number[]",
+    "description": "An array of indexes matching positions of resources in resources array. Changing this changes the order of default rendering. Example: [3,2,1]. Computed from RESADD initially, and a combination of SETATTRIBUTE and RESADD later."
+  },
+  "logic": {
+    "type": Logic[],
+    "description": "Set of Logic objects, computed from SETATTRIBUTE interactions."
   }
 }
 ```
@@ -103,7 +99,7 @@ fragments is anything other than 5, the remark should be discarded as invalid:
   },
   "name": {
     "type": "string",
-    "description": "Name of the NFT instance. If NAME is present in on-chain, it takes precedence over this one."
+    "description": "Name of the NFT instance."
   },
   "attributes": {
     "type": "array",
