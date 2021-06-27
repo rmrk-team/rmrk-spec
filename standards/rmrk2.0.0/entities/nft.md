@@ -123,8 +123,7 @@ A resource object is defined as such:
   "base?": "base-uri",
   "media?": "media-uri",
   "metadata?": "metadata-uri",
-  "slot?": "base-and-slot-id",
-  "type?": "thumb|cover|audio|model|animation"
+  "slot?": "base-and-slot-id"
 }
 ```
 
