@@ -50,7 +50,11 @@ implementations:
   },
   "owner": {
     "type": "string",
-    "description": "Either account which owns the NFT or NFT ID of NFT that owns this NFT. Computed from SEND interactions after the iniital MINT."
+    "description": "Either account which owns the NFT or NFT ID of NFT that owns this NFT. Computed from SEND interactions after the initial MINT."
+  },
+  "rootowner": {
+    "type": "string",
+    "description": "Either account which owns the top-most NFT in this stack, if this NFT is a child."
   },
   "resources": {
     "type": Resource[],
@@ -67,6 +71,8 @@ implementations:
 }
 ```
 
+#### ID
+
 Example id: `5105000-0aff6865bed3a66b-DLEP-DLEP15-0000000000000001`.
 
 When processing NFTs and their interactions, tools MUST explode the NFT by `-` and if the number of
@@ -76,6 +82,110 @@ fragments is anything other than 5, the remark should be discarded as invalid:
 - elements 1 and 2 together make the [nftclass ID](nftclass.md).
 - element 3 is the instance ID of the NFT (its symbol).
 - element 4 is the serial number of the current NFT instance.
+
+#### Children and Child
+
+A Child is a mapping between an NFT ID and a slot in a [Base](base.md).
+
+```js
+export Child:{ 
+  [nftid:string] : {baseslot: string} 
+}
+```
+
+Example of fully consolidated `children` array:
+
+```json
+"children": [
+    {"438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f": ""},
+    {"438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f": "base-4477293-kanaria_superbird.wing_1_slot"},
+    {"438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f": ""},
+    {"438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f": "base-4477293-kanaria_superbird.machine_gun_scope"},   
+]
+```
+
+The `baseslot` value will change when computed from the [EQUIP](../interactions/equip.md) interaction.
+
+#### Owner and Rootowner
+
+These values are originally computed from the [MINT](../interactions/mind.md) interaction, depending on recipient. After minting, it is computed from [SEND](../interactions/send.md) interactions.
+
+`rootowner` will ALWAYS be an account, whereas `owner` can also be an NFT ID in cases where an NFT owns another NFT (see `children` above). An implementing toolset MUST take into consideration the bubbling-up of ownership checks, so that if Owner O owns NFT A which owns NFT B which owns NFT C and O issues a [CONSUME](../interactions/consume.md) to NFT C, it should just work. This is where `rootowner` check should be utilized.
+
+#### Resources and Resource
+
+Resources can only be added to an NFT with the [RESADD](../interactions/resadd.md) interaction. They cannot be included during minting. This is to maintain a separation of concerns.
+
+A resource object is defined as such:
+
+```json
+{
+  "base?": "base-uri",
+  "media?": "media-uri",
+  "metadata?": "metadata-uri",
+  "slot?": "base-and-slot-id",
+  "type?": "thumb|cover|audio|model|animation"
+}
+```
+
+If the resource is a Base, the `media` property is absent. Base should be a URI like an IPFS hash.
+
+If the resource is Media, the `base` property is absent. Media should be a URI like an IPFS hash.
+
+If the resource has the `slot` property, it was designed to fit into a specific Base's slot.
+
+The metadata of a Resource:
+
+```json
+{
+  "description?": {
+    "type": "string",
+    "description": "Description of the resource. Markdown is supported."
+  },
+  "external_url?": {
+    "type": "string",
+    "description": "HTTP or IPFS URL for finding out more about this project or linking to its author. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
+  }
+}
+```
+
+Metadata is optional and should only be rendered and fetched by implementers on-demand. It is meant to serve more as "credits" than anything else, in cases when several people worked on different aspects of the same NFT project and different resources inside it.
+
+Example of complete resources array:
+
+```json
+    "resources": [
+      {
+          "base": "hash-of-base-svg.json"
+      },
+      {
+          "media": "hash-of-metadata-containing-guest-bird-art",
+          "slot": "wing_1_slot"
+      },
+      {
+          "media": "hash-of-metadata-guest-bird-art-with-jetpack",
+          "metadata": "hash-of-metadata-with-credits"
+      }     
+    ]   
+```
+
+#### Priority
+
+Priority defines the order in which resources are loaded. This is very useful when an NFT has several resources of the same type, but wants one to be the default. For example, a [Kanaria](https://kanaria.rmrk.app) bird has a secondary and primary artwork. One is a resource at index 0, the other at index 1. By changing priority to index 1, the second resource is rendered before the first in various visual applications like marketplaces and galleries.
+
+```json
+"priority": [1, 0]
+```
+
+Priority is defaulted to `[0]` when the first resource is added to an NFT. From then on, a user can change the priority order by using the [SETATTRIBUTE](../interactions/setattribute.md) interaction. Example, to change priority of resource loading on NFT `438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f` from `[0]` to `[1,0]`:
+
+```
+rmrk::SETATTRIBUTE::2.0.0::priority::%5B1%2C0%5D::438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f
+```
+
+#### Logic
+
+TBD
 
 ## Metadata Standard
 
@@ -127,7 +237,6 @@ NFT:
 ```json
 {
   "nftclass": "0aff6865bed3a66b-DLEP",
-  "name": "DL15",
   "transferable": 1,
   "sn": "0000000000000001",
   "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4"
@@ -152,7 +261,6 @@ NFT:
 ```json
 {
   "nftclass": "0aff6865bed3a66b-DLEP",
-  "name": "DL16",
   "transferable": 1,
   "sn": "0000000000000001",
   "metadata": "ipfs://ipfs/QmR3EB16GANjYbT82jueyMbv7ewrwVAogmB4fgbtUrRPLb"

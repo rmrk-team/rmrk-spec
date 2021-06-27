@@ -1,6 +1,6 @@
 # NftClass
 
-This standard defines how **classes** of NFTs are minted. Classes (previousl Collections) are
+This standard defines how **classes** of NFTs are minted. Classes (previously Collections) are
 effectively immutable after being created, with the exception of the issuer value. See interactions
 at the bottom of this page.
 
@@ -21,7 +21,7 @@ A class MUST adhere to the following standard.
 {
   "max": {
     "type": "number",
-    "description": "How many NFTs will ever belong to this collection. 0 for infinite."
+    "description": "How many NFTs will ever belong to this class. 0 for infinite."
   },
   "issuer": {
     "type": "string",
@@ -33,7 +33,7 @@ A class MUST adhere to the following standard.
   },
   "id": {
     "type": "string",
-    "description": "A collection is uniquely identified by at least the first four and last four bytes of the original issuer's pubkey, combined with the symbol through a dash `-`. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB."
+    "description": "A class is uniquely identified by at least the first four and last four bytes of the original issuer's pubkey, combined with the symbol through a dash `-`. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB."
   },
   "metadata": {
     "type": "string",
@@ -44,13 +44,13 @@ A class MUST adhere to the following standard.
 
 ## Metadata
 
-A collection SHOULD have metadata to describe it and help visualization on various platforms.
+A class MUST have metadata to describe it and help visualization on various platforms.
 
 ```json
 {
   "description": {
     "type": "string",
-    "description": "Description of the collection as a whole. Markdown is supported."
+    "description": "Description of the class as a whole. Markdown is supported."
   },
   "attributes": {
     "type": "array",
@@ -63,13 +63,17 @@ A collection SHOULD have metadata to describe it and help visualization on vario
   "image": {
     "type": "string",
     "description": "HTTP or IPFS URL to project's main image, in the vein of og:image. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
+  },
+  "name": {
+    "type": "string",
+    "description": "Name of the class, e.g. 'Dot Leap badges'."
   }
 }
-````
+```
 
 ## Examples
 
-Collection:
+Class:
 
 ```json
 {
