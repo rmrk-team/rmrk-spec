@@ -5,29 +5,33 @@ The MINT interaction creates an [NFT](../entities/nft.md) in/from a [class](../e
 ## Standard
 
 The format of a MINT interaction is the same as for [CREATE](create.md):
-`0x{bytes(rmrk::MINT::{version}::{html_encoded_json})}`.
+`0x{bytes(rmrk::MINT::{version}::{html_encoded_json}::recipient?)}`.
+
+- `version` is the version of the standard used (e.g. `2.0.0`)
+- `html_encoded_json` is the full content of the NFT's json, html encoded
+- `recipient` is an optional argument whih can be an NFT ID (which becomes a parent of this NFT), or an account, e.g. `CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp`. If omitted, the recipient is implied to be the minter. Otherwise, mints directly into another account or NFT.
 
 ## Examples
 
 ```json
 {
   "nftclass": "0aff6865bed3a66b-DLEP",
-  "instance": "DL15",
+  "symbol": "DL15",
   "name": "Dot Leap 15 Promo NFT",
   "transferable": 1,
   "sn": "0000000000000001",
-  "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4"
+  "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4",
 }
 ```
 
 Becomes:
 
 ```
-rmrk::MINT::2.0.0::%7B%22collection%22%3A%220aff6865bed3a66b-DLEP%22%2C%22instance%22%3A%22DL15%22%2C%22name%22%3A%22Dot+Leap+15+Promo+NFT%22%2C%22transferable%22%3A1%2C%22sn%22%3A%220000000000000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D
+rmrk::MINT::2.0.0::%7B%22nftclass%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol%22%3A%22DL15%22%2C%22name%22%3A%22Dot+Leap+15+Promo+NFT%22%2C%22transferable%22%3A1%2C%22sn%22%3A%220000000000000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D
 ```
 
-Is submitted as:
+If we also want to mint it straight into someone's account:
 
 ```
-0x726d726b3a3a4d494e543a3a322e302e303a3a253742253232636f6c6c656374696f6e253232253341253232306166663638363562656433613636622d444c4550253232253243253232696e7374616e6365253232253341253232444c31352532322532432532326e616d65253232253341253232446f742b4c6561702b31352b50726f6d6f2b4e46542532322532432532327472616e7366657261626c6525323225334131253243253232736e253232253341253232303030303030303030303030303030312532322532432532326d657461646174612532322533412532326970667325334125324625324669706673253246516d61766f54566256486e4745557a746e425432703372696633714250654366797955453576345a376f46767334253232253744
+rmrk::MINT::2.0.0::%7B%22nftclass%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol%22%3A%22DL15%22%2C%22name%22%3A%22Dot+Leap+15+Promo+NFT%22%2C%22transferable%22%3A1%2C%22sn%22%3A%220000000000000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D::CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp
 ```
