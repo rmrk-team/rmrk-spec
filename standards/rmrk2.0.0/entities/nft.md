@@ -104,7 +104,7 @@ Example of fully consolidated `children` array:
 ]
 ```
 
-The `baseslot` value will change when computed from the [EQUIP](../interactions/equip.md) interaction.
+The `baseslot` value will change when computed from the [EQUIP](../interactions/equip.md) interaction. The baseslot will be composed of two dot-delimited values, like so: `"base-4477293-kanaria_superbird.machine_gun_scope"`. This means: the child with this ID is now equipped into this slot. The value of `baseslot` can change from `""` to `"base-4477293-kanaria_superbird.machine_gun_scope"` ONLY if one of this child NFT's resources has this value as a `slot` property (see `resources` below).
 
 #### Owner and Rootowner
 
@@ -123,7 +123,7 @@ A resource object is defined as such:
   "base?": "base-uri",
   "media?": "media-uri",
   "metadata?": "metadata-uri",
-  "slot?": "base-and-slot-id"
+  "slot?": "baseslot"
 }
 ```
 
@@ -131,7 +131,7 @@ If the resource is a Base, the `media` property is absent. Base should be a URI 
 
 If the resource is Media, the `base` property is absent. Media should be a URI like an IPFS hash.
 
-If the resource has the `slot` property, it was designed to fit into a specific Base's slot.
+If the resource has the `slot` property, it was designed to fit into a specific Base's slot. The baseslot will be composed of two dot-delimited values, like so: `"base-4477293-kanaria_superbird.machine_gun_scope"`. This means: "This resource is compatible with the `machine_gun_scope` slot of base `base-4477293-kanaria_superbird`. If the NFT with this resource becomes a child of an NFT which has `base-4477293-kanaria_superbird` as its base, it will be equippable into that NFT (see `children` above). 
 
 The metadata of a Resource:
 
@@ -159,7 +159,7 @@ Example of complete resources array:
       },
       {
           "media": "hash-of-metadata-containing-guest-bird-art",
-          "slot": "wing_1_slot"
+          "slot": "base-4477293-kanaria_superbird.wing_1_slot"
       },
       {
           "media": "hash-of-metadata-guest-bird-art-with-jetpack",
