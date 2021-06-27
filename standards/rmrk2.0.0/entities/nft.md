@@ -58,7 +58,7 @@ implementations:
   },
   "priority": {
     "type": "number[]",
-    "description": "An array of indexes matching positions of resources in resources array. Changing this changes the order of default rendering. Example: [3,2,1]. Computed from RESADD initially, and a combination of SETATTRIBUTE and RESADD later."
+    "description": "An array of indexes matching positions of resources in resources array. Changing this changes the order of default rendering. Example: [3,2,1]. The first successful RESADD computes this to [0]. Future changes are made with SETATTRIBUTE, and any resource not explicitly mentioned in the priority list is implied to go to the end of the list."
   },
   "logic": {
     "type": Logic[],
