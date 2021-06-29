@@ -54,7 +54,7 @@ implementations:
   },
   "rootowner": {
     "type": "string",
-    "description": "Either account which owns the top-most NFT in this stack, if this NFT is a child."
+    "description": "Account which owns the top-most NFT in this stack. Example, Bob owns nft-a which owns nft-b. Root owner of nft-b is Bob."
   },
   "resources": {
     "type": Resource[],
@@ -144,6 +144,10 @@ The metadata of a Resource:
   "external_url?": {
     "type": "string",
     "description": "HTTP or IPFS URL for finding out more about this project or linking to its author. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
+  },
+  "name?": {
+    "type": "string",
+    "description": "Name of resource."
   }
 }
 ```

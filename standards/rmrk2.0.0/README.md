@@ -15,7 +15,7 @@ RMRK 2.0 is a significant departure from 1.0. in that it brings into being the f
 The following **entities** are defined:
 
 - [x] [COLLECTION + Metadata](entities/collection.md)
-- [ ] [NFT + Metadata](entities/nft.md)
+- [x] [NFT + Metadata](entities/nft.md)
 - [x] [BASE](entities/base.md)
 
 The following **interactions** are possible:

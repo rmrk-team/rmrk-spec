@@ -5,7 +5,7 @@ The MINT interaction creates an [NFT](../entities/nft.md) in/from a [class](../e
 ## Standard
 
 The format of a MINT interaction is the same as for [CREATE](create.md):
-`0x{bytes(rmrk::MINT::{version}::{html_encoded_json}::recipient?)}`.
+`0x{bytes(rmrk::MINT::{version}::{html_encoded_json}::{recipient?})}`.
 
 - `version` is the version of the standard used (e.g. `2.0.0`)
 - `html_encoded_json` is the full content of the NFT's json, html encoded
