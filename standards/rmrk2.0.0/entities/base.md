@@ -55,7 +55,7 @@ Example:
 ## Base ID
 
 This is an arbitrary value, used for namespacing part slots. See Parts below. It can be any string
-value but must not use dashes. `kanaria-epic-birds` is not OK, but `kanaria_epic_birds` is. This is because the computed ID property (see below) uses dashes `-` to combine additiaonl elements adding uniqueness to the ID.
+value but must not use dashes. `kanaria-epic-birds` is not OK, but `kanaria_epic_birds` is. This is because the computed ID property (see below) uses dashes `-` to combine additiaonl elements adding uniqueness to the ID. it also MUST NOT use dots (`.`) due to `baseslot` addressing.
 
 ## Base Type
 
@@ -180,7 +180,7 @@ implementations:
 {
   "id": {
     "type": "string",
-    "description": "Defines unique ID of part in this base"
+    "description": "Defines unique ID of part in this base. Must be alphanumeric, no dots or dashes."
   },
   "type": {
     "type": "string",
