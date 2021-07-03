@@ -19,6 +19,22 @@ Here's how we equip a piece of armor. We do not need the parent NFT's ID because
 rmrk::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001::base_1.slot_1
 ```
 
+The `children` record of a parent NFT will thus change from something like 
+
+```
+"children": [
+    {"5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": ""},
+]
+```
+
+to
+
+```
+"children": [
+    {"5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": "base_1.slot_1"},
+]
+```
+
 ### Baseslot
 
 Parts on a [base](entities/base.md) and resources on an [nft](entities/nft.md) reference a property called `baseslot`.
