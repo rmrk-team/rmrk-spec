@@ -45,7 +45,7 @@ rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::%7B%22
 We can accept it with:
 
 ```txt
-rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::5dd473899a96cec2c688ed118bb4da75
+rmrk::RESACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::5dd473899a96cec2c688ed118bb4da75
 ```
 
 After acceptance, the NFT changes from:
