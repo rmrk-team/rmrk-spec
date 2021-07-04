@@ -2,7 +2,8 @@
 
 Unequips an owned and equipped [NFT](../entities/nft.md) from a slot on its parent.
 
-You can only UNEQUIP an existing NFT (one that has not been [CONSUMEd](consume.md) yet). You can only UNEQUIP an NFT that is equipped.
+You can only UNEQUIP an existing NFT (one that has not been [CONSUMEd](consume.md) yet). You can
+only UNEQUIP an NFT that is equipped.
 
 ## Standard
 
@@ -13,24 +14,26 @@ The format of an UNEQUIP interaction is `0x{bytes(rmrk::UNEQUIP::{version}::{id}
 
 ## Examples
 
-Here's how we unequip a piece of armor. We do not need the parent NFT's ID because this NFT can only be owned by one other NFT at any given time. We do not need to define a slot because the NFT can only be equipped into a single slot on its owner at any given time, so this information is implied.
+Here's how we unequip a piece of armor. We do not need the parent NFT's ID because this NFT can only
+be owned by one other NFT at any given time. We do not need to define a slot because the NFT can
+only be equipped into a single slot on its owner at any given time, so this information is implied.
 
 ```
 rmrk::UNEQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001
 ```
 
-The `children` record of a parent NFT will thus change from something like 
+The `children` record of a parent NFT will thus change from something like
 
-```
-"children": [
-    {"5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": "some_base_id.base_slot"},
-]
+```js
+"children": {
+    "5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": "some_base_id.base_slot"
+},
 ```
 
 to
 
-```
-"children": [
-    {"5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": ""},
-]
+```js
+"children": {
+    "5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": ""
+}
 ```

@@ -5,7 +5,9 @@ The CONSUME interaction burns an [NFT](../entities/nft.md) for a specific purpos
 This is useful when NFTs are spendable like with in-game potions, one-time votes in DAOs, or concert
 tickets.
 
-You can only CONSUME an existing NFT (one that has not been [CONSUMEd](consume.md) yet) and only if you own it. If another NFT owns the NFT, the owner check bubbles up until the real owner is found and can be checked.
+You can only CONSUME an existing NFT (one that has not been [CONSUMEd](consume.md) yet) and only if
+you own it. If another NFT owns the NFT, the owner check bubbles up until the real owner is found
+and can be checked (see `rootowner` computed property of the [NFT](../entities/nft.md)).
 
 ## Standard
 
@@ -28,7 +30,8 @@ The format of CONSUME is thus: `utility.batchAll(system.remark(A), system.remark
 ## Effects
 
 This interactions cancels any pending [LIST](list.md) on the NFT with this ID. It is equivalent to
-having called LIST with a cancel on it.
+having called LIST with a cancel on it. It also cancels any pending SEND, and immediately removes
+this NFT from the list of a parent NFT's children, if any.
 
 ## Examples
 
@@ -44,7 +47,7 @@ Suppose we have the following NFT minted in block 5105000:
 }
 ```
 
-Assume we want to consume this item in the [Valhello](https://valhello.app) to restore our
+Assume we want to consume this item in the [Valhello](https://valhello.app) game to restore our
 character's health, and that the game looks for a CONSUME reason formatted thusly:
 `valhello::HEALWITH::{itemid}::{character_address}`
 

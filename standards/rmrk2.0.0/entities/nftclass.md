@@ -1,8 +1,8 @@
 # NftClass
 
 This standard defines how **classes** of NFTs are minted. Classes (previously Collections) are
-effectively immutable after being created, with the exception of the issuer value. See interactions
-at the bottom of this page.
+effectively immutable after being created, with the exception of the issuer value, and the max
+value. See interactions at the bottom of this page.
 
 A class is the context of one or more NFTs. For example, a Cryptokitty Generation 0 is part of the
 "Generation 0 kitties" class, and an ENS (Ethereum Name System) domain is part of the ENS class,
@@ -101,3 +101,5 @@ Metadata:
 
 - [CREATE](../interactions/create.md) - creates a new class
 - [CHANGEISSUER](../interactions/changeissuer.md) - changes issuer to another address
+- [LOCK](../interactions/lock.md) - locks a class' max number of NFTs to the current number of elements
+````

@@ -14,26 +14,27 @@ RMRK 2.0 is a significant departure from 1.0. in that it brings into being the f
 
 The following **entities** are defined:
 
-- [x] [COLLECTION + Metadata](entities/collection.md)
+- [x] [CLASS + Metadata](entities/nftclass.md)
 - [x] [NFT + Metadata](entities/nft.md)
 - [x] [BASE](entities/base.md)
 
 The following **interactions** are possible:
 
 - [x] [CREATE](interactions/create.md) (Minting a class of NFTs)
-- [x] [CHANGEISSUER](interactions/changeissuer.md) (Changing the issuer of a collection or base)
-- [x] [MINT](interactions/mint.md) (Minting an NFT inside a collection)
+- [x] [CHANGEISSUER](interactions/changeissuer.md) (Changing the issuer of a class or base)
+- [x] [LOCK](interactions/lock.md) (Locking a class )
+- [x] [MINT](interactions/mint.md) (Minting an NFT inside a class)
 - [x] [SEND](interactions/send.md) (Sending an NFT to a recipient)
-- [ ] [LIST](interactions/list.md) (List an NFT for sale)
-- [ ] [BUY](interactions/buy.md) (Buy an NFT)
+- [x] [LIST](interactions/list.md) (List an NFT for sale)
+- [x] [BUY](interactions/buy.md) (Buy an NFT)
 - [x] [CONSUME](interactions/consume.md) (Burn an NFT)
 - [x] [EMOTE](interactions/emote.md) (Send a reaction/emoticon)
 - [x] [EQUIP](interactions/equip.md) (Equip a child NFT into a parent's slot)
-- [ ] [UNEQUIP](interactions/unequip.md) (Unequip (empty) a slot of a base)
+- [x] [UNEQUIP](interactions/unequip.md) (Unequip (empty) a slot of a base)
 - [ ] [SETATTRIBUTE](interactions/setattribute.md) (Set a custom value on an NFT)
-- [x] [RESADD](interactions/resadd.md) (Add a new resource to an NFT as the collection's issuer)
-- [x] [RESACCEPT](interactions/resaccept.md) (Accept the addition of a new resource to an existing NFT
-  as an owner)
+- [x] [RESADD](interactions/resadd.md) (Add a new resource to an NFT as the class issuer)
+- [x] [ACCEPT](interactions/accept.md) (Accept the addition of a new resource to an existing NFT, or
+      the additiona of a child into a parent NFT)
 - [x] [BASE](interactions/base.md) (Create a [Base](entities/base.md))
-- [x] [EQUIPPABLE](interactions/equippable.md) (Changes the list of equippable collections on a base's part)
-
+- [x] [EQUIPPABLE](interactions/equippable.md) (Changes the list of equippable classes on a base's
+      part)

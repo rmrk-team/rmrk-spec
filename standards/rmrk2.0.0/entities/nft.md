@@ -1,8 +1,13 @@
 # NFT
 
-An NFT is minted from a [Class](nftclass.md). It's a unique digital asset. NFTs can be mutable after being created, but most often are not.
+An NFT is minted from a [Class](nftclass.md). It's a unique digital asset. NFTs can be mutable after
+being created, but most often are not.
 
-NFTs can have [jsonlogic](https://jsonlogic.com/) to affect [conditional rendering](#conditional-rendering) and [multiple resources](#resources) which can be prioritized by the owner, and of which one or more can be based on a [Base](base.md). An NFT can own other NFTs through two computed properties: `children` when parent, and `owner` when child.
+NFTs can have [jsonlogic](https://jsonlogic.com/) to affect
+[conditional rendering](#conditional-rendering) and [multiple resources](#resources) which can be
+prioritized by the owner, and of which one or more can be based on a [Base](base.md). An NFT can own
+other NFTs through two computed properties: `children` when parent, and `owner` / `rootowner` when
+child.
 
 ## NFT Standard
 
@@ -14,7 +19,7 @@ NFTs can have [jsonlogic](https://jsonlogic.com/) to affect [conditional renderi
   },
   "symbol": {
     "type": "string",
-    "description": "Instance ID, e.g. ZOMBBLUE. Must be limited to alphanumeric characters. Underscore is allowed as word separator. E.g. LOVE-POTION is NOT allowed. LOVE_POTION is allowed."
+    "description": "e.g. ZOMBBLUE. Must be limited to alphanumeric characters, no dash (-). Underscore is allowed as word separator. E.g. LOVE-POTION is NOT allowed. LOVE_POTION is allowed."
   },
   "transferable": {
     "type": "number",
@@ -22,7 +27,7 @@ NFTs can have [jsonlogic](https://jsonlogic.com/) to affect [conditional renderi
   },
   "sn": {
     "type": "string",
-    "description": "Serial number or issuance number of the NFT, padded so that its total length is 16, e.g. 0000000000000123"
+    "description": "Serial number or issuance number of the NFT, padded so that its total length is 16, e.g. 0000000000000123. Should be sequential but can be arbitrary - the `max` propery of an NFT's class only cares about the total number of NFTs, not their serial numbers."
   },
   "metadata": {
     "type": "string",
@@ -45,8 +50,8 @@ implementations:
     "description": "An NFT is uniquely identified by the combination of its minting block number, nftclass ID, its instance ID, and its serial number, e.g. 5193445-0aff6865bed3a66b-ZOMB-ZOMBBLUE-0000000000000001."
   },
   "children": {
-    "type": Child[],
-    "description": "Array of child definitions"
+    "type": Children,
+    "description": "Object of NFT.id => baseslot pairs. Baseslot value will be empty string when a child is not equipped."
   },
   "owner": {
     "type": "string",
@@ -83,38 +88,50 @@ fragments is anything other than 5, the remark should be discarded as invalid:
 - element 3 is the instance ID of the NFT (its symbol).
 - element 4 is the serial number of the current NFT instance.
 
-#### Children and Child
+#### Children
 
-A Child is a mapping between an NFT ID and a slot in a [Base](base.md).
+The children object is a mapping of NFT.id => baseslot pairs. Baseslot value will be empty string
+when a child is not equipped:
 
 ```js
-export Child:{ 
-  [nftid:string] : {baseslot: string} 
+{
+NFT.id:string: baseslot:string,...
 }
 ```
 
-Example of fully consolidated `children` array:
+Example of fully consolidated `children` object:
 
 ```json
-"children": [
-    {"438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f": ""},
-    {"438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f": "base-4477293-kanaria_superbird.wing_1_slot"},
-    {"438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f": ""},
-    {"438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f": "base-4477293-kanaria_superbird.machine_gun_scope"},   
-]
+"children": {
+    "438637-0aff6865bed3a66b-KANS-0000000000000001": "",
+    "438637-0aff6865bed3a66b-KANS-0000000000000002": "base-4477293-kanaria_superbird.wing_1_slot",
+    "438637-0aff6865bed3a66b-KANS-0000000000000003": "",
+    "438637-0aff6865bed3a66b-KANS-0000000000000004": "base-4477293-kanaria_superbird.machine_gun_scope"
+},
 ```
 
-The `baseslot` value will change when computed from the [EQUIP](../interactions/equip.md) interaction. The baseslot will be composed of two dot-delimited values, like so: `"base-4477293-kanaria_superbird.machine_gun_scope"`. This means: the child with this ID is now equipped into this slot. The value of `baseslot` can change from `""` to `"base-4477293-kanaria_superbird.machine_gun_scope"` ONLY if one of this child NFT's resources has this value as a `slot` property (see `resources` below).
+The `baseslot` value will change when computed from the [EQUIP](../interactions/equip.md)
+interaction. The baseslot will be composed of two dot-delimited values, like so:
+`"base-4477293-kanaria_superbird.machine_gun_scope"`. This means: the child is now equipped into
+this slot. The value of `baseslot` can change from `""` to
+`"base-4477293-kanaria_superbird.machine_gun_scope"` ONLY if one of this child NFT's resources has
+this value as a `slot` property (see `resources` below).
 
 #### Owner and Rootowner
 
-These values are originally computed from the [MINT](../interactions/mind.md) interaction, depending on recipient. After minting, it is computed from [SEND](../interactions/send.md) interactions.
+These values are originally computed from the [MINT](../interactions/mind.md) interaction, depending
+on recipient. After minting, it is computed from [SEND](../interactions/send.md) interactions.
 
-`rootowner` will ALWAYS be an account, whereas `owner` can also be an NFT ID in cases where an NFT owns another NFT (see `children` above). An implementing toolset MUST take into consideration the bubbling-up of ownership checks, so that if Owner O owns NFT A which owns NFT B which owns NFT C and O issues a [CONSUME](../interactions/consume.md) to NFT C, it should just work. This is where `rootowner` check should be utilized.
+`rootowner` will ALWAYS be an account, whereas `owner` can also be an NFT ID in cases where an NFT
+owns another NFT (see `children` above). An implementing toolset MUST take into consideration the
+bubbling-up of ownership checks, so that if Owner O owns NFT A which owns NFT B which owns NFT C and
+O issues a [CONSUME](../interactions/consume.md) to NFT C, it should just work. This is where
+`rootowner` check should be utilized.
 
 #### Resources and Resource
 
-Resources can only be added to an NFT with the [RESADD](../interactions/resadd.md) interaction. They cannot be included during minting. This is to maintain a separation of concerns.
+Resources can only be added to an NFT with the [RESADD](../interactions/resadd.md) interaction. They
+cannot be included during minting. This is to maintain a separation of concerns.
 
 A resource object is defined as such:
 
@@ -131,7 +148,12 @@ If the resource is a Base, the `media` property is absent. Base should be a URI 
 
 If the resource is Media, the `base` property is absent. Media should be a URI like an IPFS hash.
 
-If the resource has the `slot` property, it was designed to fit into a specific Base's slot. The baseslot will be composed of two dot-delimited values, like so: `"base-4477293-kanaria_superbird.machine_gun_scope"`. This means: "This resource is compatible with the `machine_gun_scope` slot of base `base-4477293-kanaria_superbird`. If the NFT with this resource becomes a child of an NFT which has `base-4477293-kanaria_superbird` as its base, it will be equippable into that NFT (see `children` above). 
+If the resource has the `slot` property, it was designed to fit into a specific Base's slot. The
+baseslot will be composed of two dot-delimited values, like so:
+`"base-4477293-kanaria_superbird.machine_gun_scope"`. This means: "This resource is compatible with
+the `machine_gun_scope` slot of base `base-4477293-kanaria_superbird`. If the NFT with this resource
+becomes a child of an NFT which has `base-4477293-kanaria_superbird` as its base, it will be
+equippable into that NFT (see `children` above).
 
 The metadata of a Resource:
 
@@ -152,7 +174,9 @@ The metadata of a Resource:
 }
 ```
 
-Metadata is optional and should only be rendered and fetched by implementers on-demand. It is meant to serve more as "credits" than anything else, in cases when several people worked on different aspects of the same NFT project and different resources inside it.
+Metadata is optional and should only be rendered and fetched by implementers on-demand. It is meant
+to serve more as "credits" than anything else, in cases when several people worked on different
+aspects of the same NFT project and different resources inside it.
 
 Example of complete resources array:
 
@@ -168,19 +192,26 @@ Example of complete resources array:
       {
           "media": "hash-of-metadata-guest-bird-art-with-jetpack",
           "metadata": "hash-of-metadata-with-credits"
-      }     
-    ]   
+      }
+    ]
 ```
 
 #### Priority
 
-Priority defines the order in which resources are loaded. This is very useful when an NFT has several resources of the same type, but wants one to be the default. For example, a [Kanaria](https://kanaria.rmrk.app) bird has a secondary and primary artwork. One is a resource at index 0, the other at index 1. By changing priority to index 1, the second resource is rendered before the first in various visual applications like marketplaces and galleries.
+Priority defines the order in which resources are loaded. This is very useful when an NFT has
+several resources of the same type, but wants one to be the default. For example, a
+[Kanaria](https://kanaria.rmrk.app) bird has a secondary and primary artwork. One is a resource at
+index 0, the other at index 1. By changing priority to index 1, the second resource is rendered
+before the first in various visual applications like marketplaces and galleries.
 
 ```json
 "priority": [1, 0]
 ```
 
-Priority is defaulted to `[0]` when the first resource is added to an NFT. From then on, a user can change the priority order by using the [SETATTRIBUTE](../interactions/setattribute.md) interaction. Example, to change priority of resource loading on NFT `438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f` from `[0]` to `[1,0]`:
+Priority is defaulted to `[0]` when the first resource is added to an NFT. From then on, a user can
+change the priority order by using the [SETATTRIBUTE](../interactions/setattribute.md) interaction.
+Example, to change priority of resource loading on NFT
+`438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f` from `[0]` to `[1,0]`:
 
 ```
 rmrk::SETATTRIBUTE::2.0.0::priority::%5B1%2C0%5D::438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f

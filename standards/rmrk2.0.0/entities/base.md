@@ -3,14 +3,14 @@
 A base is a meta-entity, stored on-chain or off chain. It is not an NFT, but can be thought of as
 the interface or abstract class for an NFT's render.
 
-A base is a JSON object with three properties: `id`, `type`, and `parts`. There is an implied
+A base is a JSON object with three properties: `symbol`, `type`, and `parts`. There is an implied
 `issuer` field, matching the address that created the base.
 
 Example:
 
 ```json
 {
-    "id": "kanaria_superbird",
+    "symbol": "kanaria_superbird",
     "type": "svg",
     "parts": [
       {
@@ -52,10 +52,13 @@ Example:
 }
 ```
 
-## Base ID
+## Base Symbol
 
 This is an arbitrary value, used for namespacing part slots. See Parts below. It can be any string
-value but must not use dashes. `kanaria-epic-birds` is not OK, but `kanaria_epic_birds` is. This is because the computed ID property (see below) uses dashes `-` to combine additiaonl elements adding uniqueness to the ID. it also MUST NOT use dots (`.`) due to `baseslot` addressing.
+value but must not use dashes or dots. `kanaria-epic-birds` is not OK, but `kanaria_epic_birds` is.
+
+This is because the computed ID property (see below) uses dashes `-` to combine additional elements
+adding uniqueness to the ID. it also MUST NOT use dots (`.`) due to `baseslot` addressing.
 
 ## Base Type
 
@@ -108,8 +111,8 @@ index defined. The renderer does not check that the viewport of all parts matche
 the designer (refer to the image above).
 
 **Slot** parts have a type of `slot` and no static resource `src`. They are meant to visually accept
-other NFTs into them. They have an array of whitelisted equippable classes, and an optional
-unequip value.
+other NFTs into them. They have an array of whitelisted equippable classes, and an optional unequip
+value.
 
 ```json
 {
@@ -122,8 +125,8 @@ unequip value.
 ```
 
 The `equippable` value is a list of classes equippable into this slot. This value can also be a
-wildcard `*` to allow any class to be equippable into this slot without special approval from
-the base issuer. The whitelisting can be useful to prevent others from "hijacking" your project with
+wildcard `*` to allow any class to be equippable into this slot without special approval from the
+base issuer. The whitelisting can be useful to prevent others from "hijacking" your project with
 their own customizations, covering all your art and branding.
 
 The optional `unequip` value specifies what happens to an item once it's unequipped. This is useful
@@ -169,7 +172,7 @@ implementations:
   },
   "id": {
     "type": "computed",
-    "description": "A Base is uniquely identified by the combination of the word `base`, its minting block number, and user provided ID during Base creation, glued by dashes `-`, e.g. base-4477293-kanaria_superbird."
+    "description": "A Base is uniquely identified by the combination of the word `base`, its minting block number, and user provided symbol during Base creation, glued by dashes `-`, e.g. base-4477293-kanaria_superbird."
   }
 }
 ```
@@ -189,7 +192,7 @@ implementations:
   },
   "equippable": {
     "type": "string[]",
-    "description": "A list of Class IDs (see NftClass entity) containing NFTs equippable into slots of this base."
+    "description": "A list of Class IDs (see NftClass entity) containing NFTs equippable into slots of this base. Starter (default) value is an array with a single, empty string."
   },
   "unequip": {
     "type": "string",
