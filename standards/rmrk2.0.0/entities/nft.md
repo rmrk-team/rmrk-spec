@@ -140,7 +140,8 @@ A resource object is defined as such:
   "base?": "base-uri",
   "media?": "media-uri",
   "metadata?": "metadata-uri",
-  "slot?": "baseslot"
+  "slot?": "baseslot",
+  "license?": "url-or-identifier"
 }
 ```
 
@@ -154,6 +155,13 @@ baseslot will be composed of two dot-delimited values, like so:
 the `machine_gun_scope` slot of base `base-4477293-kanaria_superbird`. If the NFT with this resource
 becomes a child of an NFT which has `base-4477293-kanaria_superbird` as its base, it will be
 equippable into that NFT (see `children` above).
+
+The `license` field, if present, should contain a link to a license (IPFS or static HTTP url), or an
+identifier, like `RMRK_nocopy` or `ipfs://ipfs/someHashOfLicense`. This is a license transfering
+copyright to the current owner. If omitted, it is assumed to be _Full rights with current owner_,
+meaning the owner can use the art for any commercial or non commercial activity. This use must cease
+with a transfer of ownership, so using an NFT one intends to sell as a company logo is probably not
+a good idea.
 
 The metadata of a Resource:
 
