@@ -145,7 +145,8 @@ A resource object is defined as such:
 }
 ```
 
-If the resource is a Base, the `media` property is absent. Base should be a URI like an IPFS hash.
+If the resource is a Base, the `media` property is absent. Base should be a
+[Base ID computed field](base.md#computed-fields).
 
 If the resource is Media, the `base` property is absent. Media should be a URI like an IPFS hash.
 

@@ -1,7 +1,7 @@
 # Base
 
-A base is a meta-entity, stored on-chain or off chain. It is not an NFT, but can be thought of as
-the interface or abstract class for an NFT's render.
+A base is a meta-entity. It is not an NFT, but can be thought of as the interface or abstract class
+for an NFT's render.
 
 A base is a JSON object with three properties: `symbol`, `type`, and `parts`. There is an implied
 `issuer` field, matching the address that created the base.
@@ -91,8 +91,10 @@ definitions (see below) and SVG transparency.
 
 #### SVG Base Parts
 
-`parts` is an array of Part objects. A Part object has two types: `fixed` and `slot`. Each part has
-an ID, uniquely identifying it within this base.
+`parts` is an array of Part objects or an IPFS URI to one such array, like `ipfs://ipfs/somehash`.
+
+A Part object has two types: `fixed` and `slot`. Each part has an ID, uniquely identifying it within
+this base.
 
 **Fixed** parts are references to static content, like an IPFS hash of an SVG file, and a `z` index
 value, like so:
