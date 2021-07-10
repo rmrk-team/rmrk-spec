@@ -1,10 +1,10 @@
 # EQUIP
 
-Equips an owned [NFT](../entities/nft.md) into a slot on its parent.
+Equips an owned [NFT](../entities/nft.md) into a slot on its parent, or unequips it.
 
 You can only EQUIP an existing NFT (one that has not been [CONSUMEd](consume.md) yet). You can only
 EQUIP an NFT into its immediate parent. You cannot equip across ancestors, or even across other
-NFTs.
+NFTs. You can only unequip an equipped NFT.
 
 ## Standard
 
@@ -12,7 +12,8 @@ The format of an EQUIP interaction is `0x{bytes(rmrk::EQUIP::{version}::{id}::{b
 
 - `version` is the version of the standard used (e.g. `2.0.0`)
 - `id` is the [nft](../entity/nft.md)'s ID [computed field](../entity/nft.md/#computed-fields).
-- `baseslot` is the base-namespaced slot into which the NFT is to be equipped.
+- `baseslot` is the base-namespaced slot into which the NFT is to be equipped. If unequipping, a
+  falsy value like an empty string or null should be provided.
 
 ## Examples
 
@@ -25,7 +26,7 @@ rmrk::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001::base_1
 
 The `children` record of a parent NFT will thus change from something like
 
-```
+```js
 "children": {
     "5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": ""
 },
@@ -33,13 +34,27 @@ The `children` record of a parent NFT will thus change from something like
 
 to
 
-```
+```js
 "children": {
     "5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": "base_1.slot_1"
 },
 ```
 
-### Baseslot
+To unequip, we provide a falsy value (empty string, null) as the base slot:
+
+```
+rmrk::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001::
+```
+
+The resulting children property is:
+
+```js
+"children": {
+    "5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": ""
+},
+```
+
+### Baseslot Explained
 
 Parts on a [base](entities/base.md) and resources on an [nft](entities/nft.md) reference a property
 called `baseslot`.

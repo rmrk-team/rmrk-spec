@@ -29,8 +29,7 @@ The following **interactions** are possible:
 - [x] [BUY](interactions/buy.md) (Buy an NFT)
 - [x] [CONSUME](interactions/consume.md) (Burn an NFT)
 - [x] [EMOTE](interactions/emote.md) (Send a reaction/emoticon)
-- [x] [EQUIP](interactions/equip.md) (Equip a child NFT into a parent's slot)
-- [x] [UNEQUIP](interactions/unequip.md) (Unequip (empty) a slot of a base)
+- [x] [EQUIP](interactions/equip.md) (Equip a child NFT into a parent's slot, or unequip)
 - [ ] [SETATTRIBUTE](interactions/setattribute.md) (Set a custom value on an NFT)
 - [x] [RESADD](interactions/resadd.md) (Add a new resource to an NFT as the class issuer)
 - [x] [ACCEPT](interactions/accept.md) (Accept the addition of a new resource to an existing NFT, or
