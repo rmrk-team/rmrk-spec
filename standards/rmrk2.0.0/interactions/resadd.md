@@ -61,7 +61,7 @@ The format of a RESADD interaction is
 
 ## Examples
 
-Suppose we have an NFT with the ID `5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001`.
+Suppose we have an NFT with the ID `5105000-0aff6865bed3a66b-DLEP-DL15-00000001`.
 
 Suppose it has no resources right now:
 
@@ -70,7 +70,7 @@ Suppose it has no resources right now:
   "collection": "0aff6865bed3a66b-DLEP",
   "symbol": "DL15",
   "transferable": 1,
-  "sn": "0000000000000001",
+  "sn": "00000001",
   "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4"
 }
 ```
@@ -88,5 +88,5 @@ We want to add the following resource to it:
 So we issue:
 
 ```txt
-rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::%7B%22id%22%3A%22V1i6B%22%2C%22media%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
+rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::%7B%22id%22%3A%22V1i6B%22%2C%22media%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
 ```

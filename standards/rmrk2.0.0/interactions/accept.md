@@ -33,7 +33,7 @@ The format of an ACCEPT interaction is `0x{bytes(rmrk::ACCEPT::{version}::{id1}:
 
 ## Example for Resources
 
-Suppose we have an NFT with the ID `5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001`.
+Suppose we have an NFT with the ID `5105000-0aff6865bed3a66b-DLEP-DL15-00000001`.
 
 Suppose it has the following resource pending:
 
@@ -48,13 +48,13 @@ Suppose it has the following resource pending:
 Via:
 
 ```txt
-rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::%7B%22id%22%3A%22V1i6B%22%2C%22media%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
+rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::%7B%22id%22%3A%22V1i6B%22%2C%22media%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
 ```
 
 We can accept it with:
 
 ```txt
-rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::V1i6B
+rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::V1i6B
 ```
 
 After acceptance, the NFT changes from:
@@ -64,7 +64,7 @@ After acceptance, the NFT changes from:
   "collection": "0aff6865bed3a66b-DLEP",
   "symbol": "DL15",
   "transferable": 1,
-  "sn": "0000000000000001",
+  "sn": "00000001",
   "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4"
 }
 ```
@@ -76,7 +76,7 @@ to
   "collection": "0aff6865bed3a66b-DLEP",
   "symbol": "DL15",
   "transferable": 1,
-  "sn": "0000000000000001",
+  "sn": "00000001",
   "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4",
   "priority": [0],
   "resources": [
@@ -91,7 +91,7 @@ to
 
 ## Example for Children
 
-Suppose we have an NFT with the ID `5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001`.
+Suppose we have an NFT with the ID `5105000-0aff6865bed3a66b-DLEP-DL15-00000001`.
 
 Suppose its `children` property looks like this:
 
@@ -99,13 +99,12 @@ Suppose its `children` property looks like this:
 "children": [];
 ```
 
-Suppose we want to `SEND` it the NFT with an ID
-`5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002`.
+Suppose we want to `SEND` it the NFT with an ID `5105000-0aff6865bed3a66b-DLEP-DL15-00000002`.
 
 We would first issue:
 
 ```
-RMRK::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001
+RMRK::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000002::5105000-0aff6865bed3a66b-DLEP-DL15-00000001
 ```
 
 If we own both NFTs, this concludes the interaction.
@@ -115,7 +114,7 @@ If we do not, we have this:
 ```json
 "children": [
   {
-    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-00000002",
     "equipped": "",
     "pending": true,
   },
@@ -125,7 +124,7 @@ If we do not, we have this:
 So, we must issue an `ACCEPT` like so:
 
 ```
-rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002
+rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::5105000-0aff6865bed3a66b-DLEP-DL15-00000002
 ```
 
 Thereafter, the children array will be:
@@ -133,7 +132,7 @@ Thereafter, the children array will be:
 ```json
 "children": [
   {
-    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-00000002",
     "equipped": "",
     "pending": false,
   },

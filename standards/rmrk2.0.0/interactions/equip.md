@@ -26,7 +26,7 @@ Here's how we equip a piece of armor. We do not need the parent NFT's ID because
 be owned by one other NFT at any given time, and it is _that_ NFT's base slots we are referencing.
 
 ```
-rmrk::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001::base_1.slot_1
+rmrk::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-00000001::base_1.slot_1
 ```
 
 The `children` record of a parent NFT will thus change from something like
@@ -34,7 +34,7 @@ The `children` record of a parent NFT will thus change from something like
 ```json
 "children": [
   {
-    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-00000002",
     "equipped": "",
     "pending": false,
   },
@@ -46,7 +46,7 @@ to
 ```js
 "children": [
   {
-    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-00000002",
     "equipped": "base_1.slot_1",
     "pending": false,
   },
@@ -56,7 +56,7 @@ to
 To unequip, we provide a falsy value (empty string, null) as the base slot:
 
 ```
-rmrk::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001::
+rmrk::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-00000001::
 ```
 
 The resulting children property is:
@@ -64,7 +64,7 @@ The resulting children property is:
 ```js
 "children": [
   {
-    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-00000002",
     "equipped": "",
     "pending": false,
   },

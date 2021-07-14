@@ -49,8 +49,8 @@ emoted. If there is an odd number, that user HAS emoted.
 
 Example:
 
-- Alice gives thumbs up to `rmrk1::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001`. Now there
-  is one 👍 emote on this NFT, shown as 👍 from Alice.
+- Alice gives thumbs up to `rmrk1::5105000-0aff6865bed3a66b-DLEP-DL15-00000001`. Now there is one 👍
+  emote on this NFT, shown as 👍 from Alice.
 - Alice changes her mind, removes thumbs up by sending it again. Now there are 2(👍) on this NFT, no
   👍 is shown on the NFT from Alice.
 - Alice talks to artist, she's okay with a thumbs up again, re-sends it. Now there are 3(👍) on this
@@ -79,7 +79,7 @@ are separate implementations for this.
 ### Emoting on an NFT
 
 ```
-RMRK::EMOTE::2.0.0::rmrk1::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::1F389
+RMRK::EMOTE::2.0.0::rmrk1::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::1F389
 ```
 
 Is submitted as:

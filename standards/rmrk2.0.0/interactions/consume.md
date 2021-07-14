@@ -42,7 +42,7 @@ Suppose we have the following NFT minted in block 5105000:
   "collection": "0aff6865bed3a66b-VALHELLO",
   "name": "POTION_HEAL",
   "transferable": 1,
-  "sn": "0000000000000001",
+  "sn": "00000001",
   "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4"
 }
 ```
@@ -51,18 +51,18 @@ Assume we want to consume this item in the [Valhello](https://valhello.app) game
 character's health, and that the game looks for a CONSUME reason formatted thusly:
 `valhello::HEALWITH::{itemid}::{character_address}`
 
-The item's computed ID is `5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001`.
+The item's computed ID is `5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001`.
 
 Message A is thus:
 
 ```
-rmrk::CONSUME::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001
+rmrk::CONSUME::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001
 ```
 
 Message B is:
 
 ```
-valhello::HEALWITH::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001::CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp
+valhello::HEALWITH::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001::CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp
 ```
 
 The final submission is thus:

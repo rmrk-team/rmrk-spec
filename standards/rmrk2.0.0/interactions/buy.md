@@ -47,19 +47,19 @@ Suppose we have the following NFT minted in block 5105000:
   "collection": "0aff6865bed3a66b-VALHELLO",
   "name": "POTION_HEAL",
   "transferable": 1,
-  "sn": "0000000000000001",
+  "sn": "00000001",
   "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4"
 }
 ```
 
 And this NFT has been listed with
-`rmrk::LIST::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001::10000000000` for
-0.01 KSM by user `CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp`.
+`rmrk::LIST::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001::10000000000` for 0.01
+KSM by user `CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp`.
 
 To buy it, we format our BUY interaction like so:
 
 ```
-rmrk::BUY::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-0000000000000001
+rmrk::BUY::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001
 ```
 
 To complete the purchase, we submit a `utility.batchAll` call comprised of two transactions:

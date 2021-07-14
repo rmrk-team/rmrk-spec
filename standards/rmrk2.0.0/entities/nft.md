@@ -27,7 +27,7 @@ child.
   },
   "sn": {
     "type": "string",
-    "description": "Serial number or issuance number of the NFT, padded so that its total length is 16, e.g. 0000000000000123. Should be sequential but can be arbitrary - the `max` propery of an NFT's collection only cares about the total number of NFTs, not their serial numbers."
+    "description": "Serial number or issuance number of the NFT, padded so that its total length is 8, e.g. 00000123. Should be sequential but can be arbitrary - the `max` propery of an NFT's collection only cares about the total number of NFTs, not their serial numbers."
   },
   "metadata": {
     "type": "string",
@@ -47,7 +47,7 @@ implementations:
 {
   "id": {
     "type": "computed",
-    "description": "An NFT is uniquely identified by the combination of its minting block number, collection ID, its instance ID, and its serial number, e.g. 5193445-0aff6865bed3a66b-ZOMB-ZOMBBLUE-0000000000000001."
+    "description": "An NFT is uniquely identified by the combination of its minting block number, collection ID, its instance ID, and its serial number, e.g. 5193445-0aff6865bed3a66b-ZOMB-ZOMBBLUE-00000001."
   },
   "children": {
     "type": Child[],
@@ -78,7 +78,7 @@ implementations:
 
 #### ID
 
-Example id: `5105000-0aff6865bed3a66b-DLEP-DLEP15-0000000000000001`.
+Example id: `5105000-0aff6865bed3a66b-DLEP-DLEP15-00000001`.
 
 When processing NFTs and their interactions, tools MUST explode the NFT by `-` and if the number of
 fragments is anything other than 5, the remark should be discarded as invalid:
@@ -105,17 +105,17 @@ Example of fully consolidated `children` object:
 ```json
 "children": [
   {
-    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001",
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-00000001",
     "equipped": "",
     "pending": false,
   },
   {
-    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-00000002",
     "equipped": "",
     "pending": true,
   },
   {
-    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000003",
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-00000003",
     "equipped": "base_1.slot_1",
     "pending": false,
   }
@@ -330,7 +330,7 @@ NFT:
 {
   "collection": "0aff6865bed3a66b-DLEP",
   "transferable": 1,
-  "sn": "0000000000000001",
+  "sn": "00000001",
   "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4"
 }
 ```
@@ -354,7 +354,7 @@ NFT:
 {
   "collection": "0aff6865bed3a66b-DLEP",
   "transferable": 1,
-  "sn": "0000000000000001",
+  "sn": "00000001",
   "metadata": "ipfs://ipfs/QmR3EB16GANjYbT82jueyMbv7ewrwVAogmB4fgbtUrRPLb"
 }
 ```

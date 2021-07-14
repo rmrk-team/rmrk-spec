@@ -14,7 +14,7 @@ The format of a SEND interaction is `0x{bytes(rmrk::SEND::{version}::{id}::{reci
 - `id` is the [nft](../entity/nft.md)'s ID [computed field](../entity/nft.md/#computed-fields).
 - `recipient` is the address of the recipient, e.g.
   `H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y` or the ID of the recieving NFT, e.g.
-  `5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001`
+  `5105000-0aff6865bed3a66b-DLEP-DL15-00000001`
 
 ## Effects
 
@@ -134,5 +134,5 @@ implied interactions.
 ## Example of sending to account
 
 ```
-rmrk::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y
+rmrk::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y
 ```
