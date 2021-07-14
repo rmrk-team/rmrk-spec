@@ -6,6 +6,9 @@ You can only EQUIP an existing NFT (one that has not been [CONSUMEd](consume.md)
 EQUIP an NFT into its immediate parent. You cannot equip across ancestors, or even across other
 NFTs. You can only unequip an equipped NFT.
 
+You can equip/unequip a non-transferable NFT. As an example, putting a helmet on or taking it off
+does not change the ownership of the helmet.
+
 ## Standard
 
 The format of an EQUIP interaction is `0x{bytes(rmrk::EQUIP::{version}::{id}::{baseslot})}`.
@@ -57,7 +60,7 @@ The resulting children property is:
 ### Baseslot Explained
 
 Parts on a [base](entities/base.md) and resources on an [nft](entities/nft.md) reference a property
-called `baseslot`.
+called `slot`.
 
 Suppose we have an NFT A with resource `base_a` which contains slot `slot_1`. Now suppose we
 [RESADD](interactions/resadd.md) a new resource, `base_b`, onto this NFT. Suppose that `base_b` also
@@ -66,6 +69,7 @@ Suppose now that we have an NFT which has a resource like this:
 
 ```json
   {
+      "id": "V1i6B",
       "media": "hash-of-metadata-containing-guest-bird-art",
       "slot": "slot_1"
   },
@@ -73,5 +77,5 @@ Suppose now that we have an NFT which has a resource like this:
 
 If we now [SEND](interactions/send.md) this NFT into NFT A and issue the
 [EQUIP](interactions/equip.md) command, the renderer would not know which slot to put the NFT's
-resource into as a layer: `base_b` or `base_a`. Therefore, a `baseslot` namespaced combination is
-necessary: `base_a.slot_1` vs `base_b.slot_1`.
+resource into as a layer: `base_b` or `base_a`. Therefore, a `base` and `slot` namespaced
+combination is necessary: `base_a.slot_1` vs `base_b.slot_1`.

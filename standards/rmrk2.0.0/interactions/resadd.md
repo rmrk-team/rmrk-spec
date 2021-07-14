@@ -30,6 +30,25 @@ permanently reject resources may be added later if this proves to be the case, b
 recommendation towards implementers right now is to ignore resources that have been pending for more
 than a month.
 
+## Conflicting Base slot
+
+A resource can have a `slot` property, which indicates which slot in a [base](../entities/base.md)
+it's meant for. It can happen that a newly added resource targets the same slot on the same target
+base, in which case the render needs to know which one to display as equipped into an NFT's base. In
+cases like these, resource priority should be respected. Priority can be switched with the
+[`SETATTRIBUTE`](setattribute) interaction.
+
+As an example:
+
+- a Kanaria bird has a `left_hand` slot
+- an NFT `excalibur` has a resource targeting `left_hand`
+- if equipped, the bird shows the `excalibur`'s `left_hand` resource in the `left_hand` slot
+- the original artist notices a glitch, or there's a copyright issue on the original drawing of the
+  `left_hand` resource of `excalibur` and the artist makes a new rendition
+- a new resource is added to `excalibur` targeting the same `left_hand` slot
+- the armed bird still shows the old resource until the owner of the `excalibur` NFT calls
+  [`SETATTRIBUTE`](setattribute) on the `priority` field, changing the priority of the rendering
+
 ## Standard
 
 The format of a RESADD interaction is
@@ -60,6 +79,7 @@ We want to add the following resource to it:
 
 ```json
 {
+  "id": "V1i6B",
   "media": "hash-of-metadata-guest-bird-art-with-jetpack",
   "metadata": "hash-of-metadata-with-credits"
 }
@@ -68,5 +88,5 @@ We want to add the following resource to it:
 So we issue:
 
 ```txt
-rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::%7B%22media%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
+rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::%7B%22id%22%3A%22V1i6B%22%2C%22media%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
 ```

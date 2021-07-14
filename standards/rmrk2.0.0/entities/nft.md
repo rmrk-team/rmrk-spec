@@ -137,6 +137,7 @@ A resource object is defined as such:
 
 ```json
 {
+  "id": "nanoid-of-resource",
   "base?": "base-uri",
   "media?": "media-uri",
   "metadata?": "metadata-uri",
@@ -145,10 +146,22 @@ A resource object is defined as such:
 }
 ```
 
+`id` is a 5-character string of _reasonable uniqueness_. The combination of base ID and resource id
+should be unique across the entire RMRK ecosystem which, if entropy of the Base ID is combined with
+a pseudo-randomly generated nanoid of a resource, is easy to satisfy. For JS-based implementations,
+we recommend using the [nanoid](https://www.npmjs.com/package/nanoid) package.
+
 If the resource is a Base, the `media` property is absent. Base should be a
 [Base ID computed field](base.md#computed-fields).
 
 If the resource is Media, the `base` property is absent. Media should be a URI like an IPFS hash.
+
+The `license` field, if present, should contain a link to a license (IPFS or static HTTP url), or an
+identifier, like `RMRK_nocopy` or `ipfs://ipfs/someHashOfLicense`. This is a license transfering
+copyright to the current owner. If omitted, it is assumed to be _Full rights with current owner_,
+meaning the owner can use the art for any commercial or non commercial activity. This use must cease
+with a transfer of ownership, so using an NFT one intends to sell as a company logo is probably not
+a good idea.
 
 If the resource has the `slot` property, it was designed to fit into a specific Base's slot. The
 baseslot will be composed of two dot-delimited values, like so:
@@ -157,12 +170,26 @@ the `machine_gun_scope` slot of base `base-4477293-kanaria_superbird`. If the NF
 becomes a child of an NFT which has `base-4477293-kanaria_superbird` as its base, it will be
 equippable into that NFT (see `children` above).
 
-The `license` field, if present, should contain a link to a license (IPFS or static HTTP url), or an
-identifier, like `RMRK_nocopy` or `ipfs://ipfs/someHashOfLicense`. This is a license transfering
-copyright to the current owner. If omitted, it is assumed to be _Full rights with current owner_,
-meaning the owner can use the art for any commercial or non commercial activity. This use must cease
-with a transfer of ownership, so using an NFT one intends to sell as a company logo is probably not
-a good idea.
+### Conflicting Base slot
+
+A resource can have a `slot` property, which indicates which slot in a [base](../entities/base.md)
+it's meant for. It can happen that a newly added resource targets the same slot on the same target
+base, in which case the render needs to know which one to display as equipped into an NFT's base. In
+cases like these, resource priority should be respected. Priority can be switched with the
+[`SETATTRIBUTE`](setattribute) interaction.
+
+As an example:
+
+- a Kanaria bird has a `left_hand` slot
+- an NFT `excalibur` has a resource targeting `left_hand`
+- if equipped, the bird shows the `excalibur`'s `left_hand` resource in the `left_hand` slot
+- the original artist notices a glitch, or there's a copyright issue on the original drawing of the
+  `left_hand` resource of `excalibur` and the artist makes a new rendition
+- a new resource is added to `excalibur` targeting the same `left_hand` slot
+- the armed bird still shows the old resource until the owner of the `excalibur` NFT calls
+  [`SETATTRIBUTE`](setattribute) on the `priority` field, changing the priority of the rendering
+
+---
 
 The metadata of a Resource:
 
@@ -192,13 +219,16 @@ Example of complete resources array:
 ```json
     "resources": [
       {
+          "id": "V1StG",
           "base": "hash-of-base-svg.json"
       },
       {
+          "id": "tGXR8",
           "media": "hash-of-metadata-containing-guest-bird-art",
           "slot": "base-4477293-kanaria_superbird.wing_1_slot"
       },
       {
+          "id": "Z5i6B",
           "media": "hash-of-metadata-guest-bird-art-with-jetpack",
           "metadata": "hash-of-metadata-with-credits"
       }

@@ -23,21 +23,13 @@ an `ACCEPT` unless the `rootowner` of both NFTs matches.
 
 It is not possible to remove resources accepted in the past. This prevents art rug-pulls.
 
-## Standard for resources
+## Standard
 
-The format of an ACCEPT interaction is `0x{bytes(rmrk::ACCEPT::{version}::{id}::{md5})}`.
-
-- `version` is the version of the standard used (e.g. `2.0.0`)
-- `id` is the [NFT](../entities/nft.md)'s ID
-- `md5` is the md5 hash of the Resource being accepted
-
-## Standard for child NFTs
-
-The format of an ACCEPT interaction is `0x{bytes(rmrk::ACCEPT::{version}::{id}::{childId})}`.
+The format of an ACCEPT interaction is `0x{bytes(rmrk::ACCEPT::{version}::{id1}::{id2})}`.
 
 - `version` is the version of the standard used (e.g. `2.0.0`)
-- `id` is the [NFT](../entities/nft.md)'s ID
-- `childId` is the ID of the pending child
+- `id1` is the [NFT](../entities/nft.md)'s ID
+- `id2` is the id of the resource, or ID of the child NFT being accepted
 
 ## Example for Resources
 
@@ -47,6 +39,7 @@ Suppose it has the following resource pending:
 
 ```json
 {
+  "id": "V1i6B",
   "media": "hash-of-metadata-guest-bird-art-with-jetpack",
   "metadata": "hash-of-metadata-with-credits"
 }
@@ -55,13 +48,13 @@ Suppose it has the following resource pending:
 Via:
 
 ```txt
-rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::%7B%22media%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
+rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::%7B%22id%22%3A%22V1i6B%22%2C%22media%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
 ```
 
 We can accept it with:
 
 ```txt
-rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::5dd473899a96cec2c688ed118bb4da75
+rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::V1i6B
 ```
 
 After acceptance, the NFT changes from:
@@ -88,6 +81,7 @@ to
   "priority": [0],
   "resources": [
     {
+      "id": "V1i6B",
       "media": "hash-of-metadata-guest-bird-art-with-jetpack",
       "metadata": "hash-of-metadata-with-credits"
     }
