@@ -1,8 +1,8 @@
 # RESADD
 
-The RESADD interaction allows the `issuer` of a [class](../entities/nftclass.md) to suggest a new
-resource for an [NFT](../entities/nft.md) in that collection. If the `issuer` is also the `owner` of
-this NFT, this interaction also counts as a [ACCEPT](accept.md) automatically.
+The RESADD interaction allows the `issuer` of a [collection](../entities/collection.md) to suggest a
+new resource for an [NFT](../entities/nft.md) in that collection. If the `issuer` is also the
+`owner` of this NFT, this interaction also counts as a [ACCEPT](accept.md) automatically.
 
 This is useful for adding new rendering approaches to existing art, for adding alternative
 reproductions to a certain piece of media, and more. As an example, consider an NFT which is a book.
@@ -67,7 +67,7 @@ Suppose it has no resources right now:
 
 ```json
 {
-  "nftclass": "0aff6865bed3a66b-DLEP",
+  "collection": "0aff6865bed3a66b-DLEP",
   "symbol": "DL15",
   "transferable": 1,
   "sn": "0000000000000001",

@@ -114,8 +114,8 @@ index defined. The renderer does not check that the viewport of all parts matche
 the designer (refer to the image above).
 
 **Slot** parts have a type of `slot` and an optional static resource `src`. They are meant to
-visually accept other NFTs into them. They have an array of whitelisted equippable classes, and an
-optional unequip value.
+visually accept other NFTs into them. They have an array of whitelisted equippable collections, and
+an optional unequip value.
 
 If there is a `src` value, this static resource is used as default fallback art for the slot when
 unequipped.
@@ -130,9 +130,9 @@ unequipped.
 }
 ```
 
-The `equippable` value is a list of classes equippable into this slot. This value can also be a
-wildcard `*` to allow any class to be equippable into this slot without special approval from the
-base issuer. The whitelisting can be useful to prevent others from "hijacking" your project with
+The `equippable` value is a list of collections equippable into this slot. This value can also be a
+wildcard `*` to allow any collection to be equippable into this slot without special approval from
+the base issuer. The whitelisting can be useful to prevent others from "hijacking" your project with
 their own customizations, covering all your art and branding.
 
 The optional `unequip` value specifies what happens to an item once it's unequipped. This is useful
@@ -198,7 +198,7 @@ implementations:
   },
   "equippable": {
     "type": "string[]",
-    "description": "A list of Class IDs (see NftClass entity) containing NFTs equippable into slots of this base. Starter (default) value is an array with a single, empty string."
+    "description": "A list of Collection IDs (see Collection entity) containing NFTs equippable into slots of this base. Starter (default) value is an array with a single, empty string."
   },
   "unequip": {
     "type": "string",
@@ -219,5 +219,5 @@ implementations:
 ## Interactions
 
 - [BASE](../interactions/base.md) - creates a base
-- [EQUIP](../interactions/equip.md) - changes the equippable class set
+- [EQUIP](../interactions/equip.md) - changes the equippable collection set
 - [CHANGEISSUER](../interactions/changeissuer.md) - changes the issuer

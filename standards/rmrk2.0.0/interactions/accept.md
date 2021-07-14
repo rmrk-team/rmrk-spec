@@ -61,7 +61,7 @@ After acceptance, the NFT changes from:
 
 ```json
 {
-  "nftclass": "0aff6865bed3a66b-DLEP",
+  "collection": "0aff6865bed3a66b-DLEP",
   "symbol": "DL15",
   "transferable": 1,
   "sn": "0000000000000001",
@@ -73,7 +73,7 @@ to
 
 ```json
 {
-  "nftclass": "0aff6865bed3a66b-DLEP",
+  "collection": "0aff6865bed3a66b-DLEP",
   "symbol": "DL15",
   "transferable": 1,
   "sn": "0000000000000001",

@@ -1,18 +1,18 @@
 # LOCK
 
-The LOCK interaction allows a [Class](../entities/nftclass.md) issuer to lock the `max` value to the
-current number of elements, effectively making the class permanently limited.
+The LOCK interaction allows a [Collection](../entities/collection.md) issuer to lock the `max` value
+to the current number of elements, effectively making the collection permanently limited.
 
 ## Standard
 
 The format of a LOCK interaction is `0x{bytes(rmrk::LOCK::{version}::{id})}`.
 
 - `version` is the version of the standard used (e.g. `2.0.0`)
-- `id` is the [nftclass](../entities/nftclass.md)'s ID.
+- `id` is the [collection](../entities/collection.md)'s ID.
 
 ## Examples
 
-Given a class like:
+Given a collection like:
 
 ```json
 {
@@ -25,11 +25,11 @@ Given a class like:
 }
 ```
 
-Supposing we have 5 items minted in this class, if we want to LOCK it:
+Supposing we have 5 items minted in this collection, if we want to LOCK it:
 
 ```
 rmrk::LOCK::2.0.0::0aff6865bed3a66b-DLEP
 ```
 
-The `max` value of this class will now permanently be `5`. No more NFTs will be mintable from this
-class.
+The `max` value of this collection will now permanently be `5`. No more NFTs will be mintable from
+this collection.

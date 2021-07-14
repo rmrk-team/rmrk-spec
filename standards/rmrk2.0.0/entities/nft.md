@@ -1,7 +1,7 @@
 # NFT
 
-An NFT is minted from a [Class](nftclass.md). It's a unique digital asset. NFTs can be mutable after
-being created, but most often are not.
+An NFT is minted from a [Collection](collection.md). It's a unique digital asset. NFTs can be
+mutable after being created, but most often are not.
 
 NFTs can have [jsonlogic](https://jsonlogic.com/) to affect
 [conditional rendering](#conditional-rendering) and [multiple resources](#resources) which can be
@@ -13,9 +13,9 @@ child.
 
 ```json
 {
-  "nftclass": {
+  "collection": {
     "type": "string",
-    "description": "Class ID, e.g. 0aff6865bed3a66b-ZOMB"
+    "description": "Collection ID, e.g. 0aff6865bed3a66b-ZOMB"
   },
   "symbol": {
     "type": "string",
@@ -27,7 +27,7 @@ child.
   },
   "sn": {
     "type": "string",
-    "description": "Serial number or issuance number of the NFT, padded so that its total length is 16, e.g. 0000000000000123. Should be sequential but can be arbitrary - the `max` propery of an NFT's class only cares about the total number of NFTs, not their serial numbers."
+    "description": "Serial number or issuance number of the NFT, padded so that its total length is 16, e.g. 0000000000000123. Should be sequential but can be arbitrary - the `max` propery of an NFT's collection only cares about the total number of NFTs, not their serial numbers."
   },
   "metadata": {
     "type": "string",
@@ -47,7 +47,7 @@ implementations:
 {
   "id": {
     "type": "computed",
-    "description": "An NFT is uniquely identified by the combination of its minting block number, nftclass ID, its instance ID, and its serial number, e.g. 5193445-0aff6865bed3a66b-ZOMB-ZOMBBLUE-0000000000000001."
+    "description": "An NFT is uniquely identified by the combination of its minting block number, collection ID, its instance ID, and its serial number, e.g. 5193445-0aff6865bed3a66b-ZOMB-ZOMBBLUE-0000000000000001."
   },
   "children": {
     "type": Children,
@@ -84,7 +84,7 @@ When processing NFTs and their interactions, tools MUST explode the NFT by `-` a
 fragments is anything other than 5, the remark should be discarded as invalid:
 
 - element 0 is the block in which the NFT was minted.
-- elements 1 and 2 together make the [nftclass ID](nftclass.md).
+- elements 1 and 2 together make the [collection ID](collection.md).
 - element 3 is the instance ID of the NFT (its symbol).
 - element 4 is the serial number of the current NFT instance.
 
@@ -309,7 +309,7 @@ NFT:
 
 ```json
 {
-  "nftclass": "0aff6865bed3a66b-DLEP",
+  "collection": "0aff6865bed3a66b-DLEP",
   "transferable": 1,
   "sn": "0000000000000001",
   "metadata": "ipfs://ipfs/QmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4"
@@ -333,7 +333,7 @@ NFT:
 
 ```json
 {
-  "nftclass": "0aff6865bed3a66b-DLEP",
+  "collection": "0aff6865bed3a66b-DLEP",
   "transferable": 1,
   "sn": "0000000000000001",
   "metadata": "ipfs://ipfs/QmR3EB16GANjYbT82jueyMbv7ewrwVAogmB4fgbtUrRPLb"

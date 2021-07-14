@@ -1,7 +1,7 @@
 # MINT
 
-The MINT interaction creates an [NFT](../entities/nft.md) in/from a
-[class](../entities/nftclass.md).
+The MINT interaction creates an [NFT](../entities/nft.md) into a
+[collection](../entities/collection.md).
 
 ## Standard
 
@@ -18,7 +18,7 @@ The format of a MINT interaction is the same as for [CREATE](create.md):
 
 ```json
 {
-  "nftclass": "0aff6865bed3a66b-DLEP",
+  "collection": "0aff6865bed3a66b-DLEP",
   "symbol": "DL15",
   "transferable": 1,
   "sn": "0000000000000001",
@@ -29,13 +29,13 @@ The format of a MINT interaction is the same as for [CREATE](create.md):
 Becomes:
 
 ```
-rmrk::MINT::2.0.0::%7B%22nftclass%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol%22%3A%22DL15%22%2C%22transferable%22%3A1%2C%22sn%22%3A%220000000000000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D
+rmrk::MINT::2.0.0::%7B%22collection%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol%22%3A%22DL15%22%2C%22transferable%22%3A1%2C%22sn%22%3A%220000000000000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D
 ```
 
 If we also want to mint it straight into someone's account:
 
 ```
-rmrk::MINT::2.0.0::%7B%22nftclass%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol%22%3A%22DL15%22%2C%22transferable%22%3A1%2C%22sn%22%3A%220000000000000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D::CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp
+rmrk::MINT::2.0.0::%7B%22collection%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol%22%3A%22DL15%22%2C%22transferable%22%3A1%2C%22sn%22%3A%220000000000000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D::CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp
 ```
 
 If we want to mint this straight into **another NFT** (e.g. a user has a badge card of ID
@@ -43,5 +43,5 @@ If we want to mint this straight into **another NFT** (e.g. a user has a badge c
 badges):
 
 ```
-rmrk::MINT::2.0.0::%7B%22nftclass%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol%22%3A%22DL15%22%2C%22transferable%22%3A1%2C%22sn%22%3A%220000000000000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D::5193445-0aff6865bed3a66b-BADGECARD-CARDBASIC-0000000000000001
+rmrk::MINT::2.0.0::%7B%22collection%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol%22%3A%22DL15%22%2C%22transferable%22%3A1%2C%22sn%22%3A%220000000000000001%22%2C%22metadata%22%3A%22ipfs%3A%2F%2Fipfs%2FQmavoTVbVHnGEUztnBT2p3rif3qBPeCfyyUE5v4Z7oFvs4%22%7D::5193445-0aff6865bed3a66b-BADGECARD-CARDBASIC-0000000000000001
 ```

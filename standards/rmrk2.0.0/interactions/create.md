@@ -1,6 +1,6 @@
 # CREATE
 
-The CREATE interaction creates an [NFT class](../entities/nftclass.md).
+The CREATE interaction creates a [Collection](../entities/collection.md).
 
 ## Standard
 
@@ -9,6 +9,8 @@ other words, HTML encode the minified JSON, then convert the entire remark with 
 prefix into bytes and send with a `0x` prefix.
 
 ## Examples
+
+Given a collection:
 
 ```json
 {

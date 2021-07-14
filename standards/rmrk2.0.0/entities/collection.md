@@ -1,27 +1,23 @@
-# NftClass
+# Collection
 
-This standard defines how **classes** of NFTs are minted. Classes (previously Collections) are
-effectively immutable after being created, with the exception of the issuer value, and the max
-value. See interactions at the bottom of this page.
+This standard defines how **collection** of NFTs are minted. Collections are effectively immutable
+after being created, with the exception of the issuer value, and the max value. See interactions at
+the bottom of this page.
 
-A class is the context of one or more NFTs. For example, a Cryptokitty Generation 0 is part of the
-"Generation 0 kitties" class, and an ENS (Ethereum Name System) domain is part of the ENS class,
-while a POAP-EthParis NFT might be given to everyone who attended EthParis, and will be part of the
-POAP master class. Every NFT must have a parent context (class) it belongs to.
+A collection is the context of one or more NFTs. For example, a Cryptokitty Generation 0 is part of
+the "Generation 0 kitties" collection, and an ENS (Ethereum Name System) domain is part of the ENS
+collection, while a POAP-EthParis NFT might be given to everyone who attended EthParis, and will be
+part of the POAP master collection. Every NFT must have a parent context (collection) it belongs to.
 
-The change from Collection to Class was made to avoid confuction between Collections and Bundles and
-to be more in sync with
-[Parity's Uniques pallet](https://github.com/paritytech/substrate/tree/master/frame/uniques).
+## Collection Standard
 
-## NftClass Standard
-
-A class MUST adhere to the following standard.
+A collection MUST adhere to the following standard.
 
 ````json
 {
   "max": {
     "type": "number",
-    "description": "How many NFTs will ever belong to this class. 0 for infinite."
+    "description": "How many NFTs will ever belong to this collection. 0 for infinite."
   },
   "issuer": {
     "type": "string",
@@ -33,7 +29,7 @@ A class MUST adhere to the following standard.
   },
   "id": {
     "type": "string",
-    "description": "A class is uniquely identified by at least the first four and last four bytes of the original issuer's pubkey, combined with the symbol through a dash `-`. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB."
+    "description": "A collection is uniquely identified by at least the first four and last four bytes of the original issuer's pubkey, combined with the symbol through a dash `-`. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB."
   },
   "metadata": {
     "type": "string",
@@ -44,13 +40,13 @@ A class MUST adhere to the following standard.
 
 ## Metadata
 
-A class MUST have metadata to describe it and help visualization on various platforms.
+A collection MUST have metadata to describe it and help visualization on various platforms.
 
 ```json
 {
   "description": {
     "type": "string",
-    "description": "Description of the class as a whole. Markdown is supported."
+    "description": "Description of the collection as a whole. Markdown is supported."
   },
   "attributes": {
     "type": "array",
@@ -66,14 +62,14 @@ A class MUST have metadata to describe it and help visualization on various plat
   },
   "name": {
     "type": "string",
-    "description": "Name of the class, e.g. 'Dot Leap badges'."
+    "description": "Name of the collection, e.g. 'Dot Leap badges'."
   }
 }
 ```
 
 ## Examples
 
-Class:
+Collection:
 
 ```json
 {
@@ -99,7 +95,7 @@ Metadata:
 
 ## Interactions
 
-- [CREATE](../interactions/create.md) - creates a new class
+- [CREATE](../interactions/create.md) - creates a new collection
 - [CHANGEISSUER](../interactions/changeissuer.md) - changes issuer to another address
-- [LOCK](../interactions/lock.md) - locks a class' max number of NFTs to the current number of elements
+- [LOCK](../interactions/lock.md) - locks a collection's max number of NFTs to the current number of elements
 ````
