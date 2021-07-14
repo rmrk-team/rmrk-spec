@@ -24,6 +24,7 @@ Example:
           "type": "slot",
           "equippable": ["id-of-genesis-trait-crystals-LEGENDARY"],
           "unequip": "unequip",
+          "src": "ipfs://ipfs/default-art-hash",
           "z": 1
       },
       {
@@ -112,9 +113,12 @@ The renderer will take the content behind the `src` value, and place it into the
 index defined. The renderer does not check that the viewport of all parts matches - this is up to
 the designer (refer to the image above).
 
-**Slot** parts have a type of `slot` and no static resource `src`. They are meant to visually accept
-other NFTs into them. They have an array of whitelisted equippable classes, and an optional unequip
-value.
+**Slot** parts have a type of `slot` and an optional static resource `src`. They are meant to
+visually accept other NFTs into them. They have an array of whitelisted equippable classes, and an
+optional unequip value.
+
+If there is a `src` value, this static resource is used as default fallback art for the slot when
+unequipped.
 
 ```json
 {
@@ -203,7 +207,7 @@ implementations:
   },
   "src": {
     "type": "string",
-    "description": "URL to resource, or direct SVG data (<svg></svg>)."
+    "description": "URL to resource, or direct SVG data (<svg></svg>). Optional when type is `slot`."
   },
   "z": {
     "type": "number",
