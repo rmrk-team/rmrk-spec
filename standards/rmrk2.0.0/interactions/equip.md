@@ -9,6 +9,8 @@ NFTs. You can only unequip an equipped NFT.
 You can equip/unequip a non-transferable NFT. As an example, putting a helmet on or taking it off
 does not change the ownership of the helmet.
 
+You can only equip a [non-pening](accept.md) child NFT.
+
 ## Standard
 
 The format of an EQUIP interaction is `0x{bytes(rmrk::EQUIP::{version}::{id}::{baseslot})}`.
@@ -29,18 +31,26 @@ rmrk::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001::base_1
 
 The `children` record of a parent NFT will thus change from something like
 
-```js
-"children": {
-    "5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": ""
-},
+```json
+"children": [
+  {
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "equipped": "",
+    "pending": false,
+  },
+];
 ```
 
 to
 
 ```js
-"children": {
-    "5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": "base_1.slot_1"
-},
+"children": [
+  {
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "equipped": "base_1.slot_1",
+    "pending": false,
+  },
+];
 ```
 
 To unequip, we provide a falsy value (empty string, null) as the base slot:
@@ -52,9 +62,13 @@ rmrk::EQUIP::2.0.0::5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001::
 The resulting children property is:
 
 ```js
-"children": {
-    "5105000-0aff6865bed3a66b-DLEP-ARMOR-0000000000000001": ""
-},
+"children": [
+  {
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "equipped": "",
+    "pending": false,
+  },
+];
 ```
 
 ### Baseslot Explained

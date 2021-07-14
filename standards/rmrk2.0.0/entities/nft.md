@@ -50,8 +50,8 @@ implementations:
     "description": "An NFT is uniquely identified by the combination of its minting block number, collection ID, its instance ID, and its serial number, e.g. 5193445-0aff6865bed3a66b-ZOMB-ZOMBBLUE-0000000000000001."
   },
   "children": {
-    "type": Children,
-    "description": "Object of NFT.id => baseslot pairs. Baseslot value will be empty string when a child is not equipped."
+    "type": Child[],
+    "description": "Array of Child objects"
   },
   "owner": {
     "type": "string",
@@ -90,32 +90,45 @@ fragments is anything other than 5, the remark should be discarded as invalid:
 
 #### Children
 
-The children object is a mapping of NFT.id => baseslot pairs. Baseslot value will be empty string
-when a child is not equipped:
+`children` is an array of Child objects:
 
-```js
-{
-NFT.id:string: baseslot:string,...
+```ts
+export interface NFTChild {
+  id: string;
+  equipped: string;
+  pending: boolean;
 }
 ```
 
 Example of fully consolidated `children` object:
 
 ```json
-"children": {
-    "438637-0aff6865bed3a66b-KANS-0000000000000001": "",
-    "438637-0aff6865bed3a66b-KANS-0000000000000002": "base-4477293-kanaria_superbird.wing_1_slot",
-    "438637-0aff6865bed3a66b-KANS-0000000000000003": "",
-    "438637-0aff6865bed3a66b-KANS-0000000000000004": "base-4477293-kanaria_superbird.machine_gun_scope"
-},
+"children": [
+  {
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001",
+    "equipped": "",
+    "pending": false,
+  },
+  {
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "equipped": "",
+    "pending": true,
+  },
+  {
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000003",
+    "equipped": "base_1.slot_1",
+    "pending": false,
+  }
+]
 ```
 
-The `baseslot` value will change when computed from the [EQUIP](../interactions/equip.md)
-interaction. The baseslot will be composed of two dot-delimited values, like so:
+The `equipped` property will change when computed from the [EQUIP](../interactions/equip.md)
+interaction. It will will be composed of two dot-delimited values, like so:
 `"base-4477293-kanaria_superbird.machine_gun_scope"`. This means: the child is now equipped into
 this slot. The value of `baseslot` can change from `""` to
 `"base-4477293-kanaria_superbird.machine_gun_scope"` ONLY if one of this child NFT's resources has
-this value as a `slot` property (see `resources` below).
+this value as a `slot` property (see `resources` below) and additional explained in the
+[EQUIP interaction](../interactions/equip.md).
 
 #### Owner and Rootowner
 

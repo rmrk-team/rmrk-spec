@@ -22,72 +22,106 @@ This interactions cancels any pending [LIST](list.md) on the NFT with this ID. I
 having called LIST with a cancel on it. It also cancels any pending SENDs when doing NFT to NFT
 transfer.
 
+## Example of sending to NFT
+
 It is possible to SEND an NFT directly from an NFT to another NFT, even if the destination NFT is
 owned by yet another NFT.
 
-Suppose we have NFT P1 for Parent 1, which owns NFTs B1P1 and B2P1. Suppose we also have P2 which
-owns B1P2 and B2P2. We assume that all NFTs are owned by the same account and thus no
+Suppose we have NFT P1 for Parent 1, which owns NFTs P1C1 and P1C2. Suppose we also have P2 which
+owns P2C1 and P2C2. We assume that all NFTs are owned by the same account and thus no
 [ACCEPT](accept.md) interaction is necessary.
 
 This makes for the following layout of `children`:
 
 P1:
 
-```
+```json
 "children": [
-    {"B1P1": ""},
-    {"B2P1": ""},
+  {
+    "id": "P1C1",
+    "equipped": "",
+    "pending": false,
+  },
+  {
+    "id": "P1C2",
+    "equipped": "",
+    "pending": false,
+  },
 ]
 ```
 
 P2:
 
-```
+```json
 "children": [
-    {"B1P2": ""},
-    {"B2P2": ""},
+  {
+    "id": "P2C1",
+    "equipped": "",
+    "pending": false,
+  },
+  {
+    "id": "P2C2",
+    "equipped": "",
+    "pending": false,
+  },
 ]
 ```
 
-Suppose we want to send B1P2 to B1P1, so that B1P1 becomes the owner of B1P2.
+Suppose we want to send P2C1 to P1C1, so that P1C1 becomes the owner of P2C1.
 
 We would issue a command like this:
 
 ```
-rmrk::SEND::2.0.0::B1P2::B1P1
+rmrk::SEND::2.0.0::P2C1::P1C1
 ```
 
 In a consolidator, this is what should happen:
 
 - check if issuer of the SEND interaction === root owner of B1P2 and is so...
-- get owner of B1P2
-- remove B1P2 from `children` array of P2
-- add B1P2 to `children` array in P1
+- get owner of P2C1
+- remove P2C1 from `children` array of P2
+- add P2C1 to `children` array in P1
 
 The end result is:
 
 P1:
 
-```
+```json
 "children": [
-    {"B1P1": ""},
-    {"B2P1": ""},
+  {
+    "id": "P1C1",
+    "equipped": "",
+    "pending": false,
+  },
+  {
+    "id": "P1C2",
+    "equipped": "",
+    "pending": false,
+  },
 ]
 ```
 
 P2:
 
-```
+```json
 "children": [
-    {"B2P2": ""},
+  {
+    "id": "P2C2",
+    "equipped": "",
+    "pending": false,
+  },
 ]
 ```
 
-B1P1:
+P1C1:
 
-```
+```json
 "children": [
-    {"B1P2": ""}
+  {
+    "id": "P2C1",
+    "equipped": "",
+    "pending": false,
+  },
 ]
 ```
 
@@ -97,7 +131,7 @@ prevents stack overflow and nesting complexity, keeping storage requirements low
 2-write-ops maximum per SEND (remove child, add child), not counting any canceled LISTs and other
 implied interactions.
 
-## Examples
+## Example of sending to account
 
 ```
 rmrk::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y

@@ -95,9 +95,8 @@ Suppose we have an NFT with the ID `5105000-0aff6865bed3a66b-DLEP-DL15-000000000
 
 Suppose its `children` property looks like this:
 
-```js
-children: {
-}
+```json
+"children": [];
 ```
 
 Suppose we want to `SEND` it the NFT with an ID
@@ -109,17 +108,34 @@ We would first issue:
 RMRK::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001
 ```
 
-If we own both NFTs, this concludes the interaction. If we do not, we must issue an `ACCEPT` like
-so:
+If we own both NFTs, this concludes the interaction.
+
+If we do not, we have this:
+
+```json
+"children": [
+  {
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "equipped": "",
+    "pending": true,
+  },
+]
+```
+
+So, we must issue an `ACCEPT` like so:
 
 ```
 rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000001::5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002
 ```
 
-Thereafter, the children object will be:
+Thereafter, the children array will be:
 
-```js
-children: {
-  "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002": ""
-}
+```json
+"children": [
+  {
+    "id": "5105000-0aff6865bed3a66b-DLEP-DL15-0000000000000002",
+    "equipped": "",
+    "pending": false,
+  },
+]
 ```
