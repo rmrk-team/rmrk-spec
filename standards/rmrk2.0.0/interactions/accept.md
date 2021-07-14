@@ -1,14 +1,15 @@
 # ACCEPT
 
-The ACCEPT interaction allows the owner of an [NFT](../entities/nft.md) to accept a pending resource
-added by [RESADD](resadd.md), or to accept a child NFT that is being [SENT](send.md) into a parent
-NFT.
+The ACCEPT interaction allows the owner of an [NFT](../entities/nft.md) to accept
+
+- a pending resource added by [RESADD](resadd.md), or to accept
+- a child NFT that is being [SENT](send.md) into an owned parent NFT
 
 ## Implications for Resources
 
 If the resource being accepted is the first resource of this NFT, then this operations results in
-the NFT being given a `priority` property with the value of `[0]`, meaning the first resource of
-this NFT is highest priority.
+the NFT being given a `priority` property with the value of `[{ID}]` where `{ID}` is the ID of the
+resource, e.g. `V1i6B` makes `priority` into `["V1i6B"]`.
 
 ## Pending
 
