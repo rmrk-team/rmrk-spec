@@ -66,8 +66,8 @@ implementations:
     "description": "An array of Resource objects, computed from RESADD interactions."
   },
   "priority": {
-    "type": "number[]",
-    "description": "An array of indexes matching positions of resources in resources array. Changing this changes the order of default rendering. Example: [3,2,1]. The first successful RESADD computes this to [0]. Future changes are made with SETATTRIBUTE, and any resource not explicitly mentioned in the priority list is implied to go to the end of the list."
+    "type": "string[]",
+    "description": "An array of resource IDs. Changing this changes the order of default rendering. Example: ['skdlj','wyeiu']. Changes are made with SETATTRIBUTE, and any resource not explicitly mentioned in the priority list is implied to go to the end of the list."
   },
   "logic": {
     "type": Logic[],
@@ -180,12 +180,13 @@ cases like these, resource priority should be respected. Priority can be switche
 
 As an example:
 
-- a Kanaria bird has a `left_hand` slot
-- an NFT `excalibur` has a resource targeting `left_hand`
-- if equipped, the bird shows the `excalibur`'s `left_hand` resource in the `left_hand` slot
+- a Kanaria bird has a `left_hand` slot on its `base1` base
+- an NFT `excalibur` has a resource targeting `base1.left_hand`
+- if equipped, the bird shows the `excalibur`'s `base1.left_hand` resource in the `base1.left_hand`
+  slot
 - the original artist notices a glitch, or there's a copyright issue on the original drawing of the
-  `left_hand` resource of `excalibur` and the artist makes a new rendition
-- a new resource is added to `excalibur` targeting the same `left_hand` slot
+  `base1.left_hand` resource of `excalibur` and the artist makes a new rendition
+- a new resource is added to `excalibur` targeting the same `base1.left_hand` slot
 - the armed bird still shows the old resource until the owner of the `excalibur` NFT calls
   [`SETATTRIBUTE`](setattribute) on the `priority` field, changing the priority of the rendering
 
@@ -239,21 +240,26 @@ Example of complete resources array:
 
 Priority defines the order in which resources are loaded. This is very useful when an NFT has
 several resources of the same type, but wants one to be the default. For example, a
-[Kanaria](https://kanaria.rmrk.app) bird has a secondary and primary artwork. One is a resource at
-index 0, the other at index 1. By changing priority to index 1, the second resource is rendered
+[Kanaria](https://kanaria.rmrk.app) bird has a secondary and primary artwork. One is a resource with
+ID `furio`, the other `wyqyc`. By changing priority to ['wyqyc'], the second resource is rendered
 before the first in various visual applications like marketplaces and galleries.
 
 ```json
-"priority": [1, 0]
+"priority": ["wyqyc", "furio"]
 ```
 
-Priority is defaulted to `[0]` when the first resource is added to an NFT. From then on, a user can
-change the priority order by using the [SETATTRIBUTE](../interactions/setattribute.md) interaction.
-Example, to change priority of resource loading on NFT
-`438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f` from `[0]` to `[1,0]`:
+Because omitted resources are implied to go to the end of the list, the following is also valid:
+
+```json
+"priority": ["wyqyc"]
+```
+
+A user can change the priority order by using the [SETATTRIBUTE](../interactions/setattribute.md)
+interaction. Example, to change priority of resource loading on NFT
+`438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f` from `["wyqyc", "furio"]` to `["furio", "wyqyc"]`:
 
 ```
-rmrk::SETATTRIBUTE::2.0.0::priority::%5B1%2C0%5D::438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f
+rmrk::SETATTRIBUTE::2.0.0::priority::%5B%22wyqyc%22%2C%20%22furio%22%5D::438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f
 ```
 
 #### Logic
