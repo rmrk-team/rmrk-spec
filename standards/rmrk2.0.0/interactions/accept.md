@@ -1,6 +1,6 @@
 # ACCEPT
 
-The ACCEPT interaction allows the owner of an [NFT](../entities/nft.md) to accept
+The ACCEPT interaction allows the owner of an [NFT](../entities/nft.md) to accept:
 
 - a pending resource added by [RESADD](resadd.md), or to accept
 - a child NFT that is being [SENT](send.md) into an owned parent NFT
@@ -26,11 +26,12 @@ It is not possible to remove resources accepted in the past. This prevents art r
 
 ## Standard
 
-The format of an ACCEPT interaction is `0x{bytes(rmrk::ACCEPT::{version}::{id1}::{id2})}`.
+The format of an ACCEPT interaction is `0x{bytes(rmrk::ACCEPT::{version}::{id1}::{entity}::{id2})}`.
 
 - `version` is the version of the standard used (e.g. `2.0.0`)
 - `id1` is the [NFT](../entities/nft.md)'s ID
-- `id2` is the id of the resource, or ID of the child NFT being accepted
+- `entity` is the type of entity being accepted: `RES` or `NFT`.
+- `id2` is the id of the entity being accepted
 
 ## Example for Resources
 
@@ -55,7 +56,7 @@ rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::%7B%22id%22%3A
 We can accept it with:
 
 ```txt
-rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::V1i6B
+rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::RES::V1i6B
 ```
 
 After acceptance, the NFT changes from:
@@ -125,7 +126,7 @@ If we do not, we have this:
 So, we must issue an `ACCEPT` like so:
 
 ```
-rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::5105000-0aff6865bed3a66b-DLEP-DL15-00000002
+rmrk::ACCEPT::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::NFT::5105000-0aff6865bed3a66b-DLEP-DL15-00000002
 ```
 
 Thereafter, the children array will be:
