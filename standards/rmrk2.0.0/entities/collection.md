@@ -13,7 +13,7 @@ part of the POAP master collection. Every NFT must have a parent context (collec
 
 A collection MUST adhere to the following standard.
 
-````json
+```json
 {
   "max": {
     "type": "number",
@@ -34,9 +34,45 @@ A collection MUST adhere to the following standard.
   "metadata": {
     "type": "string",
     "description": "HTTP(s) or IPFS URI. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
+  },
+  "attributes?": {
+    "type": Attribute[],
+    "description": "An array of attribute definitions that get inherited by every NFT in this collection"
   }
 }
-```                                                                                        |
+```
+
+## On-chain Attributes
+
+A Collection can define an array of attributes for NFTs in this collection to inherit. Attributes
+defined this way override attributes in the metadata of individual NFTs, but are overridden further
+by attributes of the same name on the NFT. The order of precedence is, from lowest to highest:
+
+- Metadata Attribute
+- Collection-inherited Attribute
+- NFT's own Attribute
+
+Due to on-chain storage concerns and constraints, this function will usually be reserved only for
+[mutable attributes](../interactions/setattribute.md).
+
+### Attribute Format
+
+The same as
+[OpenSea Attribute format](https://docs.opensea.io/docs/metadata-standards#section-attributes) with
+an extra `mutable` flag, e.g.:
+
+Example:
+
+```json
+{
+  "mutable": true,
+  "trait_type": "Hair color",
+  "value": "blue"
+}
+```
+
+Some attributes are always assumed to be present and mutable. See
+[list of always-mutable attributes](../interactions/setattribute.md#list-of-always-mutable-attributes).
 
 ## Metadata
 
@@ -97,5 +133,9 @@ Metadata:
 
 - [CREATE](../interactions/create.md) - creates a new collection
 - [CHANGEISSUER](../interactions/changeissuer.md) - changes issuer to another address
-- [LOCK](../interactions/lock.md) - locks a collection's max number of NFTs to the current number of elements
-````
+- [LOCK](../interactions/lock.md) - locks a collection's max number of NFTs to the current number of
+  elements
+
+```
+
+```

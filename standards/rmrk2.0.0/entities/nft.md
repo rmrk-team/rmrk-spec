@@ -36,6 +36,36 @@ child.
 }
 ```
 
+### On-chain Attributes
+
+An NFT can define an array of attributes. Attributes defined this way override attributes in the
+metadata.
+
+Due to on-chain storage concerns and constraints, this will usually be reserved only for
+[mutable attributes](../interactions/setattribute.md).
+
+### Attribute Format
+
+The same as
+[OpenSea Attribute format](https://docs.opensea.io/docs/metadata-standards#section-attributes) with
+an extra `mutable` flag, e.g.:
+
+Example:
+
+```json
+{
+  "mutable": true,
+  "trait_type": "Hair color",
+  "value": "blue"
+}
+```
+
+NFT-level attributes like these override a
+[Collection's on-chain attributes](collection.md#on-chain-attributes).
+
+Some attributes are always assumed to be present and mutable. See
+[list of always-mutable attributes](../interactions/setattribute.md#list-of-always-mutable-attributes).
+
 ### Computed fields
 
 Computed fields are fields that are used in interactions, but are not explicitly set on their
