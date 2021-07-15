@@ -21,13 +21,14 @@ The format of a EMOTE interaction is
 - `emotion` is the unicode of the emoji (e.g Unicode for party popper 🎉 is
   [1F389](https://emojipedia.org/emoji/🎉/).
 
-| Namespace | ID references                                                                                     |
-| --------- | ------------------------------------------------------------------------------------------------- |
-| rmrk1     | [nft](../entity/nft.md)'s ID [computed field](../../rmrk/1.0.0/entities/nft.md/#computed-fields). |
-| rmrk2     | [nft](../entity/nft.md)'s ID [computed field](../entities/nft.md/#computed-fields).               |
-| pubkey    | Public key of an account, allows emoting on people's accounts.                                    |
+| Namespace | ID references                                                                                                     |
+| --------- | ----------------------------------------------------------------------------------------------------------------- |
+| RMRK1     | [nft](../../rmrk/1.0.0/entities/nft.md)'s ID [computed field](../../rmrk/1.0.0/entities/nft.md/#computed-fields). |
+| RMRK2     | [nft](../entities/nft.md)'s ID [computed field](../entities/nft.md/#computed-fields).                             |
+| PUBKEY    | Public key of an account, allows emoting on people's accounts.                                                    |
 
-Other implementations, depending on the chain, can add their own namespace like:
+Uppercase namespaces are a RMRK convention and do not need to be followed religiously. Other
+implementations, depending on the chain, can add their own namespace like:
 
 | Namespace | ID references                                      |
 | --------- | -------------------------------------------------- |
@@ -49,7 +50,7 @@ emoted. If there is an odd number, that user HAS emoted.
 
 Example:
 
-- Alice gives thumbs up to `rmrk1::5105000-0aff6865bed3a66b-DLEP-DL15-00000001`. Now there is one 👍
+- Alice gives thumbs up to `RMRK1::5105000-0aff6865bed3a66b-DLEP-DL15-00000001`. Now there is one 👍
   emote on this NFT, shown as 👍 from Alice.
 - Alice changes her mind, removes thumbs up by sending it again. Now there are 2(👍) on this NFT, no
   👍 is shown on the NFT from Alice.
@@ -79,25 +80,13 @@ are separate implementations for this.
 ### Emoting on an NFT
 
 ```
-RMRK::EMOTE::2.0.0::rmrk1::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::1F389
-```
-
-Is submitted as:
-
-```
-0x524d524b3a3a454d4f54453a3a322e302e303a3a726d726b313a3a353130353030302d306166663638363562656433613636622d444c45502d444c31352d303030303030303030303030303030313a3a3146333839
+RMRK::EMOTE::2.0.0::RMRK1::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::1F389
 ```
 
 ### Emoting on an Account
 
 ```
-RMRK::EMOTE::2.0.0::pubkey::0xe81f67c2def10f4cc1f43b0e207921210ff83747eb354ad653bbd2c0f0466f10::1F389
-```
-
-Is submitted as:
-
-```
-0x524d524b3a3a454d4f54453a3a322e302e303a3a7075626b65793a3a3078653831663637633264656631306634636331663433623065323037393231323130666638333734376562333534616436353362626432633066303436366631303a3a3146333839
+RMRK::EMOTE::2.0.0::PUBKEY::0xe81f67c2def10f4cc1f43b0e207921210ff83747eb354ad653bbd2c0f0466f10::1F389
 ```
 
 ## Implementations
