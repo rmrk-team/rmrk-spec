@@ -30,7 +30,8 @@ The following **interactions** are possible:
 - [x] [CONSUME](interactions/consume.md) (Burn an NFT)
 - [x] [EMOTE](interactions/emote.md) (Send a reaction/emoticon)
 - [x] [EQUIP](interactions/equip.md) (Equip a child NFT into a parent's slot, or unequip)
-- [ ] [SETATTRIBUTE](interactions/setattribute.md) (Set a custom value on an NFT)
+- [x] [SETATTRIBUTE](interactions/setattribute.md) (Set a custom value on an NFT)
+- [x] [SETPRIORITY](interactions/setpriority.md) (Set a different order of resource priority)
 - [x] [RESADD](interactions/resadd.md) (Add a new resource to an NFT as the collection issuer)
 - [x] [ACCEPT](interactions/accept.md) (Accept the addition of a new resource to an existing NFT, or
       the additiona of a child into a parent NFT)
