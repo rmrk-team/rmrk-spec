@@ -71,8 +71,8 @@ Example:
 }
 ```
 
-Some attributes are always assumed to be present and mutable. See
-[list of always-mutable attributes](../interactions/setattribute.md#list-of-always-mutable-attributes).
+Some attributes can only be mutated if a certain condition is true. For a detailed explanation,
+please see the [Conditional section of SETATTRIBUTE](../interactions/setattribute.md#conditional).
 
 ## Metadata
 
