@@ -84,7 +84,7 @@ Suppose now that we have an NFT which has a resource like this:
 ```json
   {
       "id": "V1i6B",
-      "media": "hash-of-metadata-containing-guest-bird-art",
+      "src": "hash-of-metadata-containing-guest-bird-art",
       "slot": "slot_1"
   },
 ```

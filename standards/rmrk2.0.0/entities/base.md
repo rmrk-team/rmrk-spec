@@ -156,7 +156,7 @@ needs, like so:
       },
       {
           "id": "Z5i6B",
-          "media": "hash-of-guest-bird-art-file",
+          "src": "hash-of-guest-bird-art-file",
           "metadata": "hash-of-metadata-with-credits"
       }
     ]

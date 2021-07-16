@@ -182,7 +182,7 @@ A resource object is defined as such:
 {
   "id": "nanoid-of-resource",
   "base?": "base-uri",
-  "media?": "media-uri",
+  "src?": "media-uri",
   "metadata?": "metadata-uri",
   "slot?": "baseslot",
   "license?": "url-or-identifier"
@@ -194,7 +194,7 @@ should be unique across the entire RMRK ecosystem which, if entropy of the Base 
 a pseudo-randomly generated nanoid of a resource, is easy to satisfy. For JS-based implementations,
 we recommend using the [nanoid](https://www.npmjs.com/package/nanoid) package.
 
-If the resource is a [Base](base.md), the `media` property is absent. Base should be a
+If the resource is a [Base](base.md), the `src` property is absent. Base should be a
 [Base ID computed field](base.md#computed-fields). In this case, the resource **can** also list the
 _parts_ of this base which the NFT implements. A Base lists all the parts an NFT can possibly be
 composed of, and the NFT itself cherry-picks from that list of parts. If the list of parts is
@@ -209,7 +209,7 @@ omitted, then it is assumed the NFT is composed of **all** the parts of the base
       },
       {
           "id": "Z5i6B",
-          "media": "hash-of-guest-bird-art-file",
+          "src": "hash-of-guest-bird-art-file",
           "metadata": "hash-of-metadata-with-credits"
       }
     ]
@@ -219,7 +219,8 @@ The first resource references a base, and picks 3 parts from it - two appear to 
 appears to be a slot. Now this NFT can equip other NFTs into the slot, and will also render
 `left_wing_front` and `left_wing_back`.
 
-If the resource is Media, the `base` property is absent. Media should be a URI like an IPFS hash.
+If the resource is Media, the `base` property is absent. Media `src` should be a URI like an IPFS
+hash.
 
 The `license` field, if present, should contain a link to a license (IPFS or static HTTP url), or an
 identifier, like `RMRK_nocopy` or `ipfs://ipfs/someHashOfLicense`. This is a license transfering
@@ -290,12 +291,12 @@ Example of complete resources array:
       },
       {
           "id": "tGXR8",
-          "media": "hash-of-metadata-containing-guest-bird-art",
+          "src": "hash-of-metadata-containing-guest-bird-art",
           "slot": "base-4477293-kanaria_superbird.wing_1_slot"
       },
       {
           "id": "Z5i6B",
-          "media": "hash-of-metadata-guest-bird-art-with-jetpack",
+          "src": "hash-of-metadata-guest-bird-art-with-jetpack",
           "metadata": "hash-of-metadata-with-credits"
       }
     ]

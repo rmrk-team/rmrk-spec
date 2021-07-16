@@ -42,7 +42,7 @@ Suppose it has the following resource pending:
 ```json
 {
   "id": "V1i6B",
-  "media": "hash-of-metadata-guest-bird-art-with-jetpack",
+  "src": "hash-of-metadata-guest-bird-art-with-jetpack",
   "metadata": "hash-of-metadata-with-credits"
 }
 ```
@@ -50,7 +50,7 @@ Suppose it has the following resource pending:
 Via:
 
 ```txt
-rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::%7B%22id%22%3A%22V1i6B%22%2C%22media%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
+rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::%7B%22id%22%3A%22V1i6B%22%2C%src%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
 ```
 
 We can accept it with:
@@ -84,7 +84,7 @@ to
   "resources": [
     {
       "id": "V1i6B",
-      "media": "hash-of-metadata-guest-bird-art-with-jetpack",
+      "src": "hash-of-metadata-guest-bird-art-with-jetpack",
       "metadata": "hash-of-metadata-with-credits"
     }
   ]
