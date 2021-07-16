@@ -7,7 +7,7 @@ The types of on-chain attributes susceptible to this interaction are: mutable, c
 ## Mutable
 
 Attributes are mutable if they are defined to be mutable by the minter (see
-[NFT On-chain Attributes](../entities/base.md#on-chain-attributes)).
+[NFT On-chain Attributes](../entities/nft.md#on-chain-attributes)).
 
 A mutable attribute is changed with a SETATTRIBUTE call:
 
