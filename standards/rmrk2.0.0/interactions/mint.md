@@ -3,6 +3,10 @@
 The MINT interaction creates an [NFT](../entities/nft.md) into a
 [collection](../entities/collection.md).
 
+Mint is only possible if this NFT's collection is unlimited or below its `max` value. You cannot
+mint into a collection which has its number of elements == `max`, nor to a collection on which the
+[LOCK](../interactions/lock.md) interaction was invoked.
+
 ## Standard
 
 The format of a MINT interaction is the same as for [CREATE](create.md):
