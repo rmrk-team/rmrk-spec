@@ -27,12 +27,12 @@ before there is a theme with the `default` key.
   ],
   "themes": {
     "default": {
-      "primary1": "yellow",
-      "secondary1": "darkyellow"
+      "primary_color": "yellow",
+      "secondary_color": "darkyellow"
     },
     "sepia": {
-      "primary1": "0x47822a",
-      "secondary1": "0x331213"
+      "primary_color": "0x47822a",
+      "secondary_color": "0x331213"
     }
   }
 }
