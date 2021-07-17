@@ -38,6 +38,26 @@ before there is a theme with the `default` key.
 }
 ```
 
+A theme can have any number and type of fields. It is not limited to 2 values, and they do not have
+to be colors. A theme such as the following one is perfectly valid:
+
+```json
+{
+  ...
+  "themes": {
+    "doglover": {
+      "loves": "dogs",
+      "favorite_color": "#884023",
+      "favorite_breed_logo": "ipfs://ipfs/Qmc982y4r8fh873h928u092jf98h3f98/beagle.svg"
+    }
+    ...
+  }
+}
+```
+
+Since SVGs can contain other SVGs, the renderer can easily interpolate the URL to the logo into the
+SVG or the parent NFT using this base.
+
 ## Format
 
 The format of a `THEMEADD` interaction is:
