@@ -106,6 +106,7 @@ value:
   {
       "id": "wing_1_front",
       "type": "fixed",
+      "themable": true,
       "z": 3,
       "src": "ipfs://ipfs/hash2"
   },
@@ -114,6 +115,10 @@ value:
 The renderer will take the content behind the `src` value and place it into the viewport at the `z`
 index defined. The renderer does not check that the viewport matches all parts - this is up to the
 designer (refer to the above image).
+
+`themable` means the SVG code contains some placeholder values in the following format:
+`{placeholder}`. These get replaced during rendering with static values from a **theme** - see
+[THEMEADD](../interactions/themeadd.md).
 
 `slot` parts have a type of `slot` and an optional static resource `src`. They are meant to visually
 accept the resources of other NFTs into them. They have an array of whitelisted `equippable`
