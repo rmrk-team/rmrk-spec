@@ -219,6 +219,22 @@ The first resource references a base, and picks 3 parts from it - two appear to 
 appears to be a slot. Now this NFT can equip other NFTs into the slot, and will also render
 `left_wing_front` and `left_wing_back`.
 
+The resource can also pick a [Base's Theme](base.md#themes), like so:
+
+```json
+    "resources": [
+      {
+          "id": "V1StG",
+          "base": "some-base-id",
+          "parts": ["left_wing_front", "left_wing_back", "gem_slot_1"],
+          "theme": "yellow"
+      }
+    ]
+```
+
+If the `theme` value is omitted, it is implied to be `default`. To learn more about themes, see the
+[THEMEADD](../interactions/themeadd.md) interaction.
+
 If the resource is Media, the `base` property is absent. Media `src` should be a URI like an IPFS
 hash.
 
