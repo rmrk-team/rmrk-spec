@@ -25,7 +25,6 @@ Example:
           "id": "gem_1",
           "type": "slot",
           "equippable": ["id-of-genesis-trait-crystals-LEGENDARY"],
-          "unequip": "unequip",
           "src": "ipfs://ipfs/default-art-hash",
           "z": 1
       },
@@ -48,7 +47,6 @@ Example:
           "id": "wing_1_slot",
           "type": "slot",
           "equippable": ["id-of-genesis-legendaries", "id-of-genesis-rares", "id-of-genesis-epics", ...],
-          "unequip": "burn",
           "z": 2
       }
     ]
@@ -122,7 +120,7 @@ designer (refer to the above image).
 
 `slot` parts have a type of `slot` and an optional static resource `src`. They are meant to visually
 accept the resources of other NFTs into them. They have an array of whitelisted `equippable`
-collections and an optional `unequip` value.
+collections.
 
 If there is a `src` value, this static resource is used as a default fallback art for when the slot
 is unequipped. As an example, imagine a playing card with a changeable background - when this slot
@@ -134,7 +132,6 @@ is empty, i.e. no custom background is equipped, a default background should be 
     "type": "slot",
     "src": "my-custom-fallback",
     "equippable": ["id-of-genesis-legendaries", "id-of-genesis-rares", "id-of-genesis-epics", ...],
-    "unequip": "burn",
     "z": 2
 }
 ```
@@ -144,10 +141,6 @@ with this slot. This value can also be a wildcard `*` to allow any collection, a
 allow nothing (see [Equippable](../interactions/equippable.md)). The whitelisting can be useful to
 prevent others from hijacking your project with their customizations, covering all your art an
 branding.
-
-The optional unequip value specifies what happens to an item once it is unequipped. This is useful
-for one-off bonuses, NFTs that can expire, and so on. The values can be `inv` for inventroy and
-`burn` to destroy the NFT when unequipped.
 
 When an NFT inherits a base in its `resources` array, it cherry-picks the `parts` of the base it
 needs, like so:
@@ -241,11 +234,6 @@ the parts it needs (see [NFT](./nft.md) under Resources).
   "equippable": {
     "type": "string[]",
     "description": "A list of Collection IDs (see Collection entity) containing NFTs equippable into slots of this base. Starter (default) value is an array with a single, empty string."
-  },
-  "unequip": {
-    "type": "string",
-    "description": "What to do with an NFT that is removed from a slot. `burn` destroys the NFT (see CONSUME for effects), and `inv` just empties the slot.",
-    "values": ["burn", "inv"]
   },
   "src": {
     "type": "string",
