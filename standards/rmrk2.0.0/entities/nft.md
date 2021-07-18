@@ -48,7 +48,7 @@ Due to on-chain storage concerns and constraints, this will usually be reserved 
 
 The same as
 [OpenSea Attribute format](https://docs.opensea.io/docs/metadata-standards#section-attributes) with
-an extra `mutable` flag, e.g.:
+an extra `mutable` flag and optional `mutator` and `bubble_on_equip` values, e.g.:
 
 Example:
 
@@ -56,15 +56,23 @@ Example:
 {
   "mutable": true,
   "trait_type": "Hair color",
-  "value": "blue"
+  "value": "blue",
+  "mutator": "owner",
+  "bubble_on_equip": true
 }
 ```
 
+`mutator` can be `owner` (default) or `issuer`. This defines who can mutate this item's attribute:
+the current owner of the NFT, or the issuer of the collection. `bubble_on_equip` defines whether
+this attribute is local (default: `false`), or global (`true`), i.e. bubbles up to its parent.
+
+Example of `mutator:owner` and `bubble_on_equip:true` is a name-change crystal where renaming a
+`name` attribute on an NFT applies the new value to the `name` attribute of the parent. Example of
+`mutator:issuer` and `bubble_on_equip:false` is triggering some kind of condition like an NFT bonus
+having expired, or Ragnarok on Viking-themed NFTs in a common collection, etc.
+
 NFT-level attributes like these override a
 [Collection's on-chain attributes](collection.md#on-chain-attributes).
-
-Some attributes can only be mutated if a certain condition is true. For a detailed explanation,
-please see the [Conditional section of SETATTRIBUTE](../interactions/setattribute.md#conditional).
 
 ### Computed fields
 
@@ -336,12 +344,12 @@ Because omitted resources are implied to go to the end of the list, the followin
 "priority": ["wyqyc"]
 ```
 
-A user can change the priority order by using the [SETATTRIBUTE](../interactions/setattribute.md)
+A user can change the priority order by using the [SETPRIORITY](../interactions/setpriority.md)
 interaction. Example, to change priority of resource loading on NFT
 `438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f` from `["wyqyc", "furio"]` to `["furio", "wyqyc"]`:
 
 ```
-rmrk::SETATTRIBUTE::2.0.0::priority::%5B%22wyqyc%22%2C%20%22furio%22%5D::438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f
+rmrk::SETPRIORITY::2.0.0::438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f::%5B%22wyqyc%22%2C%20%22furio%22%5D
 ```
 
 #### Logic
