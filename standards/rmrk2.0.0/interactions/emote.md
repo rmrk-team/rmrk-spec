@@ -4,7 +4,7 @@ React to an on-chain entity with an emoticon.
 
 The EMOTE interaction on Kusama allows you to emote on:
 
-- any non-[consume](consume.md)d NFT
+- any non-[burned](burn.md)d NFT
 - any Substrate account
 
 Outside of Kusama, the emote interaction can also be used on other entities (see namespace tables

@@ -4,7 +4,7 @@ A LIST interaction lists an NFT as available for sale. The NFT can be instantly 
 can be canceled, and is automatically considered canceled when a [BUY](./buy.md) is executed on top
 of a given LIST.
 
-You can only LIST an existing NFT (one that has not been [CONSUMEd](consume.md) yet).
+You can only LIST an existing NFT (one that has not been [BURNed](burn.md) yet).
 
 An NFT that has another NFT as its owner CAN NOT be LISTed. An NFT-owned NFT must first be sent to
 an account before being LISTed.
@@ -26,8 +26,8 @@ The format of a LIST interaction is `0x{bytes(rmrk::LIST::{version}::{id}::{pric
 ## Effects
 
 An NFT's LIST is canceled by setting the price to `0`, or by the NFT being [sold](buy.md),
-[sent](send.md), or [consumed](consume.md). While these actions will **NOT** emit the appropriate
-LIST cancel interaction, they are **IMPLIED** to cancel a listing.
+[sent](send.md), or [burned](burn.md). While these actions will **NOT** emit the appropriate LIST
+cancel interaction, they are **IMPLIED** to cancel a listing.
 
 ## Examples
 

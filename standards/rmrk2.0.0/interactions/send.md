@@ -2,7 +2,7 @@
 
 Send an [NFT](../entities/nft.md) to an arbitrary recipient.
 
-You can only SEND an existing NFT (one that has not been [CONSUMEd](consume.md) yet).
+You can only SEND an existing NFT (one that has not been [BURNed](burn.md) yet).
 
 When sending an NFT to another NFT, unless you own both, the SEND has to be [ACCEPT](accept.md)ed.
 

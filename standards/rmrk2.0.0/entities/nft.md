@@ -176,8 +176,8 @@ on recipient. After minting, it is computed from [SEND](../interactions/send.md)
 `rootowner` will ALWAYS be an account, whereas `owner` can also be an NFT ID in cases where an NFT
 owns another NFT (see `children` above). An implementing toolset MUST take into consideration the
 bubbling-up of ownership checks, so that if Owner O owns NFT A which owns NFT B which owns NFT C and
-O issues a [CONSUME](../interactions/consume.md) to NFT C, it should just work. This is where
-`rootowner` check should be utilized.
+O issues a [BURN](../interactions/burn.md) to NFT C, it should just work. This is where `rootowner`
+check should be utilized.
 
 #### Resources and Resource
 

@@ -26,7 +26,7 @@ The following **interactions** are possible:
 - [x] [BASE](interactions/base.md) (Create a [Base](entities/base.md))
 - [x] [BUY](interactions/buy.md) (Buy an NFT)
 - [x] [CHANGEISSUER](interactions/changeissuer.md) (Changing the issuer of a collection or base)
-- [x] [CONSUME](interactions/consume.md) (Burn an NFT)
+- [x] [BURN](interactions/burn.md) (Burn an NFT)
 - [x] [CREATE](interactions/create.md) (Minting a collection of NFTs)
 - [x] [EMOTE](interactions/emote.md) (Send a reaction/emoticon)
 - [x] [EQUIP](interactions/equip.md) (Equip a child NFT into a parent's slot, or unequip)

@@ -2,9 +2,9 @@
 
 Equips an owned [NFT](../entities/nft.md) into a slot on its parent, or unequips it.
 
-You can only EQUIP an existing NFT (one that has not been [CONSUMEd](consume.md) yet). You can only
-EQUIP an NFT into its immediate parent. You cannot equip across ancestors, or even across other
-NFTs. You can only unequip an equipped NFT.
+You can only EQUIP an existing NFT (one that has not been [BURNed](burn.md) yet). You can only EQUIP
+an NFT into its immediate parent. You cannot equip across ancestors, or even across other NFTs. You
+can only unequip an equipped NFT.
 
 You can equip/unequip a non-transferable NFT. As an example, putting a helmet on or taking it off
 does not change the ownership of the helmet.
