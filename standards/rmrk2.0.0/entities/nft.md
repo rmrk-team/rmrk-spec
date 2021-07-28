@@ -193,7 +193,8 @@ A resource object is defined as such:
   "src?": "media-uri",
   "metadata?": "metadata-uri",
   "slot?": "baseslot",
-  "license?": "url-or-identifier"
+  "license?": "url-or-identifier",
+  "thumb?": "uri-of-thumbnail"
 }
 ```
 
@@ -259,6 +260,18 @@ baseslot will be composed of two dot-delimited values, like so:
 the `machine_gun_scope` slot of base `base-4477293-kanaria_superbird`. If the NFT with this resource
 becomes a child of an NFT which has `base-4477293-kanaria_superbird` as its base, it will be
 equippable into that NFT (see `children` above).
+
+If the resource has the `thumb` property, this will be a URI to a thumbnail of the given resource.
+For example, if we have a composable NFT like a [Kanaria bird](https://url.rmrk.app/demobird), the
+resource is complex and too detailed to show in a search-results page or a list. Also, if a bird
+owns another bird, showing the full render of one bird inside the other's inventory might be a bit
+of a strain on the browser. For this reason, the `thumb` value can contain a URI to an image that is
+lighter and faster to load but representative of this resource. In the case of the birds when the
+resource is a `base`, the `thumb` could be an image of the whole Kanaria project, or the Kanaria
+logo, or a plain bird. Then when this resource is inspected in full view (individual NFT view), the
+full composable NFT is shown and the `thumb` value is ignored. In short, `thumb` is what's shown in
+search result and inventory pages for then the given resource is at top
+[priority](../interactions/setpriority.md).
 
 ### Conflicting Base slot
 
