@@ -28,11 +28,13 @@ before there is a theme with the `default` key.
   "themes": {
     "default": {
       "primary_color": "yellow",
-      "secondary_color": "darkyellow"
+      "secondary_color": "darkyellow",
+      "_inherit": true
     },
     "sepia": {
       "primary_color": "0x47822a",
-      "secondary_color": "0x331213"
+      "secondary_color": "0x331213",
+      "_inherit": true
     }
   }
 }
@@ -55,8 +57,110 @@ to be colors. A theme such as the following one is perfectly valid:
 }
 ```
 
-Since SVGs can contain other SVGs, the renderer can easily interpolate the URL to the logo into the
-SVG or the parent NFT using this base.
+### Theme Inheritance
+
+When an NFT A with theme X is equipped in an NFT B with theme Y, theme Y can inherit theme X values
+if its `_inherit` flag is set to `true`.
+
+Parent theme X:
+
+```json
+"parent_theme": {
+    "primary_color": "blue",
+    "dog": "beagle",
+    "food": "corn",
+    "toy": "ball"
+}
+```
+
+Child theme Y:
+
+```json
+"child_theme": {
+    "primary_color": "yellow",
+    "number_of_wheels": 4,
+    "window_tint": "red",
+    "_inherit": true
+}
+```
+
+Resulting theme applied to child NFT's SVG:
+
+```json
+{
+  "primary_color": "blue",
+  "dog": "beagle",
+  "food": "corn",
+  "toy": "ball",
+  "number_of_wheels": 4,
+  "window_tint": "red"
+}
+```
+
+The result is a merge of the themes, with parent values taking priority over child values of the
+same name. If `_inherit` were `false`, the child theme would remain intact.
+
+Non-slot parts defined as `themable: true` are themable and automatically inherit properties from
+the parent theme.
+
+> ⚠ There are **two** reserved fields: `_bubble` and `_inherit`. Only `_inherit` is currently used,
+> but neither may be set by the user.
+
+## Example
+
+Assume we have a lightsaber which can grow red, green, white, or blue. One could mint four separate
+ones, or one could mint a single one and apply the "red", "green", "blue", or "white" theme to each.
+
+The advantages of the latter approach are:
+
+- fewer assets to pin on IPFS and any decentralized storage
+- easy to add new looks to an existing collection later on
+- less load lag (fewer different resources to load - load one weapon and you loaded them all).
+
+Now, if this lightsaber were to be equipped by a character NFT, it might want to change its
+appearance.
+
+Let's assume every lightsaber glows white if not being held of if held by anyone other than Darth
+Maul or Obi Wan.
+
+```json
+{
+    "resources": [
+        "id": "VykgH",
+        "src": "hash-of-svg-on-ipfs"
+    ],
+    "themes": [
+        "default": {
+            "primary_color": "#ffffff",
+            "_inherit": true
+        }
+    ]
+}
+```
+
+Now let's assume Obi Wan makes it glow green, and Darth Maul makes it glow red.
+
+```json
+{
+  "symbol": "OBIWAN",
+  "themes": {
+    "default": {
+      "primary_color": "#00ff00"
+    }
+  }
+}
+```
+
+```json
+{
+  "symbol": "DARTHMAUL",
+  "themes": {
+    "default": {
+      "primary_color": "#ff0000"
+    }
+  }
+}
+```
 
 ## Format
 
