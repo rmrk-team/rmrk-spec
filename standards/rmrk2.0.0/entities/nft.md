@@ -241,7 +241,8 @@ The resource can also pick a [Base's Theme](base.md#themes), like so:
     ]
 ```
 
-If the `theme` value is omitted, it is implied to be `default`. To learn more about themes, see the
+If the `theme` value is omitted, it is implied to be using the SVG's fallback values, included in
+the SVG itself as data attributes. To learn more about themes, see the
 [THEMEADD](../interactions/themeadd.md) interaction.
 
 If the resource is Media, the `base` property is absent. Media `src` should be a URI like an IPFS
@@ -279,7 +280,7 @@ A resource can have a `slot` property, which indicates which slot in a [base](..
 it's meant for. It can happen that a newly added resource targets the same slot on the same target
 base, in which case the render needs to know which one to display as equipped into an NFT's base. In
 cases like these, resource priority should be respected. Priority can be switched with the
-[`SETATTRIBUTE`](setattribute) interaction.
+[`SETPRIORITY`](../interactions/setpriority.md) interaction.
 
 As an example:
 
@@ -291,7 +292,8 @@ As an example:
   `base1.left_hand` resource of `excalibur` and the artist makes a new rendition
 - a new resource is added to `excalibur` targeting the same `base1.left_hand` slot
 - the armed bird still shows the old resource until the owner of the `excalibur` NFT calls
-  [`SETATTRIBUTE`](setattribute) on the `priority` field, changing the priority of the rendering
+  [`SETPRIORITY`](../interactions/setpriority.md) on the `priority` field, changing the priority of
+  the rendering
 
 ---
 

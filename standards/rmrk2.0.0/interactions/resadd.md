@@ -36,7 +36,7 @@ A resource can have a `slot` property, which indicates which slot in a [base](..
 it's meant for. It can happen that a newly added resource targets the same slot on the same target
 base, in which case the render needs to know which one to display as equipped into an NFT's base. In
 cases like these, resource priority should be respected. Priority can be switched with the
-[`SETATTRIBUTE`](setattribute) interaction.
+[`SETPRIORITY`](setpriority.md) interaction.
 
 As an example:
 
@@ -47,7 +47,7 @@ As an example:
   `left_hand` resource of `excalibur` and the artist makes a new rendition
 - a new resource is added to `excalibur` targeting the same `left_hand` slot
 - the armed bird still shows the old resource until the owner of the `excalibur` NFT calls
-  [`SETATTRIBUTE`](setattribute) on the `priority` field, changing the priority of the rendering
+  [`SETPRIORITY`](setpriority.md) interaction, changing the priority of the rendering
 
 ## Standard
 

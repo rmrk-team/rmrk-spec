@@ -57,6 +57,21 @@ to be colors. A theme such as the following one is perfectly valid:
 }
 ```
 
+A themed SVG looks like this:
+
+```svg
+<svg height="100" width="100">
+  <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" data-primary_color_value="red" data-primary_color_attr="fill" fill="red" />
+</svg>
+```
+
+Notice the data attributes:
+
+- `data-primary_color_attr="fill"`
+- `data-primary_color_value="red"`
+
+This means "replace the fill attribute's value with red".
+
 ### Theme Inheritance
 
 When an NFT A with theme X is equipped in an NFT B with theme Y, theme Y can inherit theme X values
@@ -139,7 +154,7 @@ Maul or Obi Wan.
     "resources": [
         "id": "VykgH",
         "src": "hash-of-svg-on-ipfs",
-        "theme": "default" // <-- this can also be omitted, defaults to "default"
+        "theme": "default" // <-- this can also be omitted,, which makes the resource use its SVG's built-in fallbacks
     ],
 }
 ```

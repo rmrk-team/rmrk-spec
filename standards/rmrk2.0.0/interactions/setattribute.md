@@ -29,7 +29,7 @@ inherited from Collection or directly defined on NFT):
 We can change the color to red like so:
 
 ```txt
-rmrk::SETATTRIBUTE::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::Hair%20color::blue
+rmrk::SETATTRIBUTE::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::Hair%20color::red
 ```
 
 If the attribute was inherited, it appears as an NFT-level attribute on the NFT henceforth, since
