@@ -1,5 +1,7 @@
 # SETATTRIBUTE
 
+Discussing here: https://app.clickup.com/6615036/docs/69vzw-1501/69vzw-121
+
 The `SETATTRIBUTE` interaction allows NFT owners to change certain mutable values on their NFTs.
 
 The types of on-chain attributes susceptible to this interaction are: mutable, conditional, logic.

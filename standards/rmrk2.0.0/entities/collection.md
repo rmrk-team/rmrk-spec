@@ -57,30 +57,15 @@ Due to on-chain storage concerns and constraints, this function will usually be 
 
 ### Attribute Format
 
-The same as
-[OpenSea Attribute format](https://docs.opensea.io/docs/metadata-standards#section-attributes) with
-an extra `mutable` flag and optional `mutator` and `bubble_on_equip` values, e.g.:
+### Attribute Format
 
-Example:
+The same as suggested by
+[Enjin](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema),
+with an extra `mutable` flag and optional `mutator` and `bubble_on_equip` values, e.g.:
 
-```json
-{
-  "mutable": true,
-  "trait_type": "Hair color",
-  "value": "blue",
-  "mutator": "owner",
-  "bubble_on_equip": true
-}
-```
+TODO MUTABLE ATTRIBUTES
 
-`mutator` can be `owner` (default) or `issuer`. This defines who can mutate this item's attribute:
-the current owner of the NFT, or the issuer of the collection. `bubble_on_equip` defines whether
-this attribute is local (default: `false`), or global (`true`), i.e. bubbles up to its parent.
-
-Example of `mutator:owner` and `bubble_on_equip:true` is a name-change crystal where renaming a
-`name` attribute on an NFT applies the new value to the `name` attribute of the parent. Example of
-`mutator:issuer` and `bubble_on_equip:false` is triggering some kind of condition like an NFT bonus
-having expired, or Ragnarok on Viking-themed NFTs in a common collection, etc.
+Chain-level attributes like these override a Collection's metadata attributes.
 
 ## Metadata
 
@@ -94,7 +79,7 @@ A collection MUST have metadata to describe it and help visualization on various
   },
   "attributes": {
     "type": "array",
-    "description": "An Array of JSON objects, matching OpenSea's: https://docs.opensea.io/docs/metadata-standards#section-attributes"
+    "description": "An Array of JSON objects, matching Enjin's: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema"
   },
   "external_url": {
     "type": "string",
@@ -143,7 +128,3 @@ Metadata:
 - [CHANGEISSUER](../interactions/changeissuer.md) - changes issuer to another address
 - [LOCK](../interactions/lock.md) - locks a collection's max number of NFTs to the current number of
   elements
-
-```
-
-```

@@ -46,30 +46,11 @@ Due to on-chain storage concerns and constraints, this will usually be reserved 
 
 ### Attribute Format
 
-The same as
-[OpenSea Attribute format](https://docs.opensea.io/docs/metadata-standards#section-attributes) with
-an extra `mutable` flag and optional `mutator` and `bubble_on_equip` values, e.g.:
+The same as suggested by
+[Enjin](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema),
+with an extra `mutable` flag and optional `mutator` and `bubble_on_equip` values, e.g.:
 
-Example:
-
-```json
-{
-  "mutable": true,
-  "trait_type": "Hair color",
-  "value": "blue",
-  "mutator": "owner",
-  "bubble_on_equip": true
-}
-```
-
-`mutator` can be `owner` (default) or `issuer`. This defines who can mutate this item's attribute:
-the current owner of the NFT, or the issuer of the collection. `bubble_on_equip` defines whether
-this attribute is local (default: `false`), or global (`true`), i.e. bubbles up to its parent.
-
-Example of `mutator:owner` and `bubble_on_equip:true` is a name-change crystal where renaming a
-`name` attribute on an NFT applies the new value to the `name` attribute of the parent. Example of
-`mutator:issuer` and `bubble_on_equip:false` is triggering some kind of condition like an NFT bonus
-having expired, or Ragnarok on Viking-themed NFTs in a common collection, etc.
+TODO MUTABLE ATTRIBUTES
 
 NFT-level attributes like these override a
 [Collection's on-chain attributes](collection.md#on-chain-attributes).
@@ -373,6 +354,9 @@ TBD
 
 ## Metadata Standard
 
+The same as [Opensea's](https://docs.opensea.io/docs/metadata-standards) but with
+[Enjin's attribute format](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema).
+
 ```json
 {
   "external_url": {
@@ -397,7 +381,7 @@ TBD
   },
   "attributes": {
     "type": "array",
-    "description": "An Array of JSON objects, matching OpenSea's: https://docs.opensea.io/docs/metadata-standards#section-attributes"
+    "description": "An Array of JSON objects, matching Enjin's: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema"
   },
   "background_color": {
     "type": "string",
