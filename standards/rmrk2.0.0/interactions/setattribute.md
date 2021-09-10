@@ -4,72 +4,80 @@ Discussing here: https://app.clickup.com/6615036/docs/69vzw-1501/69vzw-121
 
 The `SETATTRIBUTE` interaction allows NFT owners to change certain mutable values on their NFTs.
 
-The types of on-chain attributes susceptible to this interaction are: mutable, conditional, logic.
+The types of on-chain properties susceptible to this interaction are: mutable, conditional, logic.
 
 ## Mutable
 
-Attributes are mutable if they are defined to be mutable by the minter (see
+Properties are mutable if they are defined to be mutable by the minter (see
 [NFT On-chain Attributes](../entities/nft.md#on-chain-attributes)).
 
-A mutable attribute is changed with a SETATTRIBUTE call:
+A mutable property is changed with a SETATTRIBUTE call:
 
 ```txt
 rmrk::SETATTRIBUTE::2.0.0::{id}::{html_encoded_name}::{html_encoded_value}
 ```
 
-Example. Given an NFT `5105000-0aff6865bed3a66b-DLEP-DL15-00000001` with an attribute (either
+Example. Given an NFT `5105000-0aff6865bed3a66b-DLEP-DL15-00000001` with a property (either
 inherited from Collection or directly defined on NFT):
 
 ```json
-{
-  "mutable": true,
-  "trait_type": "Hair color",
-  "value": "blue"
-}
+"properties":  {
+  "color": {
+    "_mutation":  {
+      "allowed": true
+    },
+    "type": "string",
+    "value": "blue"
+  }
+},
 ```
 
 We can change the color to red like so:
 
 ```txt
-rmrk::SETATTRIBUTE::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::Hair%20color::red
+RMRK::SETATTRIBUTE::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::color::%7B%22type%22%3A%22string%22%2C%22value%22%3A%22red%22%7D
+
 ```
 
-If the attribute was inherited, it appears as an NFT-level attribute on the NFT henceforth, since
-the new value diverges from what was inherited from the Collection.
+Which is encoded object to replace old value
 
-The attribute can also have the `mutator` property, and the `bubble` property:
-
-```json
+```
 {
-  "mutable": true,
-  "trait_type": "Hair color",
-  "value": "blue",
-  "mutator": "owner",
-  "bubble_on_equip": true
+  type: "string",
+  value: "red",
 }
 ```
 
-`mutator` can be `owner` (default) or `issuer`. This defines who can mutate this item's attribute:
-the current owner of the NFT, or the issuer of the collection. `bubble_on_equip` defines whether
-this attribute is local (default: `false`), or global (`true`), i.e. bubbles up to its parent.
+If the property was inherited, it appears as an NFT-level property on the NFT henceforth, since
+the new value diverges from what was inherited from the Collection.
 
-Example of `mutator:owner` and `bubble_on_equip:true` is a name-change crystal where renaming a
-`name` attribute on an NFT applies the new value to the `name` attribute of the parent. Example of
-`mutator:issuer` and `bubble_on_equip:false` is triggering some kind of condition like an NFT bonus
-having expired, or Ragnarok on Viking-themed NFTs in a common collection, etc.
+The property can also have the mutation rule defined with `with` property, which tells consolidator to validate this mutation only if it is paired with specified OP_TYPE 
 
-## Conditional
-
-TBD
+```json
+"properties":  {
+  "nickname": {
+    "_mutation":  {
+      "allowed": true,
+      "with": {
+        "condition": "d43593c715a56da27d-KANARIAGEMS",
+        "opType": "BURN"
+      }
+    },
+    "type": "string",
+    "value": "foo"
+  }
+},
+```
+Here we are saying that the property `nickname` can only be mutated if `SETATTRIBUTE` is paired with `BURN` in the same batch call, and `BURN` remark matches provided condition (condition validation is up to a consolidator)
 
 ## Logic
 
-For Logic attributes please see [Logic](logic.md).
+For Logic properties please see [Logic](logic.md).
 
 ## Caveats
 
-### Relationship with Metadata Attributes
+### Relationship with Metadata Properties
 
-On-chain attributes that match an attribute from metadata by name are prioritized. E.g. if an NFT
-has the attribute `sport:football` in its metadata, then setting the NFT's mutable attribute `sport`
+On-chain properties that match a property from metadata by name are prioritized. E.g. if an NFT
+has the property `sport:football` in its metadata, then setting the NFT's mutable property `sport`
 to `basketball` shows `basketball` as the value henceforth, ignoring the one in metadata.

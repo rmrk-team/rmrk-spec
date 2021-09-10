@@ -36,24 +36,37 @@ child.
 }
 ```
 
-### On-chain Attributes
+### On-chain Properties
 
-An NFT can define an array of attributes. Attributes defined this way override attributes in the
+An NFT can define a map of properties. Properties (previously Attributes) defined this way override properties in the
 metadata.
 
 Due to on-chain storage concerns and constraints, this will usually be reserved only for
-[mutable attributes](../interactions/setattribute.md).
+[mutable properties](../interactions/setattribute.md).
 
-### Attribute Format
+### Properties Format
 
-The same as suggested by
+Inspired by
 [Enjin](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema),
-with an extra `mutable` flag and optional `mutator` and `bubble_on_equip` values, e.g.:
 
-TODO MUTABLE ATTRIBUTES
+```
+export type IProperties = Record<string, IAttribute>;
 
-NFT-level attributes like these override a
-[Collection's on-chain attributes](collection.md#on-chain-attributes).
+export interface IAttribute {
+  _mutation?: {
+    allowed: boolean;
+    with?: {
+      opType: OP_TYPES;
+      condition?: string;
+    };
+  };
+  type: "array" | "object" | "int" | "float" | "string";
+  value: any;
+}
+```
+
+NFT-level properties like these override a
+[Collection's on-chain properties](collection.md#on-chain-attributes).
 
 ### Computed fields
 
@@ -354,8 +367,8 @@ TBD
 
 ## Metadata Standard
 
-The same as [Opensea's](https://docs.opensea.io/docs/metadata-standards) but with
-[Enjin's attribute format](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema).
+The same as [Opensea's](https://docs.opensea.io/docs/metadata-standards) but with 
+[Enjin's inspired attribute format](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema).
 
 ```json
 {
@@ -379,9 +392,9 @@ The same as [Opensea's](https://docs.opensea.io/docs/metadata-standards) but wit
     "type": "string",
     "description": "Name of the NFT instance."
   },
-  "attributes": {
+  "properties": {
     "type": "array",
-    "description": "An Array of JSON objects, matching Enjin's: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema"
+    "description": "A Map of JSON objects, inspired by Enjin's: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema"
   },
   "background_color": {
     "type": "string",
@@ -419,7 +432,7 @@ Metadata:
   "image": "ipfs://ipfs/QmSY3VzdNdAphEs51GW9QMAUotaX3Rf6WeGQkvPPVhEQ3B",
   "description": "Everyone who promoted Dot Leap via the in-email link in edition 15",
   "name": "DL15",
-  "attributes": [],
+  "properties": {},
   "background_color": "ffffff"
 }
 ```
@@ -443,7 +456,37 @@ Metadata:
   "image": "ipfs://ipfs/QmaCxd3omNNvjeVvzgn5gSjARDR4442WBtBAcZN7xEddeL",
   "description": "Everyone who promoted Dot Leap via the in-email link in edition 16",
   "name": "DL16",
-  "attributes": [],
+  "properties":  {
+    "nickname": {
+      "_mutation":  {
+        "allowed": true,
+        "with": {
+          "condition": "d43593c715a56da27d-KANARIAGEMS",
+          "opType": "BURN"
+        }
+      },
+      "type": "string",
+      "value": "foo"
+    }
+  },
   "background_color": "ffffff"
+}
+```
+
+Properties:
+
+```
+export type IProperties = Record<string, IAttribute>;
+
+export interface IAttribute {
+  _mutation?: {
+    allowed: boolean;
+    with?: {
+      opType: OP_TYPES;
+      condition?: string;
+    };
+  };
+  type: "array" | "object" | "int" | "float" | "string";
+  value: any;
 }
 ```

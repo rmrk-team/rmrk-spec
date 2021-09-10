@@ -35,37 +35,48 @@ A collection MUST adhere to the following standard.
     "type": "string",
     "description": "HTTP(s) or IPFS URI. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
   },
-  "attributes?": {
-    "type": Attribute[],
-    "description": "An array of attribute definitions that get inherited by every NFT in this collection"
+  "properties?": {
+    "type": IProperties,
+    "description": "A map of property object definitions that get inherited by every NFT in this collection"
   }
 }
 ```
 
 ## On-chain Attributes
 
-A Collection can define an array of attributes for NFTs in this collection to inherit. Attributes
-defined this way override attributes in the metadata of individual NFTs, but are overridden further
-by attributes of the same name on the NFT. The order of precedence is, from lowest to highest:
+A Collection can define a map of properties for NFTs in this collection to inherit. Propeties (previously Attributes)
+defined this way override properties in the metadata of individual NFTs, but are overridden further
+by properties of the same name on the NFT. The order of precedence is, from lowest to highest:
 
-- Metadata Attribute
-- Collection-inherited Attribute
-- NFT's own Attribute
+- Metadata Properties
+- Collection-inherited Properties
+- NFT's own Properties
 
 Due to on-chain storage concerns and constraints, this function will usually be reserved only for
 [mutable attributes](../interactions/setattribute.md).
 
 ### Attribute Format
 
-### Attribute Format
+```
+export type IProperties = Record<string, IAttribute>;
 
-The same as suggested by
+export interface IAttribute {
+  _mutation?: {
+    allowed: boolean;
+    with?: {
+      opType: OP_TYPES;
+      condition?: string;
+    };
+  };
+  type: "array" | "object" | "int" | "float" | "string";
+  value: any;
+}
+```
+
+Inspired by 
 [Enjin](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema),
-with an extra `mutable` flag and optional `mutator` and `bubble_on_equip` values, e.g.:
 
-TODO MUTABLE ATTRIBUTES
-
-Chain-level attributes like these override a Collection's metadata attributes.
+Chain-level properties like these override a Collection's metadata properties.
 
 ## Metadata
 
@@ -77,9 +88,9 @@ A collection MUST have metadata to describe it and help visualization on various
     "type": "string",
     "description": "Description of the collection as a whole. Markdown is supported."
   },
-  "attributes": {
+  "properties": {
     "type": "array",
-    "description": "An Array of JSON objects, matching Enjin's: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema"
+    "description": "A map of JSON objects, inspired by Enjin's: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema"
   },
   "external_url": {
     "type": "string",
@@ -102,7 +113,6 @@ Collection:
 
 ```json
 {
-  "name": "Dot Leap Early Promoters",
   "max": 100,
   "issuer": "CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp",
   "symbol": "DLEP",
@@ -116,7 +126,7 @@ Metadata:
 ```json
 {
   "description": "Everyone who promoted [Dot Leap](https://dotleap.substack.com) via the in-email Tweet link is eligible.",
-  "attributes": [],
+  "properties": {},
   "external_url": "https://rmrk.app/registry/0aff6865bed3a66b-DLEP",
   "image": "ipfs://ipfs/QmYcWFQCY1bAZ7ffRggt367McMN5gyZjXtribj5hzzeCWQ"
 }
