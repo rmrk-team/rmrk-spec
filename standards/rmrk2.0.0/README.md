@@ -37,6 +37,6 @@ The following **interactions** are possible:
 - [x] [MINT](interactions/mint.md) (Minting an NFT inside a collection)
 - [x] [RESADD](interactions/resadd.md) (Add a new resource to an NFT as the collection issuer)
 - [x] [SEND](interactions/send.md) (Sending an NFT to a recipient)
-- [x] [SETATTRIBUTE](interactions/setattribute.md) (Set a custom value on an NFT)
+- [x] [SETPROPERTY](interactions/setproperty.md) (Set a custom value on an NFT)
 - [x] [SETPRIORITY](interactions/setpriority.md) (Set a different order of resource priority)
 - [x] [THEMEADD](interactions/themeadd.md) (Add a new theme to a base)

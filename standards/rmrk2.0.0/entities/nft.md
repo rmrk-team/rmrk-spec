@@ -42,7 +42,7 @@ An NFT can define a map of properties. Properties (previously Attributes) define
 metadata.
 
 Due to on-chain storage concerns and constraints, this will usually be reserved only for
-[mutable properties](../interactions/setattribute.md).
+[mutable properties](../interactions/setproperty.md).
 
 ### Properties Format
 
@@ -66,7 +66,7 @@ export interface IAttribute {
 ```
 
 NFT-level properties like these override a
-[Collection's on-chain properties](collection.md#on-chain-attributes).
+[Collection's on-chain properties](collection.md#on-chain-properties).
 
 ### Computed fields
 
@@ -99,11 +99,11 @@ implementations:
   },
   "priority": {
     "type": "string[]",
-    "description": "An array of resource IDs. Changing this changes the order of default rendering. Example: ['skdlj','wyeiu']. Changes are made with SETATTRIBUTE, and any resource not explicitly mentioned in the priority list is implied to go to the end of the list."
+    "description": "An array of resource IDs. Changing this changes the order of default rendering. Example: ['skdlj','wyeiu']. Changes are made with SETPROPERTY, and any resource not explicitly mentioned in the priority list is implied to go to the end of the list."
   },
   "logic": {
     "type": Logic[],
-    "description": "Set of Logic objects, computed from SETATTRIBUTE interactions."
+    "description": "Set of Logic objects, computed from SETPROPERTY interactions."
   }
 }
 ```

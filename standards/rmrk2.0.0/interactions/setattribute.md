@@ -1,20 +1,20 @@
-# SETATTRIBUTE
+# SETPROPERTY
 
 Discussing here: https://app.clickup.com/6615036/docs/69vzw-1501/69vzw-121
 
-The `SETATTRIBUTE` interaction allows NFT owners to change certain mutable values on their NFTs.
+The `SETPROPERTY` interaction allows NFT owners to change certain mutable values on their NFTs.
 
 The types of on-chain properties susceptible to this interaction are: mutable, conditional, logic.
 
 ## Mutable
 
 Properties are mutable if they are defined to be mutable by the minter (see
-[NFT On-chain Attributes](../entities/nft.md#on-chain-attributes)).
+[NFT On-chain Properties](../entities/nft.md#on-chain-properties)).
 
-A mutable property is changed with a SETATTRIBUTE call:
+A mutable property is changed with a SETPROPERTY call:
 
 ```txt
-rmrk::SETATTRIBUTE::2.0.0::{id}::{html_encoded_name}::{html_encoded_value}
+rmrk::SETPROPERTY::2.0.0::{id}::{html_encoded_name}::{html_encoded_value}
 ```
 
 Example. Given an NFT `5105000-0aff6865bed3a66b-DLEP-DL15-00000001` with a property (either
@@ -35,7 +35,7 @@ inherited from Collection or directly defined on NFT):
 We can change the color to red like so:
 
 ```txt
-RMRK::SETATTRIBUTE::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::color::%7B%22type%22%3A%22string%22%2C%22value%22%3A%22red%22%7D
+RMRK::SETPROPERTY::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::color::%7B%22type%22%3A%22string%22%2C%22value%22%3A%22red%22%7D
 
 ```
 
@@ -68,7 +68,7 @@ The property can also have the mutation rule defined with `with` property, which
   }
 },
 ```
-Here we are saying that the property `nickname` can only be mutated if `SETATTRIBUTE` is paired with `BURN` in the same batch call, and `BURN` remark matches provided condition (condition validation is up to a consolidator)
+Here we are saying that the property `nickname` can only be mutated if `SETPROPERTY` is paired with `BURN` in the same batch call, and `BURN` remark matches provided condition (condition validation is up to a consolidator)
 
 ## Logic
 

@@ -42,7 +42,7 @@ A collection MUST adhere to the following standard.
 }
 ```
 
-## On-chain Attributes
+## On-chain Properties
 
 A Collection can define a map of properties for NFTs in this collection to inherit. Propeties (previously Attributes)
 defined this way override properties in the metadata of individual NFTs, but are overridden further
@@ -53,9 +53,9 @@ by properties of the same name on the NFT. The order of precedence is, from lowe
 - NFT's own Properties
 
 Due to on-chain storage concerns and constraints, this function will usually be reserved only for
-[mutable attributes](../interactions/setattribute.md).
+[mutable properties](../interactions/setproperty.md).
 
-### Attribute Format
+### Properties Format
 
 ```
 export type IProperties = Record<string, IAttribute>;
