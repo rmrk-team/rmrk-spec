@@ -35,17 +35,7 @@ inherited from Collection or directly defined on NFT):
 We can change the color to red like so:
 
 ```txt
-RMRK::SETPROPERTY::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::color::%7B%22type%22%3A%22string%22%2C%22value%22%3A%22red%22%7D
-
-```
-
-Which is encoded object to replace old value
-
-```
-{
-  type: "string",
-  value: "red",
-}
+RMRK::SETPROPERTY::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::color::red
 ```
 
 If the property was inherited, it appears as an NFT-level property on the NFT henceforth, since
