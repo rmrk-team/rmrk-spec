@@ -1,6 +1,6 @@
 # MINTNFT
 
-The MINT interaction creates an [NFT](../entities/nft.md) inside of a
+The MINTNFT interaction creates an [NFT](../entities/nft.md) inside of a
 [Collection](../entities/collection.md).
 
 ## Standard
