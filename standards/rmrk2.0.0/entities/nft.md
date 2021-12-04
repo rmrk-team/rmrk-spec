@@ -395,18 +395,6 @@ The same as [Opensea's](https://docs.opensea.io/docs/metadata-standards) but wit
   "properties": {
     "type": "array",
     "description": "A Map of JSON objects, inspired by Enjin's: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema"
-  },
-  "background_color": {
-    "type": "string",
-    "description": "Background color of the item. Must be a six-character hexadecimal without #."
-  },
-  "animation_url": {
-    "type": "string",
-    "description": "HTTP or IPFS URL (format MUST be ipfs://ipfs/HASH) for an animated image of the item. GLTF, GLB, WEBM, MP4, M4V, and OGG are supported, and when using IPFS type MUST be appended, separated by colon, e.g. ipfs://ipfs/SOMEHASH:webm."
-  },
-  "youtube_url": {
-    "type": "string",
-    "description": "URL to Youtube video about this NFT"
   }
 }
 ```
@@ -432,8 +420,7 @@ Metadata:
   "image": "ipfs://ipfs/QmSY3VzdNdAphEs51GW9QMAUotaX3Rf6WeGQkvPPVhEQ3B",
   "description": "Everyone who promoted Dot Leap via the in-email link in edition 15",
   "name": "DL15",
-  "properties": {},
-  "background_color": "ffffff"
+  "properties": {}
 }
 ```
 
@@ -468,8 +455,7 @@ Metadata:
       "type": "string",
       "value": "foo"
     }
-  },
-  "background_color": "ffffff"
+  }
 }
 ```
 
