@@ -14,7 +14,7 @@ like Opensea, showing the cover, into Audible and play back the audio version, o
 ## Implications
 
 If the resource being added is the first resource of this NFT, and it is accepted, then this
-operations results in the NFT being given a `priority` property with the value of `[0]`, meaning the
+operation results in the NFT being given a `priority` property with the value of `[0]`, meaning the
 first resource of this NFT is highest priority.
 
 ## Pending
