@@ -67,7 +67,7 @@ export interface IAttribute {
 
 ### Royalties
 
-A royalty info is an extension of Attribute type and saved in a Properties object alongside other properties. `royalty` attribute cannot be mutated.
+A royalty info is an extension of Attribute type and saved in a Properties object alongside other properties. Royalty property can only be updated by owner if the current owner of said NFT is also a collection issuer. `royalty` attribute cannot be mutated.
 `receiver` is an Address of a royalty receiver and `royaltyPercentFloat` is a two-decimal floating point number, supporting 2.43% and similar values.
 
 ```ts
