@@ -49,7 +49,7 @@ Due to on-chain storage concerns and constraints, this will usually be reserved 
 Inspired by
 [Enjin](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema),
 
-```
+```ts
 export type IProperties = Record<string, IAttribute>;
 
 export interface IAttribute {
@@ -60,8 +60,25 @@ export interface IAttribute {
       condition?: string;
     };
   };
-  type: "array" | "object" | "int" | "float" | "string";
+  type: "array" | "object" | "int" | "float" | "string" | "royalty";
   value: any;
+}
+```
+
+### Royalties
+
+A royalty info is an extension of Attribute type and saved in a Properties object alongside other properties. `royalty` attribute cannot be mutated.
+
+```ts
+export interface IRoyaltyAttribute extends IAttribute {
+  _mutation: IAttribute["_mutation"] & {
+    allowed: false;
+  };
+  type: "royalty";
+  value: {
+    receiver: string;
+    royaltyPercentFloat: number;
+  };
 }
 ```
 
