@@ -49,7 +49,7 @@ Due to on-chain storage concerns and constraints, this will usually be reserved 
 Inspired by
 [Enjin](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema),
 
-```
+```ts
 export type IProperties = Record<string, IAttribute>;
 
 export interface IAttribute {
@@ -60,8 +60,26 @@ export interface IAttribute {
       condition?: string;
     };
   };
-  type: "array" | "object" | "int" | "float" | "string";
+  type: "array" | "object" | "int" | "float" | "string" | "royalty";
   value: any;
+}
+```
+
+### Royalties
+
+A royalty info is an extension of Attribute type and saved in a Properties object alongside other properties. Royalty property can only be updated by owner if the current owner of said NFT is also a collection issuer. `royalty` attribute cannot be mutated.
+`receiver` is an Address of a royalty receiver and `royaltyPercentFloat` is a two-decimal floating point number, supporting 2.43% and similar values.
+
+```ts
+export interface IRoyaltyAttribute extends IAttribute {
+  _mutation: IAttribute["_mutation"] & {
+    allowed: false;
+  };
+  type: "royalty";
+  value: {
+    receiver: string;
+    royaltyPercentFloat: number;
+  };
 }
 ```
 
