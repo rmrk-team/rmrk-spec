@@ -4,7 +4,7 @@ A base is a meta-entity, a catalogue of parts. It is not an [NFT](nft.md), but i
 can be thought of as the interface or abstract class of an NFT's render i.e. final user-facing
 output.
 
-A base is a JSON object with four properties: `symbol`, `type`, `whitelist` and `parts`. There is an implied
+A base is a JSON object with five properties: `symbol`, `type`, `whitelist`, `themes` and `parts`. There is an implied
 `issuer` field, matching the address that created the base, and an `id` field which is dynamically
 generated based on the `symbol` and some other values (see Computed Properties below). `whitelist` object is a mutable map of collectionIds that can be equipped in a particular slot part.
 
