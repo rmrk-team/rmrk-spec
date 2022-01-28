@@ -12,44 +12,44 @@ Example:
 
 ```json
 {
-    "symbol": "kanaria_superbird",
-    "type": "svg",
-    "parts": [
-      {
-          "id": "bg",
-          "type": "fixed",
-          "z": 0,
-          "src": "ipfs://ipfs/hash"
-      },
-      {
-          "id": "gem_1",
-          "type": "slot",
-          "equippable": ["id-of-genesis-trait-crystals-LEGENDARY"],
-          "src": "ipfs://ipfs/default-art-hash",
-          "z": 1
-      },
-      {
-          // ...
-      },
-      {
-          "id": "wing_1_back",
-          "type": "fixed",
-          "z": 1,
-          "src": "ipfs://ipfs/hash"
-      },
-      {
-          "id": "wing_1_front",
-          "type": "fixed",
-          "z": 3,
-          "src": "ipfs://ipfs/hash2"
-      },
-      {
-          "id": "wing_1_slot",
-          "type": "slot",
-          "equippable": ["id-of-genesis-legendaries", "id-of-genesis-rares", "id-of-genesis-epics", ...],
-          "z": 2
-      }
-    ]
+    "symbol": "kanaria_superbird",
+    "type": "svg",
+    "parts": [
+      {
+          "id": "bg",
+          "type": "fixed",
+          "z": 0,
+          "src": "ipfs://ipfs/hash"
+      },
+      {
+          "id": "gem_1",
+          "type": "slot",
+          "equippable": ["id-of-genesis-trait-crystals-LEGENDARY"],
+          "src": "ipfs://ipfs/default-art-hash",
+          "z": 1
+      },
+      {
+          // ...
+      },
+      {
+          "id": "wing_1_back",
+          "type": "fixed",
+          "z": 1,
+          "src": "ipfs://ipfs/hash"
+      },
+      {
+          "id": "wing_1_front",
+          "type": "fixed",
+          "z": 3,
+          "src": "ipfs://ipfs/hash2"
+      },
+      {
+          "id": "wing_1_slot",
+          "type": "slot",
+          "equippable": ["id-of-genesis-legendaries", "id-of-genesis-rares", "id-of-genesis-epics", ...],
+          "z": 2
+      }
+    ]
 }
 ```
 
@@ -63,11 +63,11 @@ uniqueness to the ID, and because dots `.` are used for `slot` addressing.
 
 ## Base Type
 
-The type is a pre-defined value that specifies how an NFT should be rendered. Currently only `svg`
+The type is a pre-defined value that specifies how an NFT should be rendered. Currently only `svg` and `mixed`
 is supported.
 
 ```json
-"type": "svg"
+"type": "svg" | "mixed"
 ```
 
 ### SVG Base
@@ -81,7 +81,7 @@ SVG. The SVG type implies the following:
 This makes it possible to overlay SVG assets on top of each other without worrying about their
 location in the rendering space. For example:
 
-![SVG composition](../images/svg_composition.png)
+![SVG composition](../images/svg_composition.png)
 
 The image above shows three different SVG assets, absolutely positioned within the same viewport.
 Notice how the viewport does not scale to bound the SVG asset, but instead scales to match the full
@@ -101,13 +101,13 @@ has an ID, uniquely identifying it within the base.
 value:
 
 ```json
-  {
-      "id": "wing_1_front",
-      "type": "fixed",
-      "themable": true,
-      "z": 3,
-      "src": "ipfs://ipfs/hash2"
-  },
+{
+  "id": "wing_1_front",
+  "type": "fixed",
+  "themable": true,
+  "z": 3,
+  "src": "ipfs://ipfs/hash2"
+},
 ```
 
 The renderer will take the content behind the `src` value and place it into the viewport at the `z`
@@ -128,11 +128,11 @@ is empty, i.e. no custom background is equipped, a default background should be 
 
 ```json
 {
-    "id": "wing_1_slot",
-    "type": "slot",
-    "src": "my-custom-fallback",
-    "equippable": ["id-of-genesis-legendaries", "id-of-genesis-rares", "id-of-genesis-epics", ...],
-    "z": 2
+  "id": "wing_1_slot",
+  "type": "slot",
+  "src": "my-custom-fallback",
+  "equippable": ["id-of-genesis-legendaries", "id-of-genesis-rares", "id-of-genesis-epics", ...],
+  "z": 2
 }
 ```
 
@@ -163,6 +163,17 @@ needs, like so:
 This allows us to compose an almost infinite variety of NFTs from a single base's catalogue of
 composable parts.
 
+
+### Mixed Base type
+
+The mixed Base is a simple Base type, that is similar to SVG Base, but a renderer should not assume that every part is SVG and instead check the mime type of each part separately to decide how to render it.
+
+The parts will have Z indexes for layered rendering, and the final NFT is a composited. The Mixed type implies the following:
+
+- every part will be absolutely positioned on top of each other, based on `z` field
+- every part will be positioned in the same viewport at coordinates 0,0 unless optional `x` and `y` fields are not provided
+- if a part's `src` file is of mime type of video or audio and this part has a `thumb` field, then the `thumb` is displayed to the user, and `src` file is played on click, however if `thumb` is absent, then a standard audio or video player is rendered 
+
 ### Other types
 
 Different types can be implemented by other users, and will be made canonical through a
@@ -176,16 +187,16 @@ rigging, and other complexities.
 
 ```json
 {
-  "type": {
-    "type": "string",
-    "description": "Type of base",
-    "values": ["svg"]
-  },
-  "id": {
-    "type": "string",
-    "description": "Any arbitrary unique string value. Consolidator should throw errors on duplicate IDs."
-  },
-  "parts": {
+  "type": {
+    "type": "string",
+    "description": "Type of base",
+    "values": ["svg", "mixed"]
+  },
+  "id": {
+    "type": "string",
+    "description": "Any arbitrary unique string value. Consolidator should throw errors on duplicate IDs."
+  },
+  "parts": {
     "type": Part[],
     "description": "An array of ALL the possible parts an NFT inheriting this base can be rendered with"
   },
@@ -205,11 +216,11 @@ from previous applied interactions.
 {
   "issuer": {
     "type": "computed",
-    "description": "Chain-specific address of the original creator of the Base, or address of new issuer if issuer was changed with the CHANGEISSUER interaction."
+    "description": "Chain-specific address of the original creator of the Base, or address of new issuer if issuer was changed with the CHANGEISSUER interaction."
   },
   "id": {
     "type": "computed",
-    "description": "A Base is uniquely identified by the combination of the word `base`, its minting block number, and user provided symbol during Base creation, glued by dashes `-`, e.g. base-4477293-kanaria_superbird."
+    "description": "A Base is uniquely identified by the combination of the word `base`, its minting block number, and user provided symbol during Base creation, glued by dashes `-`, e.g. base-4477293-kanaria_superbird."
   }
 }
 ```
@@ -224,25 +235,37 @@ the parts it needs (see [NFT](./nft.md) under Resources).
 {
   "id": {
     "type": "string",
-    "description": "Defines unique ID of part in this base. Must be alphanumeric, no dots or dashes."
+    "description": "Defines unique ID of part in this base. Must be alphanumeric, no dots or dashes."
   },
   "type": {
     "type": "string",
-    "description": "Defines fixed or slot part",
+    "description": "Defines fixed or slot part",
     "values": ["fixed", "slot"]
   },
   "equippable": {
     "type": "string[]",
-    "description": "A list of Collection IDs (see Collection entity) containing NFTs equippable into slots of this base. Starter (default) value is an array with a single, empty string."
+    "description": "A list of Collection IDs (see Collection entity) containing NFTs equippable into slots of this base. Starter (default) value is an array with a single, empty string."
   },
   "src": {
     "type": "string",
-    "description": "URL to resource, or direct SVG data (<svg></svg>). Optional when type is `slot`."
+    "description": "URL to resource, or direct SVG data (<svg></svg>). Optional when type is `slot`."
+  },
+  "thumb": {
+    "type": "string",
+    "description": "Optional URL to an image resource, used to display in place of audio/video players."
   },
   "z": {
     "type": "number",
-    "description": "Only applies to SVG base. Defines layer height of SVG element."
-  }
+    "description": "Defines layer height of an element."
+  },
+  "x": {
+    "type": "number",
+    "description": "Defines layer position of an element along an x-axis."
+  },
+  "y": {
+    "type": "number",
+    "description": "Defines layer position of an element along an y-axis."
+  },
 }
 ```
 
@@ -262,10 +285,10 @@ before there is a theme with the `default` key.
   "type": "svg",
   "parts": [
     {
-      "id": "wing_1_front",
-      "type": "fixed",
-      "z": 3,
-      "src": "ipfs://ipfs/hash2",
+      "id": "wing_1_front",
+      "type": "fixed",
+      "z": 3,
+      "src": "ipfs://ipfs/hash2",
       "themable": true,
       "..."
     }
@@ -285,8 +308,8 @@ before there is a theme with the `default` key.
 
 Themes are added on creation or later with [THEMEADD](../interactions/themeadd.md).
 
-## Interactions
+## Interactions
 
-- [BASE](../interactions/base.md) - creates a base
-- [EQUIPPABLE](../interactions/equippable.md) - changes the equippable collection set
-- [CHANGEISSUER](../interactions/changeissuer.md) - changes the issuer
+- [BASE](../interactions/base.md) - creates a base
+- [EQUIPPABLE](../interactions/equippable.md) - changes the equippable collection set
+- [CHANGEISSUER](../interactions/changeissuer.md) - changes the issuer
