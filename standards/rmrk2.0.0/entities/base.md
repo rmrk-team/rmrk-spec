@@ -163,17 +163,6 @@ needs, like so:
 This allows us to compose an almost infinite variety of NFTs from a single base's catalogue of
 composable parts.
 
-
-### Mixed Base type
-
-The mixed Base is a simple Base type, that is similar to SVG Base, but a renderer should not assume that every part is SVG and instead check the mime type of each part separately to decide how to render it.
-
-The parts will have Z indexes for layered rendering, and the final NFT is a composited. The Mixed type implies the following:
-
-- every part will be absolutely positioned on top of each other, based on `z` field
-- every part will be positioned in the same viewport at coordinates 0,0 unless optional `x` and `y` fields are not provided
-- if a part's `src` file is of mime type of video or audio and this part has a `thumb` field, then the `thumb` is displayed to the user, and `src` file is played on click, however if `thumb` is absent, then a standard audio or video player is rendered 
-
 ### Other types
 
 Different types can be implemented by other users, and will be made canonical through a

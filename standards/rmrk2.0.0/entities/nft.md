@@ -394,9 +394,17 @@ The same as [Opensea's](https://docs.opensea.io/docs/metadata-standards) but wit
     "type": "string",
     "description": "HTTP or IPFS URL for finding out more about this project. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
   },
-  "image": {
+  "media": {
     "type": "string",
-    "description": "HTTP or IPFS URL to project's main image, in the vein of og:image. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
+    "description": "Optional HTTP or IPFS URL to NFT's main media. If IPFS, MUST be in the format of ipfs://ipfs/HASH."
+  },
+  "cover": {
+    "type": "string",
+    "description": "Optional URL to an image resource, used to display in place of audio/video players."
+  },
+  "image": {
+    "type": "DEPRECATED string",
+    "description": "DEPRECARTED HTTP or IPFS URL to project's main image, in the vein of og:image. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
   },
   "image_data": {
     "type": "string?",
@@ -435,7 +443,7 @@ Metadata:
 ```json
 {
   "external_url": "https://rmrk.app/registry/0aff6865bed3a66b-DLEP",
-  "image": "ipfs://ipfs/QmSY3VzdNdAphEs51GW9QMAUotaX3Rf6WeGQkvPPVhEQ3B",
+  "media": "ipfs://ipfs/QmSY3VzdNdAphEs51GW9QMAUotaX3Rf6WeGQkvPPVhEQ3B",
   "description": "Everyone who promoted Dot Leap via the in-email link in edition 15",
   "name": "DL15",
   "properties": {}
@@ -458,7 +466,7 @@ Metadata:
 ```json
 {
   "external_url": "https://rmrk.app/registry/0aff6865bed3a66b-DLEP",
-  "image": "ipfs://ipfs/QmaCxd3omNNvjeVvzgn5gSjARDR4442WBtBAcZN7xEddeL",
+  "media": "ipfs://ipfs/QmaCxd3omNNvjeVvzgn5gSjARDR4442WBtBAcZN7xEddeL",
   "description": "Everyone who promoted Dot Leap via the in-email link in edition 16",
   "name": "DL16",
   "properties":  {

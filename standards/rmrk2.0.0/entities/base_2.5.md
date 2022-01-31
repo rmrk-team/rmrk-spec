@@ -47,7 +47,9 @@ The `src` field on part is an IPFS CID that is following Metadata format [comput
 
 ```json
 {
-  "image": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg",
+  "image": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg", // Deprecated in favour of "media"
+  "media": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg",
+  "cover": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes_thumb.png",
   "properties": {
     "type": {
       "type": "string",
@@ -120,7 +122,9 @@ value:
 SVG part needs `z` index for layer positioning and optional `themable` boolean
 ```json
 {
-  "image": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg",
+  "image": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg", // Deprecated in favour of "media"
+  "media": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg",
+  "cover": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes_thumb.png",
   "properties": {
     "type": {
       "type": "string",
@@ -138,7 +142,7 @@ SVG part needs `z` index for layer positioning and optional `themable` boolean
 }
 ```
 
-The renderer will take the content behind the `src` value, download it's content from IPFS and place it's `image` field into the viewport at the `z`
+The renderer will take the content behind the `src` value, download it's content from IPFS and place it's `media` field into the viewport at the `z`
 index defined. The renderer does not check that the viewport matches all parts - this is up to the
 designer (refer to the above image).
 
@@ -146,18 +150,20 @@ designer (refer to the above image).
 `{placeholder}`. These get replaced during rendering with static values from a **theme** - see
 [THEMEADD](../interactions/themeadd.md).
 
-`slot` parts have a type of `slot` and an optional static resource `image`. They are meant to visually
+`slot` parts have a type of `slot` and an optional static resource `media`. They are meant to visually
 accept the resources of other NFTs into them.
 
 Each slot part id has a whitelisting config on the same base under `whitelist` object.
 
-If there is a `image` value, this static resource is used as a default fallback art for when the slot
+If there is a `media` value, this static resource is used as a default fallback art for when the slot
 is unequipped. As an example, imagine a playing card with a changeable background - when this slot
 is empty, i.e. no custom background is equipped, a default background should be shown.
 
 ```json
 {
-  "image": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg",
+  "image": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg", // Deprecated in favour of "media"
+  "media": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg",
+  "cover": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes_thumb.png",
   "properties": {
     "type": {
       "type": "string",
@@ -202,12 +208,13 @@ composable parts.
 
 The mixed Base is a simple Base type, that is exactly the same as SVG Base, the change is on metadata saved on IPFS. The main caveats of mixed base are:
 
-- You cannot assume the file type and should check the mime type of `image` form metadata of each part
+- You cannot assume the file type and should check the mime type of `media` form metadata of each part
 - The only mandatory property on `properties` is `type` with values `slot` or `fixed` and it is up to a consumers and each implementation to come up with their own additional `properties` fields to suit their renderer. RMRK team however suggests the following structure for consistency: `x`, `y`, `z`, `cover`, `stopTime`, `startTime`
 
 ```json
 {
-  "image": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg",
+  "media": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg",
+  "image": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg", // Deprecated in favour of "media"
   "cover": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes_thumb.png",
   "properties": {
     "type": {
@@ -316,9 +323,13 @@ the parts it needs (see [NFT](./nft.md) under Resources).
     "type": "string",
     "description": "Optional URL to an image resource, used to display in place of audio/video players."
   },
-  "image": {
+  "media": {
     "type": "string",
-    "description": "Optional URL to an image resource, used to display in place of audio/video players."
+    "description": "Optional URL to an media resource."
+  },
+  "image": {
+    "type": "DEPRECATED string",
+    "description": "DEPRECATED Optional URL to an image resource."
   },
   "properties": {
     "type": "object",
