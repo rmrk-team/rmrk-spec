@@ -83,6 +83,8 @@ export interface IRoyaltyAttribute extends IAttribute {
 }
 ```
 
+Property of type `royalty` can only be mutated by rootowner of an NFT who is also a collection issuer.
+
 NFT-level properties like these override a
 [Collection's on-chain properties](collection.md#on-chain-properties).
 
