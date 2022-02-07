@@ -60,7 +60,7 @@ export interface IAttribute {
       condition?: string;
     };
   };
-  type: "array" | "object" | "int" | "float" | "string" | "royalty";
+  type: "array" | "object" | "int" | "float" | "number" | "string" | "royalty";
   value: any;
 }
 ```
@@ -82,6 +82,8 @@ export interface IRoyaltyAttribute extends IAttribute {
   };
 }
 ```
+
+Property of type `royalty` can only be mutated by rootowner of an NFT who is also a collection issuer.
 
 NFT-level properties like these override a
 [Collection's on-chain properties](collection.md#on-chain-properties).
