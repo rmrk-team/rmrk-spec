@@ -239,13 +239,13 @@ This is a deprecated field, but some clients can choose to support it for backwa
 
 All properties key-value pairs are arbitrary except for reserved property [royaltyInfo](#royaltyinfo). The reason why `royaltyInfo` is part of properties is [explained below](#on-chain-properties)
 
-**More recommended properties will be added as we identify common use cases for composable NFTs**
+_More recommended properties will be added as we identify common use cases for composable NFTs_
 
-Please note that there are also on-chain Properties fields on NFT level. Properties should always be used in metadata unless mutable properties are needed, in this case properties can be saved on-chain. See [On-chain properties](#on-chain-properties) for more details.
+Please note that there are also on-chain Properties fields on NFT. Properties should always be saved in metadata and off-chain to save on storage unless mutable properties are needed, in this case properties can be saved on-chain. See [On-chain properties](#on-chain-properties) for more details.
 
 ### Recommended properties
 
-We maintain a list of recommended properties to provide a commonly understood interface for clients, renderers and other consumers.
+We maintain a list of recommended but optional properties to provide a commonly understood interface for clients, renderers and other consumers.
 
 #### `mimeType` (string)
 
@@ -314,7 +314,7 @@ Number value, typically in milliseconds, to set a total duration of the media. U
 
 ## On-chain Properties
 
-On-chain properties follow the same format as [metadata properties](#metadata-properties) but can be set as mutable. Properties should always be used in metadata unless mutable properties are needed, in this case properties can be saved on-chain. See [On-chain properties](#on-chain-properties) for more details.
+On-chain properties follow the same format as [metadata properties](#metadata-properties) but can be set as mutable. Properties should always be saved in metadata unless mutable properties are needed, in this case properties can be saved on-chain. See [On-chain properties](#on-chain-properties) for more details.
 
 _On-chain properties should always be merged and used over metadata/ipfs properties. Thus `royaltyInfo` on chain would always be used over `royaltyInfo` on metadata_
 
