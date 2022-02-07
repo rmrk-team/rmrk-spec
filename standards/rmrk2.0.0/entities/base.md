@@ -129,7 +129,7 @@ An optional ipfs Uri pointing to a [Metadata](./metadata.md) JSON.
 
 ### Metadata
 
-Some fields on base parts can be saved off-chain using `metadata` field to save up on on-chain storage.
+Some fields on base parts can be saved off-chain using `metadata` field to save up on on-chain storage. The on-chain fields should always be used if present regardless of metadata content.
 
 - If a base part has `metadata` field but no `src` field, then [mediaUri](./metadata.md#mediauri-string) field from metadata is used instead as a main media file of that part.
 - If a base part has `metadata` field but no `thumb` field, then [thumbnailUri](./metadata.md#thumbnailuri-string) field from metadata is used instead as a thumbnail file of that part.
