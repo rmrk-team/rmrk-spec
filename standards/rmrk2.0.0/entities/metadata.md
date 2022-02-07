@@ -70,9 +70,7 @@ Metadata for simple NFT with no [secondary resources](../entities/nft.md#resourc
 
 ### SVG Base part
 
-Metadata on a resource compatible with SVG base part as described in [Base](./base.md#svg-base-parts)
-
-_Note that `z` property on svg part can be specified directly on chain and would be used in place of metadata property with the same field name_
+Metadata on a NFT resource
 
 #### Example:
 
@@ -84,13 +82,7 @@ _Note that `z` property on svg part can be specified directly on chain and would
   "thumbnailUri": "ipfs://ipfs/XXXX.png",
   "externalUri": "https://kanaria.rmrk.app",
   "license": "BAYC Commercial Use",
-  "licenseUri": "https://boredapeyachtclub.com/#/terms",
-  "properties": {
-    "z": {
-      "type": "int",
-      "value": 2
-    }
-  }
+  "licenseUri": "https://boredapeyachtclub.com/#/terms"
 }
 
 ```
