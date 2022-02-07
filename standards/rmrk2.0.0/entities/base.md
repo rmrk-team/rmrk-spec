@@ -235,7 +235,7 @@ rigging, and other complexities. If there are any fields that a 3d Base type nee
 
 ### Themes (object)
 
-A mutable theme list to cherry-pick from when this Base is added to a NFT. See [Themes](#themes)
+A mutable theme list to cherry-pick from when the Base is added to a NFT. See [Themes](#themes)
 
 A theme name must be unique in a base, and a theme with a key other than `default` CANNOT be added
 before there is a theme with the `default` key.
