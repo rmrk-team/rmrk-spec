@@ -37,9 +37,6 @@ Example:
       {
           "id": "wing_1_front",
           "metadata": "ipfs://ipfs/hash2"
-      },
-      {
-          "id": "wing_1_slot"
       }
     ]
 }
