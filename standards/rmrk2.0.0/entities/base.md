@@ -180,10 +180,7 @@ And the content of metadata would be
 {
   "mediaUri": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg",
   "thumbnailUri": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes_thumb.png",
-  "type": {
-    "type": "string",
-    "value": "slot"
-  },
+  "type": "slot",
   "properties": {
     "mimetype": {
       "type": "string",
