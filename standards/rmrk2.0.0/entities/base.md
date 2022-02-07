@@ -127,7 +127,7 @@ An optional ipfs Uri pointing to a [Metadata](./metadata.md) JSON.
 
 ---
 
-### Metadata
+## Metadata
 
 Some fields on base parts can be saved off-chain using `metadata` field to save up on on-chain storage. The on-chain fields should always be used if present regardless of metadata content.
 
@@ -136,17 +136,10 @@ Some fields on base parts can be saved off-chain using `metadata` field to save 
 - If a base part has `metadata` field but no `z` field, then [z](./metadata.md#z-number) field from the properties of metadata JSON is used instead.
 - If a base part has `metadata` field but no `type` field, then [type](./metadata.md#type-string) field from the metadata JSON is used instead. It is strongly recommended keeping `type` on part rather than on metadata to aid with querying.
 
-### Base example
 
-The mixed Base is a simple Base type. Where each `part` can be of different type, however RMRK recommends to use `x`, `y` and `z` fields on the IPFS metadata `properties` for different clients to know how to render this Base:
+## Examples
 
-- You cannot assume the file type and should check the `mediaType` field first and if absent then a mime type of `media` form metadata of each part
-- The only mandatory property on `properties` is `type` with values `slot` or `fixed` and it is up to a consumers and each implementation to come up with their own additional `properties` fields to suit their renderer. RMRK team however suggests the following structure for consistency: `x`, `y`, `z`, `cover`, `stopTime`, `startTime`
-
-#### Examples
-
-
-##### Using on-chain fields
+### Using on-chain fields
 
 ```json
 {
@@ -166,7 +159,7 @@ The mixed Base is a simple Base type. Where each `part` can be of different type
 ```
 
 
-##### Using off-chain fields from metadata
+### Using off-chain fields from metadata
 
 ```json
 {
