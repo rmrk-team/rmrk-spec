@@ -182,9 +182,9 @@ And the content of metadata would be
   "thumbnailUri": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes_thumb.png",
   "type": "slot",
   "properties": {
-    "mimetype": {
+    "mimeType": {
       "type": "string",
-      "value": "image/png"
+      "value": "image/svg+xml"
     },
     "z": {
       "type": "int",
