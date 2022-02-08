@@ -366,6 +366,10 @@ rmrk::SETPRIORITY::2.0.0::438637-0aff6865bed3a66b-KANS-oiyhi24yr28i7g4f::%5B%22w
 
 TBD
 
+## Metadata Standard
+
+See [Full Metadata Spec](./metadata.md)
+
 ## Examples
 
 NFT:
