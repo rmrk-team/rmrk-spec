@@ -60,7 +60,7 @@ export interface IAttribute {
       condition?: string;
     };
   };
-  type: "array" | "object" | "int" | "float" | "string" | "royalty";
+  type: "array" | "object" | "int" | "float" | "number" | "string" | "royalty";
   value: any;
 }
 ```
