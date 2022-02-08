@@ -94,10 +94,6 @@ _Note that resource spec also allows you to add image and thumbnail directly on 
       "type": "string",
       "value": "rare"
     },
-    "z": {
-      "type": "int",
-      "value": 2
-    },
     "mimeType": {
       "type": "string",
       "value": "image/svg+xml"
@@ -125,6 +121,51 @@ _Note that resource spec also allows you to add image and thumbnail directly on 
   "license": "BAYC Commercial Use",
   "licenseUri": "https://boredapeyachtclub.com/#/terms",
   "properties": {
+    "mimeType": {
+      "type": "string",
+      "value": "audio/flac"
+    }
+  }
+}
+```
+
+### SVG Base part of type slot
+
+Metadata on a base part of type slot as described in [Base](./base.md#parts)
+
+_Note that base part's spec also allows you to add `type: "slot"` media file and `z` directly on base part on-chain using `type`, `src` and `z` fields, but in this case we will use `metadata`_
+
+#### Example:
+
+```json
+
+{
+  "name": "Kanaria headwear slot",
+  "description": "This is a Kanaria headwear slot, you can equip nested NFTs with a compatible resource in it.",
+  "mediaUri": "ipfs://ipfs/XXXX/headwear_slot_fallback.svg",
+  "type": "slot",
+  "properties": {
+    "z": {
+      "type": "int",
+      "value": 2
+    }
+  }
+}
+```
+
+### Audio Base part of type slot
+
+Metadata on a base part of type slot as described in [Base](./base.md#parts)
+
+_Note that base part's spec also allows you to add `type: "slot"` media file and `z` directly on base part on-chain using `type`, `src` and `z` fields, but in this case we will use `metadata`_
+
+#### Example:
+
+```json
+
+{
+  "type": "slot",
+  "properties": {
     "volume": {
       "type": "float",
       "value": 0.2
@@ -148,30 +189,6 @@ _Note that resource spec also allows you to add image and thumbnail directly on 
     "mimeType": {
       "type": "string",
       "value": "audio/flac"
-    }
-  }
-}
-```
-
-### SVG Base part of type slot
-
-Metadata on a base part of type slot as described in [Base](./base.md#parts)
-
-_Note that base part's spec also allows you to add media file and `z` directly on base part on-chain using `src` and `z` fields, but in this case we will use `metadata`_
-
-#### Example:
-
-```json
-
-{
-  "name": "Kanaria headwear slot",
-  "description": "This is a Kanaria headwear slot, you can equip nested NFTs with a compatible resource in it.",
-  "mediaUri": "ipfs://ipfs/XXXX/headwear_slot_fallback.svg",
-  "type": "slot",
-  "properties": {
-    "z": {
-      "type": "int",
-      "value": 2
     }
   }
 }
