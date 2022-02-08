@@ -80,7 +80,7 @@ Chain-level properties like these override a Collection's metadata properties.
 
 ## Metadata
 
-A collection MUST have metadata to describe it and help visualization on various platforms.
+A collection MUST have metadata to describe it and help visualization on various platforms. See full [Metadata spec here](./metadata.md)
 
 ```json
 {
@@ -89,14 +89,14 @@ A collection MUST have metadata to describe it and help visualization on various
     "description": "Description of the collection as a whole. Markdown is supported."
   },
   "properties": {
-    "type": "array",
+    "type": "object",
     "description": "A map of JSON objects, inspired by Enjin's: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema"
   },
-  "external_url": {
+  "externalUri": {
     "type": "string",
     "description": "HTTP or IPFS URL for finding out more about this project. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
   },
-  "image": {
+  "mediaUri": {
     "type": "string",
     "description": "HTTP or IPFS URL to project's main image, in the vein of og:image. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
   },
@@ -127,8 +127,8 @@ Metadata:
 {
   "description": "Everyone who promoted [Dot Leap](https://dotleap.substack.com) via the in-email Tweet link is eligible.",
   "properties": {},
-  "external_url": "https://rmrk.app/registry/0aff6865bed3a66b-DLEP",
-  "image": "ipfs://ipfs/QmYcWFQCY1bAZ7ffRggt367McMN5gyZjXtribj5hzzeCWQ"
+  "externalUri": "https://rmrk.app/registry/0aff6865bed3a66b-DLEP",
+  "mediaUri": "ipfs://ipfs/QmYcWFQCY1bAZ7ffRggt367McMN5gyZjXtribj5hzzeCWQ"
 }
 ```
 
