@@ -222,7 +222,7 @@ Where the content of the metadata is referencing an EGG image:
 }
 ```
 
-Then, once you are ready to hatch the egg for the user, just [Add a resource](../interactions/resadd.md) to this NFT. 
+2. Then, once you are ready to hatch the egg for the user, just [Add a resource](../interactions/resadd.md) to this NFT. 
 
 ```json
 {
