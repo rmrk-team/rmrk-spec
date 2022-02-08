@@ -42,9 +42,15 @@ standards and recommendations.
 
 Within RMRK standard, following `metadata` standard can be used on the root of NFT as well as on [resources](../entities/nft.md#resources-and-resource)
 
-### Simple image Metadata
+A `metadata` field can be added to 3 types of entities
 
-Metadata for simple NFT with no [secondary resources](../entities/nft.md#resources-and-resource) or a metadata for a simple secondary Resource. 
+- NFT
+- NFT resource
+- Base part
+
+### Simple Metadata on NFT or a Resource
+
+Metadata referencing an image media file. This can be used on NFT with no [secondary resources](../entities/nft.md#resources-and-resource) or on a simple secondary Resource. 
 
 #### Example:
 
@@ -53,7 +59,7 @@ Metadata for simple NFT with no [secondary resources](../entities/nft.md#resourc
 {
   "name": "Cozy Fireplace",
   "description": "The Christmas spirit backdrop NFT minted on [kanaria](https://kanaria.com)",
-  "mediaUri": "ipfs://ipfs/QmbKQaLAyXB8xV8bnnmskVCLPMs36yRso23xWzpwgHyPui/xmas21_cozyfireplace_background.svg",
+  "mediaUri": "ipfs://ipfs/QmbKQaLAyXB8xV8bnnmskVCLPMs36yRso23xWzpwgHyPui/xmas21_cozyfireplace_background.png",
   "thumbnailUri": "ipfs://ipfs/QmbKQaLAyXB8xV8bnnmskVCLPMs36yRso23xWzpwgHyPui/xmas21_cozyfireplace_background_thumb.png",
   "externalUri": "https://kanaria.rmrk.app",
   "license": "BAYC Commercial Use",
@@ -68,36 +74,39 @@ Metadata for simple NFT with no [secondary resources](../entities/nft.md#resourc
 
 ```
 
-### SVG Base part
+### Composable SVG resource's metadata
 
-Metadata on a resource compatible with SVG base part as described in [Base](./base.md#svg-base-parts)
+Metadata on a resource compatible with SVG base part as described in [Base](./base.md#parts)
 
-_Note that `z` property on svg part can be specified directly on chain and would be used in place of metadata property with the same field name_
+_Note that resource spec also allows you to add image and thumbnail directly on resource on-chain using `src` and `thumb` fields, but in this case we will use `metadata`_
 
 #### Example:
 
 ```json
 {
-  "name": "Cool hat",
-  "description": "A cool hat for a cool bird",
-  "mediaUri": "ipfs://ipfs/XXXX.svg",
-  "thumbnailUri": "ipfs://ipfs/XXXX.png",
+  "name": "A cool hat",
+  "description": "A cool hat compatible with a cool bird.",
+  "mediaUri": "ipfs://ipfs/xxx/hat.svg",
+  "thumbnailUri": "ipfs://ipfs/xxx/hat_thumb.png",
   "externalUri": "https://kanaria.rmrk.app",
-  "license": "BAYC Commercial Use",
-  "licenseUri": "https://boredapeyachtclub.com/#/terms",
   "properties": {
-    "z": {
-      "type": "int",
-      "value": 2
+    "rarity": {
+      "type": "string",
+      "value": "rare"
+    },
+    "mimeType": {
+      "type": "string",
+      "value": "image/svg+xml"
     }
   }
 }
-
 ```
 
-### Audio Base part
+### Composable audio resource's metadata
 
 Metadata on a resource compatible with Audio base part as described in [Base](./base.md#parts)
+
+_Note that resource spec also allows you to add image and thumbnail directly on resource on-chain using `src` and `thumb` fields, but in this case we will use `metadata`_
 
 #### Example:
 
@@ -111,6 +120,51 @@ Metadata on a resource compatible with Audio base part as described in [Base](./
   "externalUri": "https://kanaria.rmrk.app",
   "license": "BAYC Commercial Use",
   "licenseUri": "https://boredapeyachtclub.com/#/terms",
+  "properties": {
+    "mimeType": {
+      "type": "string",
+      "value": "audio/flac"
+    }
+  }
+}
+```
+
+### SVG Base part of type slot
+
+Metadata on a base part of type slot as described in [Base](./base.md#parts)
+
+_Note that base part's spec also allows you to add `type: "slot"` media file and `z` directly on base part on-chain using `type`, `src` and `z` fields, but in this case we will use `metadata`_
+
+#### Example:
+
+```json
+
+{
+  "name": "Kanaria headwear slot",
+  "description": "This is a Kanaria headwear slot, you can equip nested NFTs with a compatible resource in it.",
+  "mediaUri": "ipfs://ipfs/XXXX/headwear_slot_fallback.svg",
+  "type": "slot",
+  "properties": {
+    "z": {
+      "type": "int",
+      "value": 2
+    }
+  }
+}
+```
+
+### Audio Base part of type slot
+
+Metadata on a base part of type slot as described in [Base](./base.md#parts)
+
+_Note that base part's spec also allows you to add `type: "slot"` media file and `z` directly on base part on-chain using `type`, `src` and `z` fields, but in this case we will use `metadata`_
+
+#### Example:
+
+```json
+
+{
+  "type": "slot",
   "properties": {
     "volume": {
       "type": "float",
@@ -138,8 +192,58 @@ Metadata on a resource compatible with Audio base part as described in [Base](./
     }
   }
 }
-
 ```
+
+### Reveal mechanic
+
+Because metadata fields of a primary resource of NFT is always takes precedence over metadata on NFT's root this can be used as a reveal mechanic.
+
+Example:
+
+1. Mint NFT with `metadata` field
+
+```json
+{
+  "id": "nft-id-1",
+  "owner": "HeyRMRK7L7APFpBrBqeY62dNhFKVGP4JgwQpcog2VTb3RMU",
+  "block": 7777,
+  "metadata": "ipfs://ipfs/hash"
+}
+```
+
+Where the content of the metadata is referencing an EGG image:
+
+```json
+{
+  "name": "The egg",
+  "description": "This egg is going to hatch into something beautiful.",
+  "mediaUri": "ipfs://ipfs/XXX/egg.png",
+  "thumbnailUri": "ipfs://ipfs/XXX/egg_thumb.png"
+}
+```
+
+2. Then, once you are ready to hatch the egg for the user, just [Add a resource](../interactions/resadd.md) to this NFT. 
+
+```json
+{
+  "id": "resource-id-1",
+  "metadata": "ipfs://ipfs/hash"
+}
+```
+_Note that resource spec also allows you to add image and thumbnail directly on resource on-chain using `src` and `thumb` fields, but in this case we will use `metadata`_
+
+Where the content of the metadata is referencing a Bird image:
+
+```json
+{
+  "name": "The bird",
+  "description": "This bird has been hatched.",
+  "mediaUri": "ipfs://ipfs/XXX/bird.png",
+  "thumbnailUri": "ipfs://ipfs/XXX/bird_thumb.png"
+}
+```
+
+Because the fields of primary resource always take precedence over the same fields of the NFT metadata, the egg will now be the bird as long as the bird resource is the primary one.
 
 ## Schema Definition
 

@@ -311,28 +311,9 @@ As an example:
 
 ---
 
-The metadata of a Resource:
+The metadata of a Resource see [Metadata Spec](./metadata.md)
 
-```json
-{
-  "description?": {
-    "type": "string",
-    "description": "Description of the resource. Markdown is supported."
-  },
-  "external_url?": {
-    "type": "string",
-    "description": "HTTP or IPFS URL for finding out more about this project or linking to its author. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
-  },
-  "name?": {
-    "type": "string",
-    "description": "Name of resource."
-  }
-}
-```
-
-Metadata is optional and should only be rendered and fetched by implementers on-demand. It is meant
-to serve more as "credits" than anything else, in cases when several people worked on different
-aspects of the same NFT project and different resources inside it.
+Metadata is optional.
 
 Example of complete resources array:
 
@@ -387,45 +368,7 @@ TBD
 
 ## Metadata Standard
 
-The same as [Opensea's](https://docs.opensea.io/docs/metadata-standards) but with 
-[Enjin's inspired attribute format](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema).
-
-```json
-{
-  "external_url": {
-    "type": "string",
-    "description": "HTTP or IPFS URL for finding out more about this project. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
-  },
-  "media": {
-    "type": "string",
-    "description": "Optional HTTP or IPFS URL to NFT's main media. If IPFS, MUST be in the format of ipfs://ipfs/HASH."
-  },
-  "cover": {
-    "type": "string",
-    "description": "Optional URL to an image resource, used to display in place of audio/video players."
-  },
-  "image": {
-    "type": "DEPRECATED string",
-    "description": "DEPRECARTED HTTP or IPFS URL to project's main image, in the vein of og:image. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
-  },
-  "image_data": {
-    "type": "string?",
-    "description": "[OPTIONAL] Use only if you don't have the image field (they are mutually exclusive and image takes precedence). Raw base64 or SVG data for the image. If SVG, MUST start with <svg, if base64, MUST start with base64:"
-  },
-  "description": {
-    "type": "string",
-    "description": "Description of the nft. Markdown is supported."
-  },
-  "name": {
-    "type": "string",
-    "description": "Name of the NFT instance."
-  },
-  "properties": {
-    "type": "array",
-    "description": "A Map of JSON objects, inspired by Enjin's: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema"
-  }
-}
-```
+See [Full Metadata Spec](./metadata.md)
 
 ## Examples
 
@@ -444,8 +387,8 @@ Metadata:
 
 ```json
 {
-  "external_url": "https://rmrk.app/registry/0aff6865bed3a66b-DLEP",
-  "media": "ipfs://ipfs/QmSY3VzdNdAphEs51GW9QMAUotaX3Rf6WeGQkvPPVhEQ3B",
+  "externalUri": "https://rmrk.app/registry/0aff6865bed3a66b-DLEP",
+  "mediaUri": "ipfs://ipfs/QmSY3VzdNdAphEs51GW9QMAUotaX3Rf6WeGQkvPPVhEQ3B",
   "description": "Everyone who promoted Dot Leap via the in-email link in edition 15",
   "name": "DL15",
   "properties": {}
@@ -467,8 +410,8 @@ Metadata:
 
 ```json
 {
-  "external_url": "https://rmrk.app/registry/0aff6865bed3a66b-DLEP",
-  "media": "ipfs://ipfs/QmaCxd3omNNvjeVvzgn5gSjARDR4442WBtBAcZN7xEddeL",
+  "externalUri": "https://rmrk.app/registry/0aff6865bed3a66b-DLEP",
+  "mediaUri": "ipfs://ipfs/QmaCxd3omNNvjeVvzgn5gSjARDR4442WBtBAcZN7xEddeL",
   "description": "Everyone who promoted Dot Leap via the in-email link in edition 16",
   "name": "DL16",
   "properties":  {
