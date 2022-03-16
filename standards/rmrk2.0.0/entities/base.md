@@ -58,13 +58,13 @@ An optional and arbitrary type to help clients with rendering instructions. We r
 
 ### Base
 
-#### `id` (string)
-
-Any arbitrary unique string value.
-
 ####  `type` (string)
 
 An optional and arbitrary type to help clients with rendering instructions. We recommend following types `svg`, `audio`, `mixed`, `video`, `png`
+
+#### `metadata` (string)
+
+An optional ipfs Uri pointing to a [Metadata](./metadata.md) JSON.
 
 #### `parts` (array)
 
