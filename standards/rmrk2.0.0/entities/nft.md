@@ -60,7 +60,7 @@ export interface IAttribute {
       condition?: string;
     };
   };
-  type: "array" | "object" | "int" | "float" | "number" | "string" | "datetime" | "royalty";
+  type: "array" | "object" | "int" | "float" | "number" | "string" | "boolean" | "datetime" | "royalty";
   value: any;
 }
 ```
@@ -443,7 +443,7 @@ export interface IAttribute {
       condition?: string;
     };
   };
-  type: "array" | "object" | "int" | "float" | "string";
+  type: "array" | "object" | "int" | "float" | "string" | "datetime" | "boolean" | "royalty";
   value: any;
 }
 ```
