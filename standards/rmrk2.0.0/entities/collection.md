@@ -68,7 +68,7 @@ export interface IAttribute {
       condition?: string;
     };
   };
-  type: "array" | "object" | "int" | "float" | "string";
+  type: "array" | "object" | "int" | "float" | "boolean" | "datetime" | "string";
   value: any;
 }
 ```
