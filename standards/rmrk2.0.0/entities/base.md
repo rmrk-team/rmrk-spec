@@ -18,7 +18,6 @@ Example:
       {
           "id": "bg",
           "src": "ipfs://ipfs/hash",
-          "thumb": "ipfs://ipfs/hash",
           "type": "slot",
           "equippable": ["collection_1", "collection_2"],
           "z": 3
@@ -105,10 +104,6 @@ In extrinsic RMRK implementation, a Base is uniquely identified by the combinati
 
 An optional IPFS Uri pointing to main media file of this part
 
-#### `thumb` (string)
-
-An optional ipfs Uri pointing to thumbnail media file of this part.
-
 #### `type` (string)
 
 A Base part can be of type `fixed` or `slot`. A compatible resource can be equipped in a `slot` part. 
@@ -132,7 +127,6 @@ An optional ipfs Uri pointing to a [Metadata](./metadata.md) JSON.
 Some fields on base parts can be saved off-chain using `metadata` field to save up on on-chain storage. The on-chain fields should always be used if present regardless of metadata content.
 
 - If a base part has `metadata` field but no `src` field, then [mediaUri](./metadata.md#mediauri-string) field from metadata is used instead as a main media file of that part.
-- If a base part has `metadata` field but no `thumb` field, then [thumbnailUri](./metadata.md#thumbnailuri-string) field from metadata is used instead as a thumbnail file of that part.
 - If a base part has `metadata` field but no `z` field, then [z](./metadata.md#z-number) field from the properties of metadata JSON is used instead.
 - If a base part has `metadata` field but no `type` field, then [type](./metadata.md#type-string) field from the metadata JSON is used instead. It is strongly recommended keeping `type` on part rather than on metadata to aid with querying.
 
@@ -148,7 +142,6 @@ Some fields on base parts can be saved off-chain using `metadata` field to save 
     {
       "id": "bg",
       "src": "ipfs://ipfs/hash",
-      "thumb": "ipfs://ipfs/hash",
       "type": "slot",
       "equippable": ["collection_1", "collection_2"],
       "z": 3
@@ -188,7 +181,8 @@ And the content of metadata would be
     },
     "z": {
       "type": "int",
-      "value": 2
+      "value": 2,
+      "name": "string"
     }
   }
 }
