@@ -147,8 +147,11 @@ _Note that base part's spec also allows you to add `type: "slot"` media file and
   "properties": {
     "z": {
       "type": "int",
-      "value": 2,
-      "name": "string"
+      "value": 2
+    },
+    "zName": {
+      "type": "string",
+      "value": "Hats"
     }
   }
 }

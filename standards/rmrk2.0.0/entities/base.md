@@ -181,9 +181,12 @@ And the content of metadata would be
     },
     "z": {
       "type": "int",
-      "value": 2,
-      "name": "string"
-    }
+      "value": 2
+    },
+    "zName": {
+      "type": "string",
+      "value": "Hats"
+    },
   }
 }
 ```
