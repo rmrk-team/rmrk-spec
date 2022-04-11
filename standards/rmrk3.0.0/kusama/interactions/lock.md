@@ -1,16 +1,15 @@
-# LOCK
+# LOCK interaction (Kusama)
 
-The LOCK interaction allows a [Collection](../entities/collection.md) issuer to lock the `max` value
-to the current number of elements, effectively making the collection permanently limited.
+This document describes Kusama-specific examples and caveats for the [LOCK](../../abstract/interactions/lock.md) interaction.  See the [Abstract](../../abstract/interactions/lock.md) for full specs.
 
-## Standard
+## Standard (Kusama)
 
 The format of a LOCK interaction is `0x{bytes(rmrk::LOCK::{version}::{id})}`.
 
 - `version` is the version of the standard used (e.g. `2.0.0`)
 - `id` is the [collection](../entities/collection.md)'s ID.
 
-## Examples
+## Examples (Kusama)
 
 Given a collection like:
 
