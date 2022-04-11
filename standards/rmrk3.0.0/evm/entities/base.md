@@ -2,7 +2,9 @@
 
 # Base Entity (EVM)
 
-A [Base](../../abstract/entities/base.md) in EVM is represented as a (TODO: Base in EVM?) 
+This document describes EVM-specific examples and caveats for [Base](../../abstract/entities/base.md).  See the [Abstract](../../abstract/entities/base.md) for full specs.
+
+A Base in EVM is represented as a (TODO: Base in EVM?) 
 
 Example:
 

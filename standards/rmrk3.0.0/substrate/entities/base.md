@@ -2,6 +2,8 @@
 
 # Base Entity (Substrate)
 
+This document describes Substrate-specific examples and caveats for [Base](../../abstract/entities/base.md).  See the [Abstract](../../abstract/entities/base.md) for full specs.
+
 A [Base](../../abstract/entities/base.md) in Substrate is represented as a (TODO: Base in Substrate?) 
 
 Example:

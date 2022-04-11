@@ -2,6 +2,8 @@
 
 # Base Entity (Kusama)
 
+This document describes Kusama-specific examples and caveats for [Base](../../abstract/entities/base.md).  See the [Abstract](../../abstract/entities/base.md) for full specs.
+
 A [Base](../../abstract/entities/base.md) in Kusama is represented as a JSON object with following properties: `symbol`, `type`, `themes` and `parts`. There is an implied
 `issuer` field, matching the address that created the base.  The `id` field which is dynamically
 generated based on the `symbol` and some other values (see Computed Properties below).
