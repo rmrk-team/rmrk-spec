@@ -1,4 +1,6 @@
-# Metadata
+[Root](../)
+
+# Metadata Entity (Abstract)
 
 ## Abstract
 
@@ -455,10 +457,10 @@ At the moment of writing, the only reserved and recommended on-chain property is
 },
 ```
 
-## Standards
+## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama Metadata Entity](../../kusama/entities/metadata.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate Metadata Entity](../../substrate/entities/metadata.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM Metadata Entity](../../evm/entities/metadata.md)
