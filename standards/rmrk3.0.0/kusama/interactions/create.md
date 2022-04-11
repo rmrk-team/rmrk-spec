@@ -1,14 +1,14 @@
-# CREATE
+# CREATE interaction (Kusama)
 
-The CREATE interaction creates a [Collection](../entities/collection.md).
+This document describes Kusama-specific examples and caveats for the [CREATE](../../abstract/interactions/create.md) interaction.  See the [Abstract](../../abstract/interactions/create.md) for full specs.
 
-## Standard
+## Standard (Kusama)
 
 The format of a CREATE interaction is `0x{bytes(rmrk::CREATE::{version}::{html_encoded_json})}`. In
 other words, HTML encode the minified JSON, then convert the entire remark with the interaction
 prefix into bytes and send with a `0x` prefix.
 
-## Examples
+## Examples (Kusama)
 
 Given a collection:
 
