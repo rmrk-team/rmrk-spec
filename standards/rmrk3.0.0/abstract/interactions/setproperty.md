@@ -1,4 +1,4 @@
-# SETPROPERTY
+# SETPROPERTY interaction (Abstract)
 
 Discussing here: https://app.clickup.com/6615036/docs/69vzw-1501/69vzw-121
 
@@ -13,30 +13,10 @@ Properties are mutable if they are defined to be mutable by the minter (see
 
 A mutable property is changed with a SETPROPERTY call:
 
-```txt
-rmrk::SETPROPERTY::2.0.0::{id}::{html_encoded_name}::{html_encoded_value}
-```
+Format:
+- `name`: Key of property
+- `value`: Value of property
 
-Example. Given an NFT `5105000-0aff6865bed3a66b-DLEP-DL15-00000001` with a property (either
-inherited from Collection or directly defined on NFT):
-
-```json
-"properties":  {
-  "color": {
-    "_mutation":  {
-      "allowed": true
-    },
-    "type": "string",
-    "value": "blue"
-  }
-},
-```
-
-We can change the color to red like so:
-
-```txt
-RMRK::SETPROPERTY::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::color::red
-```
 
 If the property was inherited, it appears as an NFT-level property on the NFT henceforth, since
 the new value diverges from what was inherited from the Collection.
