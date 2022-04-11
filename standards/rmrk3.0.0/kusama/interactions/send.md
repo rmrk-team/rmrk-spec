@@ -1,12 +1,8 @@
-# SEND
+# SEND interaction (Kusama)
 
-Send an [NFT](../entities/nft.md) to an arbitrary recipient.
+This document describes Kusama-specific examples and caveats for the [SEND](../../abstract/interactions/send.md) interaction.  See the [Abstract](../../abstract/interactions/send.md) for full specs.
 
-You can only SEND an existing NFT (one that has not been [BURNed](burn.md) yet).
-
-When sending an NFT to another NFT, unless you own both, the SEND has to be [ACCEPT](accept.md)ed.
-
-## Standard
+## Standard (Kusama)
 
 The format of a SEND interaction is `0x{bytes(rmrk::SEND::{version}::{id}::{recipient})}`.
 
@@ -16,13 +12,9 @@ The format of a SEND interaction is `0x{bytes(rmrk::SEND::{version}::{id}::{reci
   `H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y` or the ID of the recieving NFT, e.g.
   `5105000-0aff6865bed3a66b-DLEP-DL15-00000001`
 
-## Effects
+## Examples (Kusama)
 
-This interactions cancels any pending [LIST](list.md) on the NFT with this ID. It is equivalent to
-having called LIST with a cancel on it. It also cancels any pending SENDs when doing NFT to NFT
-transfer.
-
-## Example of sending to NFT
+### Example of sending to NFT
 
 It is possible to SEND an NFT directly from an NFT to another NFT, even if the destination NFT is
 owned by yet another NFT.
@@ -131,7 +123,7 @@ prevents stack overflow and nesting complexity, keeping storage requirements low
 2-write-ops maximum per SEND (remove child, add child), not counting any canceled LISTs and other
 implied interactions.
 
-## Example of sending to account
+### Example of sending to account
 
 ```
 rmrk::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y
