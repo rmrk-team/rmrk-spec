@@ -1,6 +1,8 @@
-# Kusama ACCEPT interaction
+# ACCEPT interaction (Kusama)
 
-## Standard
+This document describes Kusama-specific examples and caveats for the [ACCEPT](../../abstract/interactions/accept.md) interaction.  See the [Abstract](../../abstract/interactions/accept.md) for full specs.
+
+## Format
 
 The Kusama format of an [ACCEPT](../../abstract/interactions/accept.md) interaction is `0x{bytes(rmrk::ACCEPT::{version}::{id1}::{entity}::{id2})}`.
 

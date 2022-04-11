@@ -1,4 +1,4 @@
-# ACCEPT
+# ACCEPT interaction (Abstract)
 
 The ACCEPT interaction allows the owner of an [NFT](../entities/nft.md) to accept:
 
@@ -24,7 +24,7 @@ an `ACCEPT` unless the `rootowner` of both NFTs matches.
 
 It is not possible to remove resources accepted in the past. This prevents art rug-pulls.
 
-## Standards
+## Standards Per Implementation
 
 [Kusama ACCEPT](../../kusama/interactions/accept.md)
 
