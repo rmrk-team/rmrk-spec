@@ -94,7 +94,7 @@ If we now [SEND](interactions/send.md) this NFT into NFT A and issue the
 resource into as a layer: `base_b` or `base_a`. Therefore, a `base` and `slot` namespaced
 combination is necessary: `base_a.slot_1` vs `base_b.slot_1`.
 
-## Standards
+## Standards Per Implementation
 
 [Kusama ACCEPT](../../kusama/interactions/accept.md)
 

@@ -137,7 +137,7 @@ implied interactions.
 rmrk::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::H9eSvWe34vQDJAWckeTHWSqSChRat8bgKHG39GC1fjvEm7y
 ```
 
-## Standards
+## Standards Per Implementation
 
 [Kusama ACCEPT](../../kusama/interactions/accept.md)
 

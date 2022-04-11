@@ -72,7 +72,7 @@ On-chain properties that match a property from metadata by name are prioritized.
 has the property `sport:football` in its metadata, then setting the NFT's mutable property `sport`
 to `basketball` shows `basketball` as the value henceforth, ignoring the one in metadata.
 
-## Standards
+## Standards Per Implementation
 
 [Kusama ACCEPT](../../kusama/interactions/accept.md)
 

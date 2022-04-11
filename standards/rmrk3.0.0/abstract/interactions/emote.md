@@ -100,7 +100,7 @@ RMRK::EMOTE::2.0.0::PUBKEY::0xe81f67c2def10f4cc1f43b0e207921210ff83747eb354ad653
 
 - [Emoji Regex](https://github.com/mathiasbynens/emoji-regex) (Typescript / JavaScript)
 
-## Standards
+## Standards Per Implementation
 
 [Kusama ACCEPT](../../kusama/interactions/accept.md)
 

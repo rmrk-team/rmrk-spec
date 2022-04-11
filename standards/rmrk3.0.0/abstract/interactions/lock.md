@@ -34,7 +34,7 @@ rmrk::LOCK::2.0.0::0aff6865bed3a66b-DLEP
 The `max` value of this collection will now permanently be `5`. No more NFTs will be mintable from
 this collection.
 
-## Standards
+## Standards Per Implementation
 
 [Kusama ACCEPT](../../kusama/interactions/accept.md)
 

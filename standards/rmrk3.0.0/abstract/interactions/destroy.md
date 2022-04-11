@@ -15,7 +15,7 @@ The format of DESTROY interaction is: `0x{bytes(rmrk::DESTROY::{version}::{id})}
 
 `RMRK::DESTROY::2.0.0::0a24c7876a892acb79-PUNKS`
 
-## Standards
+## Standards Per Implementation
 
 [Kusama ACCEPT](../../kusama/interactions/accept.md)
 
