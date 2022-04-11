@@ -1,17 +1,8 @@
-# Collection
+# Collection Entity (Kusama)
 
-This standard defines how **collection** of NFTs are minted. Collections are effectively immutable
-after being created, with the exception of the issuer value, and the max value. See interactions at
-the bottom of this page.
+A [Collection](../../abstract/entities/collection.md) defines how **collection** of NFTs are minted.  This document describes Kusama-specific examples and caveats for Collections.  See the [Abstract](../../abstract/entities/collection.md) for full specs.
 
-A collection is the context of one or more NFTs. For example, a Cryptokitty Generation 0 is part of
-the "Generation 0 kitties" collection, and an ENS (Ethereum Name System) domain is part of the ENS
-collection, while a POAP-EthParis NFT might be given to everyone who attended EthParis, and will be
-part of the POAP master collection. Every NFT must have a parent context (collection) it belongs to.
-
-## Collection Standard
-
-A collection MUST adhere to the following standard.
+## Collection Standard in Kusama
 
 ```json
 {
@@ -42,18 +33,11 @@ A collection MUST adhere to the following standard.
 }
 ```
 
-## On-chain Properties
+## Caveats
 
-A Collection can define a map of properties for NFTs in this collection to inherit. Propeties (previously Attributes)
-defined this way override properties in the metadata of individual NFTs, but are overridden further
-by properties of the same name on the NFT. The order of precedence is, from lowest to highest:
+- id: A collection is uniquely identified by at least the first four and last four bytes of the original issuer's pubkey, combined with the symbol through a dash `-`. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB.
+- metadata: If IPFS, MUST be in the format of ipfs://ipfs/HASH
 
-- Metadata Properties
-- Collection-inherited Properties
-- NFT's own Properties
-
-Due to on-chain storage concerns and constraints, this function will usually be reserved only for
-[mutable properties](../interactions/setproperty.md).
 
 ### Properties Format
 
@@ -73,40 +57,6 @@ export interface IAttribute {
 }
 ```
 
-Inspired by 
-[Enjin](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema),
-
-Chain-level properties like these override a Collection's metadata properties.
-
-## Metadata
-
-A collection MUST have metadata to describe it and help visualization on various platforms. See full [Metadata spec here](./metadata.md)
-
-```json
-{
-  "description": {
-    "type": "string",
-    "description": "Description of the collection as a whole. Markdown is supported."
-  },
-  "properties": {
-    "type": "object",
-    "description": "A map of JSON objects, inspired by Enjin's: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1155.md#erc-1155-metadata-uri-json-schema"
-  },
-  "externalUri": {
-    "type": "string",
-    "description": "HTTP or IPFS URL for finding out more about this project. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
-  },
-  "mediaUri": {
-    "type": "string",
-    "description": "HTTP or IPFS URL to project's main image, in the vein of og:image. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
-  },
-  "name": {
-    "type": "string",
-    "description": "Name of the collection, e.g. 'Dot Leap badges'."
-  }
-}
-```
-
 ## Examples
 
 Collection:
@@ -118,17 +68,6 @@ Collection:
   "symbol": "DLEP",
   "id": "0aff6865bed3a66b-DLEP",
   "metadata": "ipfs://ipfs/QmVgs8P4awhZpFXhkkgnCwBp4AdKRj3F9K58mCZ6fxvn3j"
-}
-```
-
-Metadata:
-
-```json
-{
-  "description": "Everyone who promoted [Dot Leap](https://dotleap.substack.com) via the in-email Tweet link is eligible.",
-  "properties": {},
-  "externalUri": "https://rmrk.app/registry/0aff6865bed3a66b-DLEP",
-  "mediaUri": "ipfs://ipfs/QmYcWFQCY1bAZ7ffRggt367McMN5gyZjXtribj5hzzeCWQ"
 }
 ```
 
