@@ -1,11 +1,11 @@
-# BASE
+# BASE interaction (Abstract)
 
 The BASE interaction creates a [Base](../entities/base.md).
 
-## Standards
+## Standards Per Implementation
 
-[Kusama BASE](../../kusama/base.md)
+[Kusama BASE](../../kusama/interactions/base.md)
 
-[Substrate BASE](../../substrate/base.md)
+[Substrate BASE](../../substrate/interactions/base.md)
 
-[EVM BASE](../../evm/base.md)
+[EVM BASE](../../evm/interactions/base.md)
