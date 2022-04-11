@@ -1,13 +1,8 @@
-# CHANGEISSUER
+# CHANGEISSUER interaction (Kusama)
 
-The CHANGEISSUER interaction allows a [Base](../entities/base.md) or
-[Collection](../entities/collection.md) issuer to change the issuer value to another address. The
-original issuer immediately loses all rights to further interact with the entity.
+This document describes Kusama-specific examples and caveats for the [CHANGEISSUER](../../abstract/interactions/changeissuer.md) interaction.  See the [Abstract](../../abstract/interactions/changeissuer.md) for full specs.
 
-This is particularly useful when another team is taking control over a project, or if an address was
-compromised.
-
-## Standard
+## Standard (Kusama)
 
 The format of a CHANGEISSUER interaction is
 `0x{bytes(rmrk::CHANGEISSUER::{version}::{id}::{newissuer})}`.
