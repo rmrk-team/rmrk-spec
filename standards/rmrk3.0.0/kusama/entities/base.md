@@ -1,4 +1,4 @@
-[Root](../../)
+[Root](../)
 
 # Base Entity (Kusama)
 
