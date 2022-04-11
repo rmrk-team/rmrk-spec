@@ -1,4 +1,4 @@
-# EMOTE
+# EMOTE interaction (Abstract)
 
 React to an on-chain entity with an emoticon.
 
@@ -11,11 +11,6 @@ Outside of Kusama, the emote interaction can also be used on other entities (see
 below).
 
 ## Standard
-
-The format of a EMOTE interaction is
-`0x{bytes(RMRK::EMOTE::{version}::{namespace}::{id}::{emotion})}`.
-
-- `version` is the version of the standard used (e.g. `2.0.0`)
 - `namespace` is the namespace to which the ID belongs.
 - `id` is the ID of the entity. See namespace table below.
 - `emotion` is the unicode of the emoji (e.g Unicode for party popper 🎉 is
@@ -75,20 +70,6 @@ When validating emoji inputs, the standard set supported by tools such as
 is so the emote functionality does not end up being abused for things like message-passing as there
 are separate implementations for this.
 
-## Examples
-
-### Emoting on an NFT
-
-```
-RMRK::EMOTE::2.0.0::RMRK1::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::1F389
-```
-
-### Emoting on an Account
-
-```
-RMRK::EMOTE::2.0.0::PUBKEY::0xe81f67c2def10f4cc1f43b0e207921210ff83747eb354ad653bbd2c0f0466f10::1F389
-```
-
 ## Implementations
 
 - Smart Contract (!ink) - TBD
@@ -102,8 +83,8 @@ RMRK::EMOTE::2.0.0::PUBKEY::0xe81f67c2def10f4cc1f43b0e207921210ff83747eb354ad653
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama EMOTE](../../kusama/interactions/emote.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate EMOTE](../../substrate/interactions/emote.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM EMOTE](../../evm/interactions/emote.md)
