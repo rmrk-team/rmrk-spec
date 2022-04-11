@@ -1,6 +1,6 @@
 ## Standard
 
-The format of an [ACCEPT](../abstract/interactions/accept.md) interaction with EVM is `...`.
+The format of an [ACCEPT](../../abstract/interactions/accept.md) interaction with EVM is `...`.
 
 
 ## Example for ACCEPTing a Pending Resource
