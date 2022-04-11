@@ -25,8 +25,8 @@ resource IDs will simply be ignored.
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama SETPRIORITY](../../kusama/interactions/setpriority.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate SETPRIORITY](../../substrate/interactions/setpriority.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM SETPRIORITY](../../evm/interactions/setpriority.md)

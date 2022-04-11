@@ -96,8 +96,8 @@ combination is necessary: `base_a.slot_1` vs `base_b.slot_1`.
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama EQUIP](../../kusama/interactions/equip.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate EQUIP](../../substrate/interactions/equip.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM EQUIP](../../evm/interactions/equip.md)

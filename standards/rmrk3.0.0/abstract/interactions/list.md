@@ -62,8 +62,8 @@ rmrk::LIST::2.0.0::5105000-0aff6865bed3a66b-VALHELLO-POTION_HEAL-00000001::0
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama LIST](../../kusama/interactions/list.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate LIST](../../substrate/interactions/list.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM LIST](../../evm/interactions/list.md)

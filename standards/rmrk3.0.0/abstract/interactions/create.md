@@ -4,8 +4,8 @@ The CREATE interaction creates a [Collection](../entities/collection.md).
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama CREATE](../../kusama/interactions/create.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate CREATE](../../substrate/interactions/create.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM CREATE](../../evm/interactions/create.md)

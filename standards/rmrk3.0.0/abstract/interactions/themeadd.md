@@ -202,8 +202,8 @@ The format of a `THEMEADD` interaction is:
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama THEMEADD](../../kusama/interactions/themeadd.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate THEMEADD](../../substrate/interactions/themeadd.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM THEMEADD](../../evm/interactions/themeadd.md)

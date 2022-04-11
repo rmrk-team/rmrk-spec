@@ -93,8 +93,8 @@ rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::%7B%22id%22%3A
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama RESADD](../../kusama/interactions/resadd.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate RESADD](../../substrate/interactions/resadd.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM RESADD](../../evm/interactions/resadd.md)

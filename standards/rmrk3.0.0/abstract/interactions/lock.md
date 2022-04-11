@@ -36,8 +36,8 @@ this collection.
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama LOCK](../../kusama/interactions/lock.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate LOCK](../../substrate/interactions/lock.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM LOCK](../../evm/interactions/lock.md)

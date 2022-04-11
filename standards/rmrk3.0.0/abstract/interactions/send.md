@@ -139,8 +139,8 @@ rmrk::SEND::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::H9eSvWe34vQDJAWc
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama SEND](../../kusama/interactions/send.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate SEND](../../substrate/interactions/send.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM SEND](../../evm/interactions/send.md)

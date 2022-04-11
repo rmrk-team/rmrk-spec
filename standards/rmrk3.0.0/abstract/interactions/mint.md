@@ -50,8 +50,8 @@ rmrk::MINT::2.0.0::%7B%22collection%22%3A%220aff6865bed3a66b-DLEP%22%2C%22symbol
 ```
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama MINT](../../kusama/interactions/mint.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate MINT](../../substrate/interactions/mint.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM MINT](../../evm/interactions/mint.md)

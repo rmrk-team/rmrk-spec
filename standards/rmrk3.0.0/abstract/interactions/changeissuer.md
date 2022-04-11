@@ -9,8 +9,8 @@ compromised.
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama CHANGEISSUER](../../kusama/interactions/changeissuer.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate CHANGEISSUER](../../substrate/interactions/changeissuer.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM CHANGEISSUER](../../evm/interactions/changeissuer.md)

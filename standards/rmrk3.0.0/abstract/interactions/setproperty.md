@@ -74,8 +74,8 @@ to `basketball` shows `basketball` as the value henceforth, ignoring the one in 
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama SETPROPERTY](../../kusama/interactions/setproperty.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate SETPROPERTY](../../substrate/interactions/setproperty.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM SETPROPERTY](../../evm/interactions/setproperty.md)

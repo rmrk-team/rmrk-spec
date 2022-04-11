@@ -59,8 +59,8 @@ When all collections are removed from a BASE's equippable list, the value become
 
 ## Standards Per Implementation
 
-[Kusama ACCEPT](../../kusama/interactions/accept.md)
+[Kusama EQUIPPABLE](../../kusama/interactions/equippable.md)
 
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
+[Substrate EQUIPPABLE](../../substrate/interactions/equippable.md)
 
-[EVM ACCEPT](../../evm/interactions/accept.md)
+[EVM EQUIPPABLE](../../evm/interactions/equippable.md)
