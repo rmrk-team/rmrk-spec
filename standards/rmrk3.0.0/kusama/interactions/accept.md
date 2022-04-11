@@ -1,6 +1,8 @@
+# Kusama ACCEPT interaction
+
 ## Standard
 
-The Kusama format of an [ACCEPT](../abstract/interactions/accept.md) interaction is `0x{bytes(rmrk::ACCEPT::{version}::{id1}::{entity}::{id2})}`.
+The Kusama format of an [ACCEPT](../../abstract/interactions/accept.md) interaction is `0x{bytes(rmrk::ACCEPT::{version}::{id1}::{entity}::{id2})}`.
 
 - `version` is the version of the standard used (e.g. `2.0.0`)
 - `id1` is the [NFT](../abstract/entities/nft.md)'s ID

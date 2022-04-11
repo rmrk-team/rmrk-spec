@@ -1,6 +1,8 @@
+# Substrate ACCEPT interaction
+
 ## Standard
 
-The format of an [ACCEPT](../abstract/interactions/accept.md) interaction with Substrate is `...`.
+The format of an [ACCEPT](../../abstract/interactions/accept.md) interaction with Substrate is `...`.
 
 ## Example for ACCEPTing a Pending Resource
 
