@@ -1,11 +1,8 @@
-# EQUIPPABLE
+# EQUIPPABLE interaction (Kusama)
 
-The EQUIPPABLE interaction allows a [Base](../entities/base.md) owner to modify the list of
-equippable collections on a Base's slot.
+This document describes Kusama-specific examples and caveats for the [EQUIPPABLE](../../abstract/interactions/equippable.md) interaction.  See the [Abstract](../../abstract/interactions/equippable.md) for full specs.
 
-A Base starts with an empty string `""` as a value for `equippable` on each of its slots.
-
-## Standard
+## Standard (Kusama)
 
 The format of a EQUIPPABLE interaction is
 `0x{bytes(rmrk::EQUIPPABLE::{version}::{id}::{slot}::{+/-?collections|*})}`.
