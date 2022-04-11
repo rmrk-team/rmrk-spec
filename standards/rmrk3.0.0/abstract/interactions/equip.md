@@ -93,3 +93,11 @@ If we now [SEND](interactions/send.md) this NFT into NFT A and issue the
 [EQUIP](interactions/equip.md) command, the renderer would not know which slot to put the NFT's
 resource into as a layer: `base_b` or `base_a`. Therefore, a `base` and `slot` namespaced
 combination is necessary: `base_a.slot_1` vs `base_b.slot_1`.
+
+## Standards
+
+[Kusama ACCEPT](../../kusama/interactions/accept.md)
+
+[Substrate ACCEPT](../../substrate/interactions/accept.md)
+
+[EVM ACCEPT](../../evm/interactions/accept.md)

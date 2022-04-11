@@ -455,3 +455,10 @@ At the moment of writing, the only reserved and recommended on-chain property is
 },
 ```
 
+## Standards
+
+[Kusama ACCEPT](../../kusama/interactions/accept.md)
+
+[Substrate ACCEPT](../../substrate/interactions/accept.md)
+
+[EVM ACCEPT](../../evm/interactions/accept.md)

@@ -22,3 +22,11 @@ rmrk::SETPRIORITY::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::bar,foo,b
 
 You **can** set priority with a resource ID that does not reference an existing resource. Invalid
 resource IDs will simply be ignored.
+
+## Standards
+
+[Kusama ACCEPT](../../kusama/interactions/accept.md)
+
+[Substrate ACCEPT](../../substrate/interactions/accept.md)
+
+[EVM ACCEPT](../../evm/interactions/accept.md)

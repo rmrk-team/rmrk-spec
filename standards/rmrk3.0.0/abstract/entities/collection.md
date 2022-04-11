@@ -138,3 +138,11 @@ Metadata:
 - [CHANGEISSUER](../interactions/changeissuer.md) - changes issuer to another address
 - [LOCK](../interactions/lock.md) - locks a collection's max number of NFTs to the current number of
   elements
+
+## Standards
+
+[Kusama ACCEPT](../../kusama/interactions/accept.md)
+
+[Substrate ACCEPT](../../substrate/interactions/accept.md)
+
+[EVM ACCEPT](../../evm/interactions/accept.md)

@@ -14,3 +14,11 @@ The format of DESTROY interaction is: `0x{bytes(rmrk::DESTROY::{version}::{id})}
 ## Example
 
 `RMRK::DESTROY::2.0.0::0a24c7876a892acb79-PUNKS`
+
+## Standards
+
+[Kusama ACCEPT](../../kusama/interactions/accept.md)
+
+[Substrate ACCEPT](../../substrate/interactions/accept.md)
+
+[EVM ACCEPT](../../evm/interactions/accept.md)

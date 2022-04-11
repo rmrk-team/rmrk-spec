@@ -80,3 +80,11 @@ The game would be listening for `system.remark` extrinsics that start with its d
 (valhello, or `0x76616c68656c6c6f`). When such a remark is detected, the accompanying tool should
 look inside the same block and find the other remark which describes the item. If both messages are
 valid, the burn is applied and can have effect in-app.
+
+## Standards
+
+[Kusama ACCEPT](../../kusama/interactions/accept.md)
+
+[Substrate ACCEPT](../../substrate/interactions/accept.md)
+
+[EVM ACCEPT](../../evm/interactions/accept.md)

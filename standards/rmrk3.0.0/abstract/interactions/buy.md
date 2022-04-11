@@ -89,3 +89,11 @@ the open without sufficient protections on the UI and perhaps server-side level.
 The [Singular](https://singular.rmrk.app) platform is a good example of a protected platform due to
 having a database behind the UI and an API-based guard which will disable interactions with an NFT
 while someone else is inspecting it, but it's not foolproof and should not be considered 100% safe.
+
+## Standards
+
+[Kusama ACCEPT](../../kusama/interactions/accept.md)
+
+[Substrate ACCEPT](../../substrate/interactions/accept.md)
+
+[EVM ACCEPT](../../evm/interactions/accept.md)

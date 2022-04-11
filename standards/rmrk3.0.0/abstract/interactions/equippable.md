@@ -56,3 +56,11 @@ When consolidated, the final result of the `equippable` field of this base is:
 
 When all collections are removed from a BASE's equippable list, the value becomes an empty string
 `""`.
+
+## Standards
+
+[Kusama ACCEPT](../../kusama/interactions/accept.md)
+
+[Substrate ACCEPT](../../substrate/interactions/accept.md)
+
+[EVM ACCEPT](../../evm/interactions/accept.md)

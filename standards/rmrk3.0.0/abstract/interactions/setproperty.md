@@ -71,3 +71,11 @@ For Logic properties please see [Logic](logic.md).
 On-chain properties that match a property from metadata by name are prioritized. E.g. if an NFT
 has the property `sport:football` in its metadata, then setting the NFT's mutable property `sport`
 to `basketball` shows `basketball` as the value henceforth, ignoring the one in metadata.
+
+## Standards
+
+[Kusama ACCEPT](../../kusama/interactions/accept.md)
+
+[Substrate ACCEPT](../../substrate/interactions/accept.md)
+
+[EVM ACCEPT](../../evm/interactions/accept.md)
