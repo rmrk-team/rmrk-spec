@@ -1,3 +1,5 @@
+[Root](../../)
+
 # Collection Entity (Abstract)
 
 This standard defines how **collection** of NFTs are minted. Collections are effectively immutable

@@ -1,3 +1,5 @@
+[Root](../../)
+
 # Base Entity (Kusama)
 
 A [Base](../../abstract/entities/base.md) in Kusama is represented as a JSON object with following properties: `symbol`, `type`, `themes` and `parts`. There is an implied

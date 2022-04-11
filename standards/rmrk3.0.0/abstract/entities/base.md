@@ -1,3 +1,5 @@
+[Root](../../)
+
 # Base Entity (Abstract)
 
 A base is a meta-entity, a catalogue of parts created with a [BASE](../interactions/base.md) interaction. It is not an [NFT](nft.md), but in developer-terms

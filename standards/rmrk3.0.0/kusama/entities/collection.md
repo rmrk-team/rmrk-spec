@@ -1,3 +1,5 @@
+[Root](../../)
+
 # Collection Entity (Kusama)
 
 A [Collection](../../abstract/entities/collection.md) defines how **collection** of NFTs are minted.  This document describes Kusama-specific examples and caveats for Collections.  See the [Abstract](../../abstract/entities/collection.md) for full specs.

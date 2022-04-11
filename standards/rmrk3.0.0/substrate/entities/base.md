@@ -1,3 +1,5 @@
+[Root](../../)
+
 # Base Entity (Substrate)
 
 A [Base](../../abstract/entities/base.md) in Substrate is represented as a (TODO: Base in Substrate?) 

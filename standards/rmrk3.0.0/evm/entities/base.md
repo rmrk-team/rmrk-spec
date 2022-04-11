@@ -1,3 +1,5 @@
+[Root](../../)
+
 # Base Entity (EVM)
 
 A [Base](../../abstract/entities/base.md) in EVM is represented as a (TODO: Base in EVM?) 
