@@ -1,13 +1,8 @@
-# MINT
+# MINT interaction (Kusama)
 
-The MINT interaction creates an [NFT](../entities/nft.md) into a
-[collection](../entities/collection.md).
+This document describes Kusama-specific examples and caveats for the [MINT](../../abstract/interactions/mint.md) interaction.  See the [Abstract](../../abstract/interactions/mint.md) for full specs.
 
-Mint is only possible if this NFT's collection is unlimited or below its `max` value. You cannot
-mint into a collection which has its number of elements == `max`, nor to a collection on which the
-[LOCK](../interactions/lock.md) interaction was invoked.
-
-## Standard
+## Standard (Kusama)
 
 The format of a MINT interaction is the same as for [CREATE](create.md):
 `0x{bytes(rmrk::MINT::{version}::{html_encoded_json}::{recipient?})}`.
@@ -18,7 +13,7 @@ The format of a MINT interaction is the same as for [CREATE](create.md):
   an account, e.g. `CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp`. If omitted, the recipient is
   implied to be the minter. Otherwise, mints directly into another account or NFT.
 
-## Examples
+## Examples (Kusama)
 
 ```json
 {
