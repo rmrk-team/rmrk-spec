@@ -1,7 +1,13 @@
-# THEMEADD
+# THEMEADD interaction (Abstract)
 
 The THEMEADD interaction allows the `issuer` of a [base](../entities/base.md) to add a new theme to
 the base.
+
+
+## Format
+- `id`: Base ID
+- `name`: Theme name
+- `data`: Theme data
 
 Themes are **named** objects of `variable` => `value` pairs which get interpolated into the base's
 `themable` parts according to its type. E.g. on an SVG-type base, a `green` theme which defines the
@@ -190,14 +196,6 @@ In the NFT itself:
   "symbol": "DARTHMAUL",
   "theme": "bad"
 }
-```
-
-## Format
-
-The format of a `THEMEADD` interaction is:
-
-```
-0x{bytes(rmrk::THEMEADD::{version}::{base_id}::{name}::{html_encoded_json})}.
 ```
 
 ## Standards Per Implementation
