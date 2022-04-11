@@ -1,16 +1,9 @@
-# DESTROY
+# DESTROY interaction (EVM)
 
-The DESTROY interaction destroys a [Collection](../entities/collection.md).
+This document describes EVM-specific examples and caveats for the [DESTROY](../../abstract/interactions/destroy.md) interaction.  See the [Abstract](../../abstract/interactions/destroy.md) for full specs.
 
-You can only DESTROY an existing Collection (one that has not been destroyed yet), only if you are it's issuer and as long as it doesn't contain any unburned NFTs.
+## Caveats (EVM)
+TODO: DESTROY caveats (or delete if none)
 
-## Standard
-
-The format of DESTROY interaction is: `0x{bytes(rmrk::DESTROY::{version}::{id})}`
-
-- `version` is the version of the standard used (e.g. `2.0.0`)
-- `id` is the [collection](../entities/collection.md)'s ID.
-
-## Example
-
-`RMRK::DESTROY::2.0.0::0a24c7876a892acb79-PUNKS`
+## Standard (EVM)
+TODO: DESTROY example (EVM)
