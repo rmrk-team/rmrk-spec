@@ -1,56 +1,18 @@
-# Base
+# Base Entity (Abstract)
 
 A base is a meta-entity, a catalogue of parts created with a [BASE](../interactions/base.md) interaction. It is not an [NFT](nft.md), but in developer-terms
 can be thought of as the interface or abstract class of an NFT's render i.e. final user-facing
 output.
 
-A base is a JSON object with following properties: `symbol`, `type`, `themes` and `parts`. There is an implied
+A base is an object with following properties: `symbol`, `type`, `themes` and `parts`. There is also an implied
 `issuer` field, matching the address that created the base, and an `id` field which is dynamically
-generated based on the `symbol` and some other values (see Computed Properties below).
+generated 
 
-Example:
+#### symbol
 
-```json
-{
-    "symbol": "kanaria_superbird",
-    "type": "svg",
-    "parts": [
-      {
-          "id": "bg",
-          "src": "ipfs://ipfs/hash",
-          "thumb": "ipfs://ipfs/hash",
-          "type": "slot",
-          "equippable": ["collection_1", "collection_2"],
-          "z": 3
-      },
-      {
-          "id": "gem_1",
-          "src": "ipfs://ipfs/hash",
-          "type": "fixed",
-          "z": 4
-      },
-      {
-          "id": "wing_1_back",
-          "src": "ipfs://ipfs/hash",
-          "metadata": "ipfs://ipfs/hash"
-      },
-      {
-          "id": "wing_1_front",
-          "metadata": "ipfs://ipfs/hash2"
-      }
-    ]
-}
-```
+An arbitrary value used for namespacing part slots (see Parts below). 
 
-#### symbol (string)
-
-An arbitrary value used for namespacing part slots (see Parts below). It can be any string value,
-but must not use dashes or dots. `kanaria-epic-birds` is not OK, but `kanaria_epic_birds` is.
-
-This is because the computed `id` property uses dashes `-` to combine additional elements, adding
-uniqueness to the ID, and because dots `.` are used for `slot` addressing.
-
-#### type (string)
+#### type
 
 An optional and arbitrary type to help clients with rendering instructions. We recommend following types `svg`, `audio`, `mixed`, `video`, `png`
 
@@ -58,17 +20,17 @@ An optional and arbitrary type to help clients with rendering instructions. We r
 
 ### Base
 
-####  `type` (string)
+####  `type`
 
 An optional and arbitrary type to help clients with rendering instructions. We recommend following types `svg`, `audio`, `mixed`, `video`, `png`
 
-#### `metadata` (string)
+#### `metadata`
 
 An optional ipfs Uri pointing to a [Metadata](./metadata.md) JSON.
 
-#### `parts` (array)
+#### `parts`
 
-An array of ALL the possible [base parts](#base-parts) an NFT inheriting this base can be rendered with.
+All the possible [base parts](#base-parts) an NFT inheriting this base can be rendered with.
 
 #### `themes`
 
@@ -80,15 +42,13 @@ Fields used in interactions but not explicitly set on their entities. Instead, t
 from previous applied interactions.
 
 
-#### `issuer` (string Address)
+#### `issuer`
 
 Chain-specific address of the original creator of the Base, or address of new issuer if issuer was changed with the CHANGEISSUER interaction.
 
-#### `id` (string)
+#### `id`
 
 A unique identifier.
-
-In extrinsic RMRK implementation, a Base is uniquely identified by the combination of the word `base`, its minting block number, and user provided symbol during Base creation, glued by dashes `-`, e.g. base-4477293-kanaria_superbird.
 
 ---
 
@@ -101,27 +61,27 @@ In extrinsic RMRK implementation, a Base is uniquely identified by the combinati
 
 ### Parts schema definition
 
-#### `src` (string)
+#### `src`
 
 An optional IPFS Uri pointing to main media file of this part
 
-#### `thumb` (string)
+#### `thumb`
 
 An optional ipfs Uri pointing to thumbnail media file of this part.
 
-#### `type` (string)
+#### `type`
 
 A Base part can be of type `fixed` or `slot`. A compatible resource can be equipped in a `slot` part. 
 
-#### `z` (number)
+#### `z`
 
 `z` is an optional zIndex of base part layer. It is used to help clients and renderers to display composable NFT.
 
-#### `equippable` (array)
+#### `equippable`
 
-Array of whitelisted collections that can be equipped in the given slot. Used with `slot` parts only.
+List of whitelisted collections that can be equipped in the given slot. Used with `slot` parts only.  Can be empty, or can support a generic "All" (such as wildcard *)
 
-#### `metadata` (string)
+#### `metadata`
 
 An optional ipfs Uri pointing to a [Metadata](./metadata.md) JSON.
 
@@ -136,63 +96,6 @@ Some fields on base parts can be saved off-chain using `metadata` field to save 
 - If a base part has `metadata` field but no `z` field, then [z](./metadata.md#z-number) field from the properties of metadata JSON is used instead.
 - If a base part has `metadata` field but no `type` field, then [type](./metadata.md#type-string) field from the metadata JSON is used instead. It is strongly recommended keeping `type` on part rather than on metadata to aid with querying.
 
-
-## Examples
-
-### Using on-chain fields
-
-```json
-{
-  "symbol": "kanaria_superbird",
-  "parts": [
-    {
-      "id": "bg",
-      "src": "ipfs://ipfs/hash",
-      "thumb": "ipfs://ipfs/hash",
-      "type": "slot",
-      "equippable": ["collection_1", "collection_2"],
-      "z": 3
-    },
-    ...
-  ]
-}
-```
-
-
-### Using off-chain fields from metadata
-
-```json
-{
-  "symbol": "kanaria_superbird",
-  "parts": [
-    {
-      "id": "bg",
-      "metadata": "ipfs://ipfs/hash"
-    },
-    ...
-  ]
-}
-```
-
-And the content of metadata would be 
-
-```json
-{
-  "mediaUri": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes.svg",
-  "thumbnailUri": "ipfs://ipfs/QmZy8eRLhToqPk5154SJkTJfPD8AMnPAjBi6w1S61yNPrR/1F32B/1f32b_eyes_thumb.png",
-  "type": "slot",
-  "properties": {
-    "mimeType": {
-      "type": "string",
-      "value": "image/svg+xml"
-    },
-    "z": {
-      "type": "int",
-      "value": 2
-    }
-  }
-}
-```
 ---
 
 ## SVG composition example
@@ -210,16 +113,6 @@ and SVG transparency.
 
 `fixed` parts are references to static content, like an IPFS hash of an SVG file, and a `z` index
 value:
-
-```json
-{
-  "id": "wing_1_front",
-  "type": "fixed",
-  "themable": true,
-  "z": 3,
-  "src": "ipfs://ipfs/hash2"
-},
-```
 
 `slot` parts have the same content, but `src` (or `mediaUri` in case of metadata) field is optional and used as a fallback for when nothing is equipped in the slot.
 
@@ -239,34 +132,6 @@ before there is a theme with the `default` key.
 
 Themes is an objects of key-value pairs where key is a named identifier of a theme and value can either be on-chain object representing the theme key-values or IPFS hash with theme's key values.
 
-#### On chain
-
-```json
-{
-  "themes": {
-    "default": {
-      "primary_color": "yellow",
-      "secondary_color": "darkyellow"
-    },
-    "sepia": {
-      "primary_color": "0x47822a",
-      "secondary_color": "0x331213"
-    }
-  }
-}
-```
-
-#### IPFS
-
-```json
-{
-  "themes": {
-    "default": "ipfs://ipfs/theme1hash",
-    "sepia": "ipfs://ipfs/theme2hash"
-  }
-}
-```
-
 In either case, on-chain or IPFS, a theme is cherry-picked with base resource using a [RESADD](../interactions/resadd.md) by it's `id`
 
 It's a clients/renderers job to then get full `theme` values from the Base entity by theme id on the resource. Once the values are available they can be interpolated into the base's
@@ -277,8 +142,16 @@ value, thus theming them.
 
 Themes are added on creation or later with [THEMEADD](../interactions/themeadd.md).
 
-## Interactions
+## Related Interaction Abstracts
 
 - [BASE](../interactions/base.md) - creates a base
 - [EQUIPPABLE](../interactions/equippable.md) - changes the equippable collection set
 - [CHANGEISSUER](../interactions/changeissuer.md) - changes the issuer
+
+## Standards Per Implementation
+
+[Kusama Base Entity](../../kusama/entities/base.md)
+
+[Substrate Base Entity](../../substrate/entities/base.md)
+
+[EVM Base Entity](../../evm/entities/base.md)
