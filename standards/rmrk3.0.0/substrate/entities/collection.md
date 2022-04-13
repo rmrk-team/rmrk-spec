@@ -6,7 +6,11 @@ A [Collection](../../abstract/entities/collection.md) defines how **collection**
 
 ## Collection Standard in Substrate
 
-Collections in Substrate are defined in the RMRK pallet's [Collection trait](https://github.com/rmrk-team/rmrk-substrate/blob/main/traits/src/collection.rs).  Storage of collections is within the Collections storage of the [rmrk-core](https://github.com/rmrk-team/rmrk-substrate/blob/main/pallets/rmrk-core/src/lib.rs) pallet.  Collections are created with the create_collection extrinsic in the same rmrk-core pallet.
+Collections in Substrate are defined in the RMRK pallet's [Collection trait](https://github.com/rmrk-team/rmrk-substrate/blob/main/traits/src/collection.rs).  Storage of collections is within the Collections storage of the [rmrk-core](https://github.com/rmrk-team/rmrk-substrate/blob/main/pallets/rmrk-core/src/lib.rs) pallet.  The following extrinsics, all within the [rmrk-core](https://github.com/rmrk-team/rmrk-substrate/blob/main/pallets/rmrk-core/src/lib.rs) pallet, are relevant to Collections:
+- `create_collection`: extrinsic for creating a new collection
+- `destroy_collection`: extrinsic for destroying a collection
+- `change_issuer`: extrinsic for change a collection's issuer
+- `lock_collection`: extrinsic for locking a collection
 
 ## Caveats
 
