@@ -6,50 +6,15 @@ A [Collection](../../abstract/entities/collection.md) defines how **collection**
 
 ## Collection Standard in Substrate
 
-TODO: Substrate Collection standard.  This is from Kusama standard (or just delete?)
-```json
-{
-  "max": {
-    "type": "number",
-    "description": "How many NFTs will ever belong to this collection. 0 for infinite."
-  },
-  "issuer": {
-    "type": "string",
-    "description": "Issuer's address, e.g. CpjsLDC1JFyrhm3ftC9Gs4QoyrkHKhZKtK7YqGTRFtTafgp. Can be address different from minter to assign ownership to other entity on creation."
-  },
-  "symbol": {
-    "type": "string",
-    "description": "Ticker symbol by which to represent the token in wallets and UIs, e.g. ZOMB"
-  },
-  "id": {
-    "type": "string",
-    "description": "A collection is uniquely identified by at least the first four and last four bytes of the original issuer's pubkey, combined with the symbol through a dash `-`. This prevents anyone but the issuer from reusing the symbol, and prevents trading of fake NFTs with the same symbol. Example ID: 0aff6865bed3a66b-ZOMB."
-  },
-  "metadata": {
-    "type": "string",
-    "description": "HTTP(s) or IPFS URI. If IPFS, MUST be in the format of ipfs://ipfs/HASH"
-  },
-  "properties?": {
-    "type": IProperties,
-    "description": "A map of property object definitions that get inherited by every NFT in this collection"
-  }
-}
-```
+Collections in Substrate are defined in the RMRK pallet's [Collection trait](https://github.com/rmrk-team/rmrk-substrate/blob/main/traits/src/collection.rs).  Storage of collections is within the Collections storage of the [rmrk-core](https://github.com/rmrk-team/rmrk-substrate/blob/main/pallets/rmrk-core/src/lib.rs) pallet.  Collections are created with the create_collection extrinsic in the same rmrk-core pallet.
 
 ## Caveats
 
-TODO: Substrate caveats
-
+Collection ID in Substrate is auto-incremented (starting at 0) and assigned upon creation.
 
 ### Properties Format
 
-TODO: Substrate Properties format
-
-## Examples
-
-Collection:
-
-TODO: Substrate collection example
+Properties are extracted out of the Collections storage.  Properties are defined in the RMRK pallet's [Properties trait](https://github.com/rmrk-team/rmrk-substrate/blob/main/traits/src/property.rs).  Storage of properties is within the Properties storage of the [rmrk-core](https://github.com/rmrk-team/rmrk-substrate/blob/main/pallets/rmrk-core/src/lib.rs) pallet.  Properties are added with the set_property extrinsic in the same rmrk-core pallet.
 
 ## Interactions
 
