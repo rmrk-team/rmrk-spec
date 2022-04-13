@@ -16,7 +16,7 @@ A Base ID in Substrate is an auto-incrementing u32, assigned upon creation.
 
 #### `equippable` (array)
 
-Equippables in Substrate are represented as an enum of `All`, `Empty`, or `Custom<Vec<CollectionId>>`.  `All` handles the wildcard case.  This is defined in the RMRK pallet's [Part trait](https://github.com/rmrk-team/rmrk-substrate/blob/main/traits/src/part.rs)
+Equippables in Substrate are represented as an `EquippableList` enum of `All`, `Empty`, or `Custom<Vec<CollectionId>>`.  `All` handles the wildcard case.  This is defined in the RMRK pallet's [Part trait](https://github.com/rmrk-team/rmrk-substrate/blob/main/traits/src/part.rs)
 
 ---
 
