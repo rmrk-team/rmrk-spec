@@ -6,8 +6,8 @@ Priorites in Substrate are set with the `set_priority` extrinsic in the [rmrk-co
 
 ## Standard (Substrate)
 `mint_nft` takes the following arguments:
-- `collection_id`: Collection ID of the NFT to send
-- `nft_id`: NFT ID of the NFT to send
+- `collection_id`: Collection ID of the NFT to set priorities for
+- `nft_id`: NFT ID of the NFT to set priorities for
 - `priorities`: the Vec of resources to set as priority
 
 ## Caveats (Substrate)
