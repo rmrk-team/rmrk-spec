@@ -123,7 +123,7 @@ the parent theme.
 
 ## Example
 
-Assume we have a lightsaber which can grow red, green, white, or blue. One could mint four separate
+Assume we have a lightsaber which can glow red, green, white, or blue. One could mint four separate
 ones, or one could mint a single one and apply the "red", "green", "blue", or "white" theme to each.
 
 The advantages of the latter approach are:
@@ -171,7 +171,7 @@ Now let's assume Obi Wan makes it glow green, and Darth Maul makes it glow red.
           "primary_color": "#00ff00"
         },
         "bad": {
-          "primary_color": "#00ff00"
+          "primary_color": "#ff0000"
         }
     ]
 ```
