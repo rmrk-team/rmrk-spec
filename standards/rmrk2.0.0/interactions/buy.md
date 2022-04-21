@@ -3,8 +3,7 @@
 The BUY interaction allows a user to immediately purchase an [NFT](../entities/nft.md) listed for
 sale using the [LIST](list.md) interaction, as long as the listing hasn't been canceled.
 
-You can only BUY an existing NFT (one that has not been [BURNed](burn.md) yet). You can only BUY a
-root-level NFT, meaning one owned by an account, and not owned by another NFT. You can buy an NFT
+You can only BUY an existing NFT (one that has not been [BURNed](burn.md) yet). You can buy an NFT
 which contains other NFTs and they all get transfered with it.
 
 ## Standard
@@ -86,6 +85,6 @@ Until RMRK is deployed as on-chain logic, it is recommended to implement client-
 with captchas, and centralized intermediaries to keep the users safe. It is not safe to do trades in
 the open without sufficient protections on the UI and perhaps server-side level.
 
-The [Singular](https://singular.rmrk.app) platform is a good example of a protected platform due to
+The [Singular](https://singular.app) platform is a good example of a protected platform due to
 having a database behind the UI and an API-based guard which will disable interactions with an NFT
 while someone else is inspecting it, but it's not foolproof and should not be considered 100% safe.
