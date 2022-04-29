@@ -30,7 +30,3 @@ Note: submitting a new LIST with a different price changes the listing price.
 ## Standards Per Implementation
 
 [Kusama LIST](../../kusama/interactions/list.md)
-
-[Substrate LIST](../../substrate/interactions/list.md)
-
-[EVM LIST](../../evm/interactions/list.md)

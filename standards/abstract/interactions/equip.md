@@ -29,7 +29,3 @@ combination is necessary.
 ## Standards Per Implementation
 
 [Kusama EQUIP](../../kusama/interactions/equip.md)
-
-[Substrate EQUIP](../../substrate/interactions/equip.md)
-
-[EVM EQUIP](../../evm/interactions/equip.md)

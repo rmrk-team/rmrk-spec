@@ -15,7 +15,3 @@ having called LIST with a cancel on it.
 ## Standards Per Implementation
 
 [Kusama BUY](../../kusama/interactions/buy.md)
-
-[Substrate BUY](../../substrate/interactions/buy.md)
-
-[EVM BUY](../../evm/interactions/buy.md)

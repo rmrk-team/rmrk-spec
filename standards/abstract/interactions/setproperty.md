@@ -55,7 +55,3 @@ to `basketball` shows `basketball` as the value henceforth, ignoring the one in 
 ## Standards Per Implementation
 
 [Kusama SETPROPERTY](../../kusama/interactions/setproperty.md)
-
-[Substrate SETPROPERTY](../../substrate/interactions/setproperty.md)
-
-[EVM SETPROPERTY](../../evm/interactions/setproperty.md)

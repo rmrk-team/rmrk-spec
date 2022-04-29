@@ -9,7 +9,3 @@ to the current number of elements, effectively making the collection permanently
 ## Standards Per Implementation
 
 [Kusama LOCK](../../kusama/interactions/lock.md)
-
-[Substrate LOCK](../../substrate/interactions/lock.md)
-
-[EVM LOCK](../../evm/interactions/lock.md)

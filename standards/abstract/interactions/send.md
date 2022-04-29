@@ -19,7 +19,3 @@ transfer.
 ## Standards Per Implementation
 
 [Kusama SEND](../../kusama/interactions/send.md)
-
-[Substrate SEND](../../substrate/interactions/send.md)
-
-[EVM SEND](../../evm/interactions/send.md)

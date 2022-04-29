@@ -162,7 +162,3 @@ See [Full Metadata Spec](./metadata.md)
 ## Standards Per Implementation
 
 [Kusama NFT Entity](../../kusama/entities/nft.md)
-
-[Substrate NFT Entity](../../substrate/entities/nft.md)
-
-[EVM NFT Entity](../../evm/entities/nft.md)

@@ -10,7 +10,3 @@ compromised.
 ## Standards Per Implementation
 
 [Kusama CHANGEISSUER](../../kusama/interactions/changeissuer.md)
-
-[Substrate CHANGEISSUER](../../substrate/interactions/changeissuer.md)
-
-[EVM CHANGEISSUER](../../evm/interactions/changeissuer.md)

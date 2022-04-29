@@ -21,7 +21,3 @@ this NFT from the list of a parent NFT's children, if any.
 ## Standards Per Implementation
 
 [Kusama BURN](../../kusama/interactions/burn.md)
-
-[Substrate BURN](../../substrate/interactions/burn.md)
-
-[EVM BURN](../../evm/interactions/burn.md)

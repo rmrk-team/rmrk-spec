@@ -56,7 +56,3 @@ As an example:
 ## Standards Per Implementation
 
 [Kusama RESADD](../../kusama/interactions/resadd.md)
-
-[Substrate RESADD](../../substrate/interactions/resadd.md)
-
-[EVM RESADD](../../evm/interactions/resadd.md)

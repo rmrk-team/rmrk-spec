@@ -153,7 +153,3 @@ Themes are added on creation or later with [THEMEADD](../interactions/themeadd.m
 ## Standards Per Implementation
 
 [Kusama Base Entity](../../kusama/entities/base.md)
-
-[Substrate Base Entity](../../substrate/entities/base.md)
-
-[EVM Base Entity](../../evm/entities/base.md)

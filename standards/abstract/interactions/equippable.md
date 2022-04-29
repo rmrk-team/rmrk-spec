@@ -13,7 +13,3 @@ A Base starts with nothing/none as a value for `equippable` on each of its slots
 ## Standards Per Implementation
 
 [Kusama EQUIPPABLE](../../kusama/interactions/equippable.md)
-
-[Substrate EQUIPPABLE](../../substrate/interactions/equippable.md)
-
-[EVM EQUIPPABLE](../../evm/interactions/equippable.md)

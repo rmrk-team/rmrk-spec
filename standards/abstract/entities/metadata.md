@@ -460,7 +460,3 @@ At the moment of writing, the only reserved and recommended on-chain property is
 ## Standards Per Implementation
 
 [Kusama Metadata Entity](../../kusama/entities/metadata.md)
-
-[Substrate Metadata Entity](../../substrate/entities/metadata.md)
-
-[EVM Metadata Entity](../../evm/entities/metadata.md)

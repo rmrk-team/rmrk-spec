@@ -7,7 +7,3 @@ You can only DESTROY an existing Collection (one that has not been destroyed yet
 ## Standards Per Implementation
 
 [Kusama DESTROY](../../kusama/interactions/destroy.md)
-
-[Substrate DESTROY](../../substrate/interactions/destroy.md)
-
-[EVM DESTROY](../../evm/interactions/destroy.md)

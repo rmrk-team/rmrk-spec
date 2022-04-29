@@ -27,7 +27,3 @@ It is not possible to remove resources accepted in the past. This prevents art r
 ## Standards Per Implementation
 
 [Kusama ACCEPT](../../kusama/interactions/accept.md)
-
-[Substrate ACCEPT](../../substrate/interactions/accept.md)
-
-[EVM ACCEPT](../../evm/interactions/accept.md)

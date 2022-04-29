@@ -84,7 +84,3 @@ are separate implementations for this.
 ## Standards Per Implementation
 
 [Kusama EMOTE](../../kusama/interactions/emote.md)
-
-[Substrate EMOTE](../../substrate/interactions/emote.md)
-
-[EVM EMOTE](../../evm/interactions/emote.md)

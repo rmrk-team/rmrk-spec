@@ -14,7 +14,3 @@ mint into a collection which has its number of elements == `max`, nor to a colle
 ## Standards Per Implementation
 
 [Kusama MINT](../../kusama/interactions/mint.md)
-
-[Substrate MINT](../../substrate/interactions/mint.md)
-
-[EVM MINT](../../evm/interactions/mint.md)

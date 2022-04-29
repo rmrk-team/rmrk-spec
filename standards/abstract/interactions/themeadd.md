@@ -201,7 +201,3 @@ In the NFT itself:
 ## Standards Per Implementation
 
 [Kusama THEMEADD](../../kusama/interactions/themeadd.md)
-
-[Substrate THEMEADD](../../substrate/interactions/themeadd.md)
-
-[EVM THEMEADD](../../evm/interactions/themeadd.md)

@@ -59,7 +59,3 @@ A collection MUST have metadata to describe it and help visualization on various
 ## Standards Per Implementation
 
 [Kusama Collection Entity](../../kusama/entities/collection.md)
-
-[Substrate Collection Entity](../../substrate/entities/collection.md)
-
-[EVM Collection Entity](../../evm/entities/collection.md)
