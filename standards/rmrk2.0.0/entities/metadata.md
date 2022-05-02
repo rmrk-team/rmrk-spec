@@ -385,6 +385,10 @@ Number value to position media along the z-axis.
 
 The volume of the specific media, between `0.0` to `1.0`.
 
+#### `preferThumb` (boolean)
+
+Tell UIs to display `thumbnailUri` instead of `mediaUri` whenever possible. This is handy if `mediaUri` is of type that doesn't make sense to user out of context i.e. in context of composable NFTs
+
 ##### Example:
 
 ```json
