@@ -140,22 +140,22 @@ Maul or Obi Wan.
 
 ```json
 // Theme definition in lightsaber Base
-"themes": [
+"themes": {
         "default": {
             "primary_color": "#ffffff",
             "_inherit": true
         }
-    ]
+    }
 ```
 
 ```json
 {
   // Obi Wan NFT's resource
-    "resources": [
+    "resources": {
         "id": "VykgH",
         "src": "hash-of-svg-on-ipfs",
         "theme": "default" // <-- this can also be omitted,, which makes the resource use its SVG's built-in fallbacks
-    ],
+    },
 }
 ```
 
@@ -163,7 +163,7 @@ Now let's assume Obi Wan makes it glow green, and Darth Maul makes it glow red.
 
 ```json
 // Force user Base themes
-"themes": [
+"themes": {
         "default": {
           "primary_color": "#ffffff",
         },
@@ -173,7 +173,7 @@ Now let's assume Obi Wan makes it glow green, and Darth Maul makes it glow red.
         "bad": {
           "primary_color": "#00ff00"
         }
-    ]
+    }
 ```
 
 In the NFT itself:
