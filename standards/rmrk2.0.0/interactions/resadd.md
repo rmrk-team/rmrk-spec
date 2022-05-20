@@ -52,12 +52,13 @@ As an example:
 ## Standard
 
 The format of a RESADD interaction is
-`0x{bytes(rmrk::RESADD::{version}::{id}::{html_encoded_json})}`.
+`0x{bytes(rmrk::RESADD::{version}::{id}::{html_encoded_json})::{replace}}`.
 
 - `version` is the version of the standard used (e.g. `2.0.0`)
 - `id` is the [NFT](../entities/nft.md)'s ID
 - `html_encoded_json` is the html encoded resource, formatted according to the standard in
   [NFT](../entities/nft.md) under the Resources section
+- `replace` is the id of an existing resource to replace
 
 ## Examples
 
@@ -91,5 +92,5 @@ So we issue:
 rmrk::RESADD::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::%7B%22id%22%3A%22V1i6B%22%2C%src%22%3A%22hash-of-metadata-guest-bird-art-with-jetpack%22%2C%22metadata%22%3A%22hash-of-metadata-with-credits%22%7D
 ```
 ## Replacing an existing resource
-If the resource `id` matches an existing resource `id` on that NFT, then the existing resource gets replaced with the new one.
+If the resource `id` matches an existing resource `id` on that NFT, then the existing resource gets replaced with the new one. The resource is replaced on [Accept](./accept.md)
 
