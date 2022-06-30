@@ -184,7 +184,7 @@ this value as a `slot` property (see `resources` below) and additional explained
 
 #### Owner and Rootowner
 
-These values are originally computed from the [MINT](../interactions/mind.md) interaction, depending
+These values are originally computed from the [MINT](../interactions/mint.md) interaction, depending
 on recipient. After minting, it is computed from [SEND](../interactions/send.md) interactions.
 
 `rootowner` will ALWAYS be an account, whereas `owner` can also be an NFT ID in cases where an NFT
