@@ -22,7 +22,7 @@ The following **entities** are defined:
 The following **interactions** are possible:
 
 - [x] [ACCEPT](interactions/accept.md) (Accept the addition of a new resource to an existing NFT, or
-      the additiona of a child into a parent NFT)
+      the addition of a child into a parent NFT)
 - [x] [BASE](interactions/base.md) (Create a [Base](entities/base.md))
 - [x] [BUY](interactions/buy.md) (Buy an NFT)
 - [x] [CHANGEISSUER](interactions/changeissuer.md) (Changing the issuer of a collection or base)
