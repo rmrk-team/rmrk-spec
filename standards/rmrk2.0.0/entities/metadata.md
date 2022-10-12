@@ -148,6 +148,10 @@ _Note that base part's spec also allows you to add `type: "slot"` media file and
     "z": {
       "type": "int",
       "value": 2
+    },
+    "zName": {
+      "type": "string",
+      "value": "Hats"
     }
   }
 }
@@ -184,7 +188,8 @@ _Note that base part's spec also allows you to add `type: "slot"` media file and
     },
     "z": {
       "type": "int",
-      "value": 2
+      "value": 2,
+      "name": "string"
     },
     "mimeType": {
       "type": "string",
