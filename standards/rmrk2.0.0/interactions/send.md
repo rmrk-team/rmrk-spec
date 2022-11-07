@@ -77,7 +77,7 @@ rmrk::SEND::2.0.0::P2C1::P1C1
 
 In a consolidator, this is what should happen:
 
-- check if issuer of the SEND interaction === root owner of B1P2 and is so...
+- check if issuer of the SEND interaction === root owner of P2C1 and if so...
 - get owner of P2C1
 - remove P2C1 from `children` array of P2
 - add P2C1 to `children` array in P1
