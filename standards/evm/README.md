@@ -3,4 +3,6 @@ This is the documentation of the EVM implmentation of the RMRK standard.  It pro
 
 See [RMRK](../) for documentation of other implementations.
 
-TODO: Document EVM implementation
+<!-- TODO: Document EVM implementation -->
+
+The MultiAsset RMRK lego can be best explained with the EIP-5773 that we published. To view it, please refer to the main Ethereum's EIP directory: **[EIP-5773: Context-Dependent Multi-Asset Tokens](https://eips.ethereum.org/EIPS/eip-5773)**
