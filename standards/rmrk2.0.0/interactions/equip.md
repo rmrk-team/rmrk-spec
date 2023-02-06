@@ -9,7 +9,7 @@ can only unequip an equipped NFT.
 You can equip/unequip a non-transferable NFT. As an example, putting a helmet on or taking it off
 does not change the ownership of the helmet.
 
-You can only equip a [non-pening](accept.md) child NFT.
+You can only equip a [non-pending](accept.md) child NFT.
 
 ## Standard
 
