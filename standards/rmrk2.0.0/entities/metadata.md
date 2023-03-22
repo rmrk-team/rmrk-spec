@@ -40,17 +40,17 @@ _More examples for recommended use cases can be added with a simple PR._
 It is strongly advised -- but not required -- that all NFTs follow the following
 standards and recommendations.
 
-Within RMRK standard, following `metadata` standard can be used on the root of NFT as well as on [resources](../entities/nft.md#resources-and-resource)
+Within RMRK standard, following `metadata` standard can be used on the root of NFT as well as on [assets](../entities/nft.md#resources-and-resource)
 
 A `metadata` field can be added to 3 types of entities
 
 - NFT
-- NFT resource
-- Base part
+- NFT asset
+- Catalog part
 
-### Simple Metadata on NFT or a Resource
+### Simple Metadata on NFT or a Asset
 
-Metadata referencing an image media file. This can be used on NFT with no [secondary resources](../entities/nft.md#resources-and-resource) or on a simple secondary Resource. 
+Metadata referencing an image media file. This can be used on NFT with no [secondary assets](../entities/nft.md#resources-and-resource) or on a simple secondary Asset. 
 
 #### Example:
 
@@ -77,11 +77,11 @@ Metadata referencing an image media file. This can be used on NFT with no [secon
 
 ```
 
-### Composable SVG resource's metadata
+### Composable SVG asset's metadata
 
-Metadata on a resource compatible with SVG base part as described in [Base](./base.md#parts)
+Metadata on a asset compatible with SVG base part as described in [Catalog](./base.md#parts)
 
-_Note that resource spec also allows you to add image and thumbnail directly on resource on-chain using `src` and `thumb` fields, but in this case we will use `metadata`_
+_Note that asset spec also allows you to add image and thumbnail directly on asset on-chain using `src` and `thumb` fields, but in this case we will use `metadata`_
 
 #### Example:
 
@@ -104,9 +104,9 @@ _Note that resource spec also allows you to add image and thumbnail directly on 
 }
 ```
 
-### SVG Base part of type slot
+### SVG Catalog part of type slot
 
-Metadata on a base part of type slot as described in [Base](./base.md#parts)
+Metadata on a base part of type slot as described in [Catalog](./base.md#parts)
 
 _Note that base part's spec also allows you to add `type: "slot"` media file and `z` directly on base part on-chain using `type`, `src` and `z` fields, but in this case we will use `metadata`_
 
@@ -116,7 +116,7 @@ _Note that base part's spec also allows you to add `type: "slot"` media file and
 
 {
   "name": "Kanaria headwear slot",
-  "description": "This is a Kanaria headwear slot, you can equip nested NFTs with a compatible resource in it.",
+  "description": "This is a Kanaria headwear slot, you can equip nested NFTs with a compatible asset in it.",
   "mediaUri": "ipfs://ipfs/XXXX/headwear_slot_fallback.svg",
   "attributes": [
     {
@@ -132,7 +132,7 @@ _Note that base part's spec also allows you to add `type: "slot"` media file and
 
 ### Reveal mechanic
 
-Because metadata fields of a primary resource of NFT is always takes precedence over metadata on NFT's root this can be used as a reveal mechanic.
+Because metadata fields of a primary asset of NFT is always takes precedence over metadata on NFT's root this can be used as a reveal mechanic.
 
 Example:
 
@@ -149,7 +149,7 @@ Where the content of the metadata is referencing an EGG image:
 }
 ```
 
-2. Then, once you are ready to hatch the egg for the user, just [Replace a resource](../interactions/resadd.md) on this NFT with new metadata reference.
+2. Then, once you are ready to hatch the egg for the user, just [Replace an asset](../interactions/resadd.md) on this NFT with new metadata reference.
 
 Where the content of the metadata is referencing a Bird image:
 
