@@ -17,7 +17,7 @@ Example. Given an NFT `5105000-0aff6865bed3a66b-DLEP-DL15-00000001` with resourc
 following:
 
 ```txt
-rmrk::SETPRIORITY::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::bar,foo,baz
+rmrk::SETPRIORITY::2.0.0::5105000-0aff6865bed3a66b-DLEP-DL15-00000001::%5B%22bar%22%2C%22foo%22%2C%22baz%22%5D
 ```
 
 You **can** set priority with a resource ID that does not reference an existing resource. Invalid
